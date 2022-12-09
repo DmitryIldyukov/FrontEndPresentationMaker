@@ -1,0 +1,63 @@
+.header {
+    margin: 0;
+    position: relative;
+    height: 126px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-bottom: solid #D9D9D9 1px;
+}
+
+.headerLogo {
+    width: 74px;
+    height: 87px;
+    margin: 22px 25px;
+}
+
+.headerMenu {
+    margin-top: 32px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.headerSecond {
+    margin-left: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.headerFile {
+    width: 21px;
+    height: 25px;
+}
+
+.headerFile:hover {
+    opacity: 0.8;
+}
+
+.headerFile:active {
+    opacity: 0.7;
+}
+
+.headerButton {
+    margin-left: 20px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    background: none;
+    font-size: 18px;
+    color: #89AD91;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+
+.headerToolList {
+    display: flex;
+    flex-direction: row;
+}
+
+.headerToolList.active {
+    /*display: flex;*/
+}

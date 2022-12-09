@@ -1,0 +1,79 @@
+.toolBar {
+    height: 57px;
+    padding-left: 15px;
+    display: flex;
+    position: relative;
+    border-bottom: solid #D9D9D9 1px;
+}
+
+.toolBarTool {
+    margin-top: 11px;
+    height: 35px;
+    width: 35px;
+    margin-right: 13px;
+    border: none;
+    background-color: #D9D9D9;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+.toolBarTool:hover {
+    opacity: 0.9;
+    background-color: #9BC3A078;
+}
+
+.toolBarTool:active {
+    opacity: 0.7;
+}
+
+.toolBarTool:first-child {
+    display: flex;
+    flex-direction: row;
+    width: 165px;
+    padding-left: 10px;
+    font-family: 'Open Sans', sans-serif;
+    color: #6F6F6F;
+    font-weight: 600;
+    align-items: center;
+    justify-content:space-between;
+    background-color: #9BC3A078;
+
+}
+.toolBarTool:first-child .icon {
+    position: initial;
+    transform: translate(0, 0);
+    margin-right: 16px;
+    width: 10px;
+    height: 10px;
+}
+
+.toolBarTool:last-child {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    right: 0px;
+    width: 156px;
+    padding-left: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Open Sans', sans-serif;
+    color: #6F6F6F;
+    font-weight: 600;
+    padding-right: 16px;
+    background-color: #9BC3A078;
+}
+
+.toolBarTool:last-child .icon {
+    position: initial;
+    transform: translate(0, 0);
+}
+
+.icon {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

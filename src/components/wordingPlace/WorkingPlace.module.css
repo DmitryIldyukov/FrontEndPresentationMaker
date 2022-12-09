@@ -1,0 +1,19 @@
+.workingPlace {
+    width: 100%;
+    background: #9BC3A078;
+    position: relative;
+}
+.slidePlace {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 854px;
+    height: 480px;
+    background: #FFFFFF;
+}
+
+.icon {
+    width: 35px;
+    height: 35px;
+}

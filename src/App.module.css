@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+}
+li {
+    text-decoration: none;
+}
+
+.mainPart {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 183px);
+}
