@@ -1,20 +1,24 @@
 import React from 'react';
-import styles from './Slide.module.css';
 import {slide} from '../types/Types';
+import styles from './Slide.module.css';
 
-// type slideProps = {
-//     slide: slide,
-// }
 
-const Slide = () => {
-    // const {id} = props.slide
+export interface ISlide {
+    id: number;
+}
 
+interface Props {
+    slide: ISlide;
+}
+
+const Slide = ({slide}: Props) => {
     return (
-        <div className={styles.slide}>
-            <div className={styles.slideNum}>
-                {/*{props.slide.id}*/}
+        <li>
+            <span>{slide.id}</span>
+            <div className={styles.slide}>
+
             </div>
-        </div>
+        </li>
     );
 };
 
