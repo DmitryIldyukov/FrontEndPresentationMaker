@@ -3,7 +3,7 @@ import Slide from './Slide';
 import slide from './Slide';
 import deleteSlide from '../../assets/deleteSlide.svg';
 // import {slideList} from '../types/Types';
-import {ISlide} from './Slide';
+import {ISlide} from '../componentsTypes/typeSlide';
 import styles from './SlideList.module.css';
 
 

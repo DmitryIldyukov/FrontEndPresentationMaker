@@ -21,7 +21,7 @@ const Header = () => {
         <div className={styles.header}>
             <img className={styles.headerLogo} src={logo} alt=""/>
             <div className={styles.headerMenu}>
-                <PresentationName Props={ presentationName, newPresentationName } />
+                <PresentationName />
                 {/*{mainBtn}*/}
                 <button className={styles.headerSecond}><img className={styles.headerFile} src={fileImg}/></button>
                 <ul className={styles.headerToolList}>

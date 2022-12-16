@@ -1,11 +1,7 @@
 import React from 'react';
-import {slide} from '../types/Types';
+// import {TSlide} from '../../types/types';
 import styles from './Slide.module.css';
-
-
-export interface ISlide {
-    id: number;
-}
+import { ISlide } from "../componentsTypes/typeSlide";
 
 interface Props {
     slide: ISlide;
