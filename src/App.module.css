@@ -10,9 +10,3 @@ ul {
 li {
     text-decoration: none;
 }
-
-.mainPart {
-    display: flex;
-    flex-direction: row;
-    height: calc(100vh - 183px);
-}
