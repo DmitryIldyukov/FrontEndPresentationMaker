@@ -14,9 +14,9 @@
 }
 
 .presentationEditBtn {
+    position: relative;
     width: 33px;
     height: 33px;
-    position: relative;
     border: none;
     background: transparent;
     cursor: pointer;
@@ -24,10 +24,10 @@
 
 .icon {
     position: absolute;
-    width: 20px;
-    height: 20px;
     top: 50%;
     left: 50%;
+    width: 20px;
+    height: 20px;
     transform: translate(-50%, -50%);
 }
 
