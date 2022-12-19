@@ -1,0 +1,20 @@
+.toolBtn {
+    margin-top: 11px;
+    height: 36px;
+    width: 36px;
+    border: none;
+    background-color: #D9D9D9;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+
+}
+
+.toolBtn:hover {
+    opacity: 0.9;
+    background-color: #9BC3A078;
+}
+
+.toolBtn:active {
+    opacity: 0.7;
+}
