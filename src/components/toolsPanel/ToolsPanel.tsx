@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './ToolsPanel.module.css';
 import TextTool from "./textTool/TextTool";
-import ImgTool from './imgTool/ImgTool';
 import FigureTool from './figureTool/FigureTool';
+import ImgTool from './imgTool/ImgTool'
 
 const ToolsPanel = () => {
     return (
