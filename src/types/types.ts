@@ -1,11 +1,11 @@
-export type Presentation = {
+type Presentation = {
     presentationName: string,
     slides: TSlide[],
     selectedSlides: TSlide[],
     slideSize: Size       
 }
 
-export type Block = {
+type Block = {
     position: Position,
     blockId: number,
     contentType: Chars | Image | Figure,
@@ -13,17 +13,17 @@ export type Block = {
     isSelectedBlock: boolean
 }
 
-export type Position = {
+type Position = {
     x: number;
     y: number;
 }
 
-export type Size = {
+type Size = {
     width: number,
-    heigth: number
+    height: number
 }
 
-export type Chars = {
+type Chars = {
     color: string,
     content: string,
     fontSize: number,
@@ -32,43 +32,47 @@ export type Chars = {
     fontItalic: boolean
 } 
 
-export type Image = {
+type Image = {
     src: string;
 }
 
-export type Figure = {
+type Figure = {
     figureType: Rectangle | Circle | Triangle,
     color: string;
     borderColor: string;
 }
 
-export type TSlide = {
+type TSlide = {
     slideId: number;
     blocks: Block[];
     background: BackgroundColor | BackgroundImage;
     isSelectedSlide: boolean;
+    selectedBlocks: Block[]
 }
 
-export type BackgroundColor = {
+type BackgroundColor = {
     color: string;
 }
 
-export type BackgroundImage = {
+type BackgroundImage = {
     src: string;
 }
 
-export type Rectangle = {
+type Rectangle = {
     color: string,
     borderColor: string,
 }
 
-export type Circle = {
+type Circle = {
     color: string,
     borderColor: string
 }
 
-export type Triangle = {
+type Triangle = {
     color: string,
     borderColor: string
 }
 
+type ContentType = {
+    contentTupe: Text | Image | Figure
+}
