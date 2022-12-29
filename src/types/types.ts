@@ -46,7 +46,6 @@ type TSlide = {
     slideId: number;
     blocks: Block[];
     background: BackgroundColor | BackgroundImage;
-    isSelectedSlide: boolean;
     selectedBlocks: Block[]
 }
 
@@ -74,5 +73,5 @@ type Triangle = {
 }
 
 type ContentType = {
-    contentTupe: Text | Image | Figure
+    contentType: Text | Image | Figure
 }

@@ -1,21 +1,20 @@
 import React from 'react';
-// import {TSlide} from '../../types/types';
 import styles from './Slide.module.css';
-import { ISlide } from "../componentsTypes/typeSlide";
 
-interface Props {
-    slide: ISlide;
-}
-
-const Slide = ({slide}: Props) => {
+const Slide = (Props: { slideId: number, isSelectedSlide: boolean }) => {
     return (
-        <li>
-            <span>{slide.id}</span>
-            <div className={styles.slide}>
+        <li className={styles.slideContainer}>
+            <input id="radio-1" type="radio" name="radio"/>
+            <label htmlFor="radio-1">
+                <div className={styles.slideTool}>
+                    <span className={ styles.slideNumber }>{ Props.slideId }</span>
+                </div>
+                <div className={styles.slide} >
 
-            </div>
+                </div>
+            </label>
         </li>
-    );
-};
+    )
+}
 
 export default Slide;

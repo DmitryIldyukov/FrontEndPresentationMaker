@@ -1,7 +1,6 @@
 import React, {FormEvent, useState} from 'react';
 import icon from '../../assets/edit-presentation-name.svg';
 import styles from './PresentationName.module.css';
-import { Presentation } from '../../types/types';
 import { dispatch } from '../editor/Editor';
 
 export type Props = {
@@ -16,8 +15,6 @@ function changePresentationName(presentation: Presentation, newName: string): Pr
     }
 }
 
-
-// const PresentationName: React.FC<Props> = ({firstPresentationName, newPresentationName}) => {
 const  PresentationName = () => {
     const [name, setName] = useState('New presentation');
 
