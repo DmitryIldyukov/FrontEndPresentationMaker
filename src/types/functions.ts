@@ -1,10 +1,10 @@
-import {newBackground} from "./consts"
+import {defaultSlide, newBackground} from "./consts"
 
 export function createPresentation(): Presentation {
     return {
         presentationName: 'Новая презентация',
-        slides: [],
-        selectedSlides: [],
+        slides: [defaultSlide],
+        selectedSlides: [defaultSlide],
         slideSize: {
             width: 600,
             height: 800
@@ -32,7 +32,7 @@ export function savePresentation(presentation:Presentation): Presentation{
 export function createSlide(presentation: Presentation): Presentation {
 
     const newSlide: TSlide = {
-        slideId: presentation.slides.length++,
+        slideId: presentation.slides.length + 1,
         blocks: [],
         background: newBackground,
         selectedBlocks: []
