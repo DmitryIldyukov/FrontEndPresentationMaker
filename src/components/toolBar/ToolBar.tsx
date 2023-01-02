@@ -24,9 +24,9 @@ export function ToolBar(Props: { presentation: Presentation }) {
             <button className={styles.toolBarTool}><img src={addText} className={styles.icon}/></button>
             <button className={styles.toolBarTool + " " + styles.toolBarToolFigure}><img src={addFigure} className={styles.icon}/>
               <div className={styles.toolBarToolMenu}>
-                <a href='#'><img src={triangle} className={styles.toolBarToolMenuFigure}/></a>
-                <a href='#'><img src={circle} className={styles.toolBarToolMenuFigure}/></a>
-                <a href='#'><img src={square} className={styles.toolBarToolMenuFigure}/></a>
+                <button><img src={triangle} className={styles.toolBarToolMenuFigure}/></button>
+                <button><img src={circle} className={styles.toolBarToolMenuFigure}/></button>
+                <button><img src={square} className={styles.toolBarToolMenuFigure}/></button>
               </div>
             </button>
             <button className={styles.toolBarTool}><img src={showSlides} className={styles.icon}/>Показ слайдов</button>

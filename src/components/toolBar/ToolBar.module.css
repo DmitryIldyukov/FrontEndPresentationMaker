@@ -43,8 +43,9 @@
     background-color: #D9D9D9;
 }
 
-.toolBarToolMenu a {
-    margin-top: 10px;
+.toolBarToolMenu button {
+    border: none;
+    background-color: transparent;
 }
 
 .toolBarToolMenuFigure {
