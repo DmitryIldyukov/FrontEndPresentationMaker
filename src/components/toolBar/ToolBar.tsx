@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './ToolBar.module.css';
+import styles from "./ToolBar.module.css";
 import addSlide from "../../assets/add-slide.svg";
 import deleteSlide from "../../assets/minus.svg";
 import back from "../../assets/arrow-left.svg"

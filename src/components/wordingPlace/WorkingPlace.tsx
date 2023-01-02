@@ -8,9 +8,9 @@ const WorkingPlace = () => {
     return (
         <div className={styles.workingPlace}>
             <div className={styles.slidePlace}>
-                <Ttext />
+                {/* <Ttext />
                 <Triangle />
-                <Circle />
+                <Circle /> */}
             </div>
         </div>
     );
