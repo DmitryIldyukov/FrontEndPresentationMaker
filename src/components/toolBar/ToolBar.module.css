@@ -31,8 +31,12 @@
     opacity: 1;
 }
 
-.toolBarToolFigure::nth-child(7):active {
+.toolBarToolFigure:nth-child(7):active {
     opacity: 1;
+}
+
+.mini {
+    padding-left: 3px;
 }
 
 .toolBarToolMenu {
