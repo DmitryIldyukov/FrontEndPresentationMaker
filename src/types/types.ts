@@ -1,8 +1,7 @@
 type Presentation = {
     presentationName: string,
     slides: TSlide[],
-    selectedSlides: TSlide[],
-    slideSize: Size       
+    selectedSlides: TSlide[],    
 }
 
 type Block = {

@@ -4,11 +4,7 @@ export function createPresentation(): Presentation {
     return {
         presentationName: 'Новая презентация',
         slides: [defaultSlide],
-        selectedSlides: [defaultSlide],
-        slideSize: {
-            width: 600,
-            height: 800
-        }
+        selectedSlides: [defaultSlide]
     };
 }
 
@@ -28,7 +24,6 @@ export function savePresentation(presentation:Presentation): Presentation{
 }
 
 //slide
-
 export function createSlide(presentation: Presentation): Presentation {
 
     const newSlide: TSlide = {
@@ -40,14 +35,31 @@ export function createSlide(presentation: Presentation): Presentation {
     const newSlides = [...presentation.slides, newSlide];
     return {
         ...presentation,
-        slides: newSlides
+        slides: newSlides,
+        selectedSlides: [newSlide]
     };
 }
   
 export function removeSlide(presentation: Presentation, slideId: number): Presentation {
+    const newSlides = [];
+
+    if (presentation.slides.length === 1)
+        return presentation;
+    for (let i = 0; i < presentation.slides.length; i++) {
+        if (presentation.slides[i].slideId !== slideId) {
+            if (presentation.slides[i].slideId >= slideId) {
+                presentation.slides[i].slideId--;
+                newSlides.push(presentation.slides[i]);
+            }
+            else
+                newSlides.push(presentation.slides[i]);
+        }
+    }
+
     return {
         ...presentation,
-        slides: presentation.slides.filter((slide, id) => id !== slideId)
+        slides: newSlides,
+        selectedSlides: [presentation.slides[0]]
     };
 }
 
@@ -67,20 +79,6 @@ export function selectSlides(presentation:Presentation, slideIds: []): Presentat
     return presentation;
 }
 
-export function editSlideSize(presentation: Presentation, slideId: number, newSize: Size): Presentation {
-    const slide = presentation.slides[slideId]
-    const newSlide = {
-        ...slide,
-        slideSize:newSize,
-    }
-    return {
-        ...presentation,
-        slides: presentation.slides.map(( currentSlide, id) => {
-            return (id === slideId) ? newSlide : currentSlide;
-        })
-    };
-}
-
 export function editSlideBackground(presentation: Presentation, slideId: number, newBackground: BackgroundColor): Presentation {
     const slide = presentation.slides[slideId]
     const newSlide = {
@@ -94,6 +92,7 @@ export function editSlideBackground(presentation: Presentation, slideId: number,
         })
     };
 }
+
 export function moveSlide(presentation: Presentation, oldSlideId: number, newSlideId: number): Presentation {
     const newSlides = [...presentation.slides];
     [newSlides[oldSlideId], newSlides[newSlideId]] = [newSlides[newSlideId], newSlides[oldSlideId]]
@@ -129,6 +128,7 @@ export function createBlock(presentation: Presentation, slideId: number, content
         })
     };
 }
+
 export function removeBlock(presentation: Presentation, blockId: number, slideId: number): Presentation {
     const slides = presentation.slides;
     const slide = slides[slideId];
@@ -158,6 +158,7 @@ export function selectBlock(presentation: Presentation, slideId: number, blockId
         })
     };
 }
+
 export function moveBlock(presentation: Presentation, slideId: number, blockId: number, newPosition: Position): Presentation {
     const slide = presentation.slides[slideId]
     const block = slide.blocks[blockId]
@@ -197,6 +198,7 @@ export function editBlockSize(presentation: Presentation, slideId: number, block
         })
     };
 }
+
 //figure
 export function editFigureColor(presentation: Presentation, slideId: number, blockId: number, newColor: string): Presentation {
     const slide = presentation.slides[slideId]
@@ -216,6 +218,7 @@ export function editFigureColor(presentation: Presentation, slideId: number, blo
             return (id === slideId) ? newSlide : currentSlide;
         })};
     }
+
 export function editFigureBorderColor(presentation: Presentation, slideId: number, blockId: number, newBorderColor: string): Presentation {
     const slide = presentation.slides[slideId]
     const block = slide.blocks[blockId]
@@ -234,6 +237,7 @@ export function editFigureBorderColor(presentation: Presentation, slideId: numbe
             return (id === slideId) ? newSlide : currentSlide;
         })
     };}
+
  //chars
 export function editCharsColor(presentation: Presentation, slideId: number, blockId: number, newColor: string): Presentation {
     const slide = presentation.slides[slideId]
@@ -272,6 +276,7 @@ export function editCharsFontFamily(presentation: Presentation, slideId: number,
             return (id === slideId) ? newSlide : currentSlide;
         })
     };}
+    
 export function editCharsContent(presentation: Presentation, slideId: number, blockId: number, newContent: string): Presentation {
     const slide = presentation.slides[slideId]
     const block = slide.blocks[blockId]
@@ -290,6 +295,7 @@ export function editCharsContent(presentation: Presentation, slideId: number, bl
             return (id === slideId) ? newSlide : currentSlide;
         })};
     }
+
 export function editCharsFontSize(presentation: Presentation, slideId: number, blockId: number, newFontSize: string): Presentation {
     const slide = presentation.slides[slideId]
     const block = slide.blocks[blockId]
@@ -328,6 +334,7 @@ export function editCharsFontBold(presentation: Presentation, slideId: number, b
             return (id === slideId) ? newSlide : currentSlide;
         })};
     }
+
 export function editCharsFontItalic(presentation: Presentation, slideId: number, blockId: number, newFontItalic: boolean): Presentation {
     const slide = presentation.slides[slideId]
     const block = slide.blocks[blockId]
