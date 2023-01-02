@@ -8,10 +8,7 @@ import { ClearTool } from './clearTool/ClearTool';
 const ToolsPanel = () => {
     return (
         <div className={styles.toolsPanel}>
-            <ClearTool />
-            {/* <TextTool />
-            <ImgTool/>
-            <FigureTool/> */}
+            
         </div>
     );
 };
