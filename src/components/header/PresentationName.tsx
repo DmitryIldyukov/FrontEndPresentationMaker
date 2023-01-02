@@ -11,11 +11,11 @@ const  PresentationName = () => {
             newName = "Nameless presentation"
             setName(newName);
         }
-
         return (
             newName
         )
     }
+    
     return (
         <div className={styles.presentationName}>
             <input
@@ -33,7 +33,6 @@ const  PresentationName = () => {
                         e.currentTarget.blur();
                     }
                 }}
-                
             />
         </div>
     );
