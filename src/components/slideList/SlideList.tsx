@@ -4,8 +4,8 @@ import styles from './SlideList.module.css';
 
 export function SlideList( Props: { slideList: TSlide[], selectedSlides: TSlide[] }) {
 
-    const slides = Props.slideList.map((slide, index) => (
-        <Slide slideId={slide.slideId} isSelectedSlide={Props.selectedSlides.some((Slide) => Slide.slideId === slide.slideId)} />
+    const slides = Props.slideList.map((slide, id) => (
+        <Slide key={id} slideId={slide.slideId} isSelectedSlide={Props.selectedSlides.some((Slide) => Slide.slideId === slide.slideId)} />
     ));
 
     return (

@@ -17,6 +17,7 @@ li {
     height: calc(100vh - 183px);
     overflow-y: scroll;
     overflow-x: hidden;
+    align-items: center;
 }
 
 .slideList::-webkit-scrollbar-track {

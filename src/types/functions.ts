@@ -51,16 +51,16 @@ export function removeSlide(presentation: Presentation, slideId: number): Presen
     };
 }
 
-function selectSlide(presentation: Presentation, slideId: number): Presentation {
+export function selectSlide(presentation: Presentation, slideId: number): Presentation {
     const slide = presentation.slides[slideId];
-    const newSelectedSlides = [...presentation.selectedSlides, slide];
+    const newSelectedSlides = [slide];
     return {
         ...presentation,
         selectedSlides: newSelectedSlides
     };
 }
 
-function selectSlides(presentation:Presentation, slideIds: []): Presentation {
+export function selectSlides(presentation:Presentation, slideIds: []): Presentation {
     slideIds.forEach((item) => {
         selectSlide(presentation, item);
     });
