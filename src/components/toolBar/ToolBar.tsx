@@ -11,6 +11,8 @@ import showSlides from "../../assets/showSlides.svg";
 import triangle from "../../assets/triangle.svg"
 import circle from "../../assets/circle.svg"
 import square from "../../assets/square.svg"
+import color from "../../assets/color.svg";
+import image from "../../assets/background-img.svg"
 import { addSlideHandler, removeSlideHandler } from "../editor/EditorFn";
 
 export function ToolBar(Props: { presentation: Presentation }) {
@@ -29,6 +31,7 @@ export function ToolBar(Props: { presentation: Presentation }) {
                 <button className={styles.mini}><img src={square} className={styles.toolBarToolMenuFigure}/></button>
               </div>
             </button>
+            <div className={styles.toolBarToolBackground}>Фон<img src={color} className={styles.toolBarToolBackgroundImg} /><img src={image}/></div>
             <button className={styles.toolBarTool}><img src={showSlides} className={styles.icon}/>Показ слайдов</button>
         </div>
     )
