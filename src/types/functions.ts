@@ -13,6 +13,8 @@ export function showPresentation(presentation:Presentation): Presentation{
 }
 
 export function changePresentationName(presentation: Presentation, newName: string): Presentation {
+    if (newName == "" || newName.length == 0 || newName == null)
+        newName = "Unnamed presentation"
     return {
         ...presentation,
         presentationName: newName
