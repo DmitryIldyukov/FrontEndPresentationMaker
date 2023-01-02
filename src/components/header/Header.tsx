@@ -10,7 +10,7 @@ export function Header(Props: { presentation: Presentation }) {
             <img className={styles.headerLogo} src={logo} alt=""/>
             <div className={styles.headerMenu}>
                 <PresentationName />
-                <button className={styles.headerSecond}><img className={styles.headerFile} src={fileImg}/></button>
+                {/* <button className={styles.headerSecond}><img className={styles.headerFile} src={fileImg}/></button> */}
                 <ul className={styles.headerToolList}>
                     <li className={styles.headerTool}>
                         <button className={styles.headerButton}>Создать</button>
