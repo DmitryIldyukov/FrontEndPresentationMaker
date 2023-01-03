@@ -25,11 +25,11 @@ export function ToolBar(Props: { presentation: Presentation }) {
             <button className={styles.toolBarTool}><img src={addImage} className={styles.icon}/></button>
             <button className={styles.toolBarTool}><img src={addText} className={styles.icon}/></button>
             <div className={styles.toolBarTool + " " + styles.toolBarToolFigure}><img src={addFigure} className={styles.icon}/>
-              <div className={styles.toolBarToolMenu}>
-                <button><img src={triangle} className={styles.toolBarToolMenuFigure}/></button>
-                <button><img src={circle} className={styles.toolBarToolMenuFigure}/></button>
-                <button className={styles.mini}><img src={square} className={styles.toolBarToolMenuFigure}/></button>
-              </div>
+                <div className={styles.toolBarToolMenu}>
+                    <button className={styles.figureBtn}><img src={triangle} className={styles.toolBarToolMenuFigure}/></button>
+                    <button className={styles.figureBtn}><img src={circle} className={styles.toolBarToolMenuFigure}/></button>
+                    <button className={styles.mini + " " + styles.figureBtn}><img src={square} className={styles.toolBarToolMenuFigure}/></button>
+                </div>
             </div>
             <div className={styles.toolBarToolBackground}>Фон<img src={color} className={styles.toolBarToolBackgroundImg} /><img src={image}/></div>
             <button className={styles.toolBarTool}><img src={showSlides} className={styles.icon}/>Показ слайдов</button>

@@ -35,6 +35,10 @@
     opacity: 1;
 }
 
+.figureBtn {
+    cursor: pointer;
+}
+
 .mini {
     padding-left: 3px;
 }
