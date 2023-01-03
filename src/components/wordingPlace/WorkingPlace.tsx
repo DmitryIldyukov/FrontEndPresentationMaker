@@ -9,12 +9,19 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
 
     const textBlocks = Props.presentation.slides[Props.slideId - 1].blocks.map((block, id) => {
         if (block.blockType.typeBlock.type === "text") {
+
+            block.size = {
+                height: 40,
+                width: 200
+            }
+
             return <CText
                 key={id}
                 fontFamily={block.blockType.typeBlock.fontFamily}
                 fontColor={block.blockType.typeBlock.fontColor}
                 fontSize={block.blockType.typeBlock.fontSize}
                 content={block.blockType.typeBlock.content}
+                size={block.size}
             />
         }
         return null;
@@ -22,11 +29,18 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
 
     const figureBlocks = Props.presentation.slides[Props.slideId - 1].blocks.map((block, id) => {
         if (block.blockType.typeBlock.type === "figure") {
+
+            block.size = {
+                height: 140,
+                width: 140
+            }
+
             if (block.blockType.typeBlock.figureType === "circle") {
                 return <Circle
                     key={id}
                     color={block.blockType.typeBlock.color}
                     borderColor={block.blockType.typeBlock.borderColor}
+                    size={block.size}
                 />
             }
             if (block.blockType.typeBlock.figureType === "rectangle") {
@@ -34,6 +48,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
                     key={id}
                     color={block.blockType.typeBlock.color}
                     borderColor={block.blockType.typeBlock.borderColor}
+                    size={block.size}
                 />
             }
             if (block.blockType.typeBlock.figureType === "triangle") {
@@ -41,6 +56,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
                     key={id}
                     color={block.blockType.typeBlock.color}
                     borderColor={block.blockType.typeBlock.borderColor}
+                    size={block.size}
                 />
             }
             return null;
