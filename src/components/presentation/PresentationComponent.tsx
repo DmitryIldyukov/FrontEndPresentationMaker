@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "./Presentation.module.css";
+import styles from "./PresentationComponent.module.css";
 import ToolBar from "../toolBar/ToolBar";
 import Header from "../header/Header";
 import SlideList from "../slideList/SlideList";
@@ -7,7 +7,7 @@ import WorkingPlace from "../wordingPlace/WorkingPlace";
 import ToolsPanel from "../toolsPanel/ToolsPanel";
 import {getState} from "../editor/Editor";
 
-const Presentation = () => {
+const PresentationComponent = () => {
     const presentation: Presentation = getState();
     const presentationSlideList: TSlide[] = presentation.slides;
     const presentationSelectedSlideList: TSlide[]= presentation.selectedSlides;
@@ -18,11 +18,11 @@ const Presentation = () => {
             <ToolBar presentation={presentation}/>
             <div className={styles.mainPart}>
                 <SlideList slideList={presentationSlideList} selectedSlides={presentationSelectedSlideList}/>
-                <WorkingPlace />
+                <WorkingPlace presentation={presentation} slideId={presentation.selectedSlides[0].slideId}/>
                 <ToolsPanel />
             </div>
         </div>
     );
 };
 
-export default Presentation;
+export default PresentationComponent;

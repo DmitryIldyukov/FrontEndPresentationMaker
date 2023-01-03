@@ -13,7 +13,12 @@ import circle from "../../assets/circle.svg"
 import square from "../../assets/square.svg"
 import color from "../../assets/color.svg";
 import image from "../../assets/background-img.svg"
-import { addSlideHandler, removeSlideHandler } from "../editor/EditorFn";
+import {
+    addSlideHandler,
+    removeSlideHandler,
+    createBlockHandler
+} from "../editor/EditorFn";
+import {defaultTextBlockType} from "../../types/consts";
 
 export function ToolBar(Props: { presentation: Presentation }) {
     return (
@@ -23,7 +28,7 @@ export function ToolBar(Props: { presentation: Presentation }) {
             <button className={styles.toolBarTool}><img src={back} className={styles.icon}/></button>
             <button className={styles.toolBarTool}><img src={forward} className={styles.icon}/></button>
             <button className={styles.toolBarTool}><img src={addImage} className={styles.icon}/></button>
-            <button className={styles.toolBarTool}><img src={addText} className={styles.icon}/></button>
+            <button onClick={() => createBlockHandler(Props.presentation.selectedSlides[0].slideId, defaultTextBlockType)} className={styles.toolBarTool}><img src={addText} className={styles.icon}/></button>
             <div className={styles.toolBarTool + " " + styles.toolBarToolFigure}><img src={addFigure} className={styles.icon}/>
                 <div className={styles.toolBarToolMenu}>
                     <button className={styles.figureBtn}><img src={triangle} className={styles.toolBarToolMenuFigure}/></button>

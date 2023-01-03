@@ -1,5 +1,10 @@
+export const colors = {
+    black: "#000000",
+    white: "#FFFFFF"
+}
+
 export const newBackground: BackgroundColor = {
-    color: '#FFFFFF'
+    color: colors.white
 }
 
 export const defaultSlide: TSlide = {
@@ -7,4 +12,19 @@ export const defaultSlide: TSlide = {
     blocks: [],
     background: newBackground,
     selectedBlocks: []
+}
+
+export const defaultTextBlock: TText = {
+    type: "text",
+    fontColor: colors.black,
+    content: "TEXT",
+    fontSize: 36,
+    fontFamily: "Open Sans",
+    // fontBold: false,
+    // fontItalic: false,
+    // outline: false
+}
+
+export const defaultTextBlockType: ContentType = {
+    typeBlock: defaultTextBlock
 }

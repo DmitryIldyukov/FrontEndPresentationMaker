@@ -30,13 +30,14 @@ type Size = {
 }
 
 type TText = {
-    type: 'text';
-    color: string;
+    type: "text";
+    fontColor: string;
     content: string;
     fontSize: number;
-    fontFamily:string;
-    fontBold: boolean;
-    fontItalic: boolean
+    fontFamily: string;
+    // fontBold?: boolean;
+    // fontItalic?: boolean;
+    // outline?: boolean
 } 
 
 type Image = {
@@ -60,5 +61,5 @@ type BackgroundImage = {
 }
 
 type ContentType = {
-    type: TText | Image | Figure
+    typeBlock: TText | Image | Figure
 }

@@ -2,7 +2,7 @@ import {defaultSlide, newBackground} from "./consts"
 
 export function createPresentation(): Presentation {
     return {
-        presentationName: 'New Presentation',
+        presentationName: 'New PresentationComponent',
         slides: [defaultSlide],
         selectedSlides: [defaultSlide]
     };
@@ -106,25 +106,26 @@ export function moveSlide(presentation: Presentation, oldSlideId: number, newSli
 export function createBlock(presentation: Presentation, payload: {slideId: number, typeBlock: ContentType}): Presentation {
     const newBlock = {
         blockType:  payload.typeBlock,
-        blockId: presentation.slides[payload.slideId].blocks.length + 1,
+        blockId: presentation.slides[payload.slideId - 1].blocks.length + 1,
         position: {
-            x: 1,
-            y: 1
+            x: 300,
+            y: 300
         },
         size :{
             width: 50,
             height: 50
-        }
+        },
+        isSelectedBlock: true
     }
-    const newBlocks = [...presentation.slides[payload.slideId].blocks, newBlock];
+    const newBlocks = [...presentation.slides[payload.slideId - 1].blocks, newBlock];
     const newSlide = {
-        ...presentation.slides[payload.slideId],
-        block: newBlock
+        ...presentation.slides[payload.slideId - 1],
+        blocks: newBlocks
     }
     return {
         ...presentation,
-        slides: presentation.slides.map(( currentSlide, id) => {
-            return (id === payload.slideId) ? newSlide : currentSlide;
+        slides: presentation.slides.map((currentSlide, id) => {
+            return (id === payload.slideId - 1) ? newSlide : currentSlide;
         })
     };
 }

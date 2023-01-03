@@ -1,4 +1,11 @@
-import {createPresentation, createSlide, removeSlide, selectSlide, changePresentationName} from "../../types/functions";
+import {
+    createPresentation,
+    createSlide,
+    removeSlide,
+    selectSlide,
+    changePresentationName,
+    createBlock
+} from "../../types/functions";
 import {dispatch} from "./Editor";
 
 export const addSlideHandler = () => {
@@ -19,4 +26,8 @@ export const selectSlideHandler = (slideId: number) => {
 
 export const changePresentationNameHandler = (newName: string) => {
     dispatch(changePresentationName, newName)
+}
+
+export const createBlockHandler = (slideId: number, type: ContentType) => {
+    dispatch(createBlock, {slideId, type})
 }
