@@ -9,7 +9,7 @@ function Rectangle(Props: {color: string, borderColor: string}) {
     }
 
     return (
-        <svg width="140" height="140" style={rectangleStyle}>
+        <svg width="140" height="140" style={rectangleStyle} className={styles.rectangle}>
             <rect x="5" y="5" width="130" height="130"
                     fill={Props.color} stroke={Props.borderColor} stroke-width="5"
             />

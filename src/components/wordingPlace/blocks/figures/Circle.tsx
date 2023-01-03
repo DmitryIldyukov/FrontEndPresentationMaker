@@ -9,7 +9,7 @@ function Circle(Props: {color: string, borderColor: string}) {
     }
 
     return (
-        <svg width="140" height="140" style={circleStyle}>
+        <svg width="140" height="140" style={circleStyle} className={styles.circle}>
             <circle r="65" cx="70" cy="70"
                     fill={Props.color} stroke={Props.borderColor} stroke-width="5"
             />

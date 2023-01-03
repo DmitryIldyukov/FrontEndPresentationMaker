@@ -11,6 +11,7 @@
     width: 854px;
     height: 480px;
     background: #FFFFFF;
+    overflow: hidden;
 }
 
 .icon {
