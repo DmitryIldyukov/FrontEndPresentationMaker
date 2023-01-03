@@ -28,6 +28,6 @@ export const changePresentationNameHandler = (newName: string) => {
     dispatch(changePresentationName, newName)
 }
 
-export const createBlockHandler = (slideId: number, type: ContentType) => {
-    dispatch(createBlock, {slideId, type})
+export const createBlockHandler = (slideId: number, typeOfBlock: ContentType) => {
+    dispatch(createBlock, {slideId, typeOfBlock})
 }

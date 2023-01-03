@@ -11,17 +11,29 @@ type TSlide = {
     selectedBlocks: Block[]
 }
 
+type BackgroundColor = {
+    color: string
+}
+
+type BackgroundImage = {
+    src: string
+}
+
 type Block = {
     position: Position;
     blockId: number;
     blockType: ContentType;
     size: Size;
-    isSelectedBlock: boolean
+    // isSelectedBlock: boolean
 }
 
 type Position = {
     x: number;
     y: number;
+}
+
+type ContentType = {
+    typeBlock: TText | Image | Figure
 }
 
 type Size = {
@@ -35,9 +47,6 @@ type TText = {
     content: string;
     fontSize: number;
     fontFamily: string;
-    // fontBold?: boolean;
-    // fontItalic?: boolean;
-    // outline?: boolean
 } 
 
 type Image = {
@@ -50,16 +59,4 @@ type Figure = {
     figureType: 'rectangle' | 'circle' | 'triangle';
     color: string;
     borderColor: string
-}
-
-type BackgroundColor = {
-    color: string
-}
-
-type BackgroundImage = {
-    src: string
-}
-
-type ContentType = {
-    typeBlock: TText | Image | Figure
 }

@@ -19,10 +19,7 @@ export const defaultTextBlock: TText = {
     fontColor: colors.black,
     content: "TEXT",
     fontSize: 36,
-    fontFamily: "Open Sans",
-    // fontBold: false,
-    // fontItalic: false,
-    // outline: false
+    fontFamily: "Open Sans"
 }
 
 export const defaultTextBlockType: ContentType = {

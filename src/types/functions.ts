@@ -103,9 +103,10 @@ export function moveSlide(presentation: Presentation, oldSlideId: number, newSli
 }
 
 //block
-export function createBlock(presentation: Presentation, payload: {slideId: number, typeBlock: ContentType}): Presentation {
+
+export function createBlock(presentation: Presentation, payload: {slideId: number, typeOfBlock: ContentType}): Presentation {
     const newBlock = {
-        blockType:  payload.typeBlock,
+        blockType:  payload.typeOfBlock,
         blockId: presentation.slides[payload.slideId - 1].blocks.length + 1,
         position: {
             x: 300,
@@ -114,8 +115,8 @@ export function createBlock(presentation: Presentation, payload: {slideId: numbe
         size :{
             width: 50,
             height: 50
-        },
-        isSelectedBlock: true
+        }
+        // isSelectedBlock: true
     }
     const newBlocks = [...presentation.slides[payload.slideId - 1].blocks, newBlock];
     const newSlide = {

@@ -10,9 +10,7 @@ function CText(Props: {fontFamily: string, fontColor: string, fontSize: number, 
     }
 
     return (
-        <p className={styles.text} style={textStyle}>
-            {Props.content}
-        </p>
+        <input className={styles.text} style={textStyle} type="textarea" defaultValue={Props.content} />
     );
 };
 
