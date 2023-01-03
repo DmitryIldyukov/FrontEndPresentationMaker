@@ -18,7 +18,11 @@ import {
     removeSlideHandler,
     createBlockHandler
 } from "../editor/EditorFn";
-import { defaultTextBlockType, defaultCircleBlockType } from "../../types/consts";
+import {
+    defaultTextBlockType,
+    defaultCircleBlockType,
+    defaultRectangleBlockType,
+} from "../../types/consts";
 
 export function ToolBar(Props: { presentation: Presentation }) {
     return (
@@ -58,7 +62,12 @@ export function ToolBar(Props: { presentation: Presentation }) {
                     >
                         <img src={circle} className={styles.toolBarToolMenuFigure}/>
                     </button>
-                    <button className={styles.mini + " " + styles.figureBtn}><img src={square} className={styles.toolBarToolMenuFigure}/></button>
+                    <button
+                        onClick={() => createBlockHandler(Props.presentation.selectedSlides[0].slideId, defaultRectangleBlockType)}
+                        className={styles.mini + " " + styles.figureBtn}
+                    >
+                        <img src={square} className={styles.toolBarToolMenuFigure}/>
+                    </button>
                 </div>
             </div>
             <div className={styles.toolBarToolBackground}>Фон<img src={color} className={styles.toolBarToolBackgroundImg} /><img src={image}/></div>

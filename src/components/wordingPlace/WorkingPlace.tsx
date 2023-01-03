@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './WorkingPlace.module.css';
 import CText from './blocks/CText';
 import Triangle from "./blocks/figures/Triangle";
+import Rectangle from "./blocks/figures/Rectangle";
 import Circle from "./blocks/figures/Circle";
 
 function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
@@ -31,11 +32,24 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
         }
     })
 
+    const rectangleBlocks = Props.presentation.slides[Props.slideId - 1].blocks.map((block, id) => {
+        if (block.blockType.typeBlock.type === "figure") {
+            if (block.blockType.typeBlock.figureType === "rectangle") {
+                return <Rectangle
+                    key={id}
+                    color={block.blockType.typeBlock.color}
+                    borderColor={block.blockType.typeBlock.borderColor}
+                />
+            }
+        }
+    })
+
     return (
         <div className={styles.workingPlace}>
             <div className={styles.slidePlace}>
                 {textBlocks}
                 {triangleBlocks}
+                {rectangleBlocks}
             </div>
         </div>
     );

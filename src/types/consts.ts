@@ -39,3 +39,14 @@ export const defaultCircleBlock: Figure = {
 export const defaultCircleBlockType: ContentType = {
     typeBlock: defaultCircleBlock
 }
+
+export const defaultRectangleBlock: Figure = {
+    type: 'figure',
+    figureType: 'rectangle',
+    color: colors.white,
+    borderColor: colors.green
+}
+
+export const defaultRectangleBlockType: ContentType = {
+    typeBlock: defaultRectangleBlock
+}
