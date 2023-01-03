@@ -45,9 +45,9 @@ type TText = {
     type: "text";
     fontColor: string;
     content: string;
-    fontSize: number;
+    fontSize: string;
     fontFamily: string;
-    id:number
+    id: number
 } 
 
 type Image = {
