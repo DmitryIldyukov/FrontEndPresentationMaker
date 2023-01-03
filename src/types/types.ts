@@ -1,44 +1,7 @@
 type Presentation = {
-    presentationName: string,
-    slides: TSlide[],
-    selectedSlides: TSlide[],    
-}
-
-type Block = {
-    position: Position,
-    blockId: number,
-    contentType: Chars | Image | Figure,
-    size: Size,
-    isSelectedBlock: boolean
-}
-
-type Position = {
-    x: number;
-    y: number;
-}
-
-type Size = {
-    width: number,
-    height: number
-}
-
-type Chars = {
-    color: string,
-    content: string,
-    fontSize: number,
-    fontFamily:string,
-    fontBold: boolean,
-    fontItalic: boolean
-} 
-
-type Image = {
-    src: string;
-}
-
-type Figure = {
-    figureType: Rectangle | Circle | Triangle,
-    color: string;
-    borderColor: string;
+    presentationName: string;
+    slides: TSlide[];
+    selectedSlides: TSlide[]
 }
 
 type TSlide = {
@@ -48,29 +11,54 @@ type TSlide = {
     selectedBlocks: Block[]
 }
 
-type BackgroundColor = {
+type Block = {
+    position: Position;
+    blockId: number;
+    blockType: ContentType;
+    size: Size;
+    isSelectedBlock: boolean
+}
+
+type Position = {
+    x: number;
+    y: number;
+}
+
+type Size = {
+    width: number;
+    height: number
+}
+
+type TText = {
+    type: 'text';
     color: string;
+    content: string;
+    fontSize: number;
+    fontFamily:string;
+    fontBold: boolean;
+    fontItalic: boolean
+} 
+
+type Image = {
+    type: 'image';
+    src: string
+}
+
+type Figure = {
+    type: 'figure';
+    figureType: 'rectangle' | 'circle' | 'triangle';
+    color: string;
+    borderColor: string
+}
+
+type BackgroundColor = {
+    color: string
 }
 
 type BackgroundImage = {
-    src: string;
-}
-
-type Rectangle = {
-    color: string,
-    borderColor: string,
-}
-
-type Circle = {
-    color: string,
-    borderColor: string
-}
-
-type Triangle = {
-    color: string,
-    borderColor: string
+    src: string
 }
 
 type ContentType = {
-    contentType: Text | Image | Figure
+    type: TText | Image | Figure
 }

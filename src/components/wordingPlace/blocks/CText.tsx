@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './Text.module.css';
+import styles from './CText.module.css';
 
-const Ttext = () => {
+const CText = () => {
     return (
         <p className={styles.text}>
             Текст презентации
@@ -9,4 +9,4 @@ const Ttext = () => {
     );
 };
 
-export default Ttext;
+export default CText;

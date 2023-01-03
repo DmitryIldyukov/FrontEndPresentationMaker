@@ -103,10 +103,10 @@ export function moveSlide(presentation: Presentation, oldSlideId: number, newSli
 }
 
 //block
-export function createBlock(presentation: Presentation, slideId: number, contentType: ContentType): Presentation {
+export function createBlock(presentation: Presentation, payload: {slideId: number, typeBlock: ContentType}): Presentation {
     const newBlock = {
-        contentType: contentType,
-        blockId: presentation.slides[slideId].blocks.length++,
+        blockType:  payload.typeBlock,
+        blockId: presentation.slides[payload.slideId].blocks.length + 1,
         position: {
             x: 1,
             y: 1
@@ -116,15 +116,15 @@ export function createBlock(presentation: Presentation, slideId: number, content
             height: 50
         }
     }
-    const newBlocks = [...presentation.slides[slideId].blocks, newBlock];
+    const newBlocks = [...presentation.slides[payload.slideId].blocks, newBlock];
     const newSlide = {
-        ...presentation.slides[slideId],
+        ...presentation.slides[payload.slideId],
         block: newBlock
     }
     return {
         ...presentation,
         slides: presentation.slides.map(( currentSlide, id) => {
-            return (id === slideId) ? newSlide : currentSlide;
+            return (id === payload.slideId) ? newSlide : currentSlide;
         })
     };
 }
