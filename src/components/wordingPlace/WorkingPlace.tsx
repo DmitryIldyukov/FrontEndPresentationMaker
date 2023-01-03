@@ -19,10 +19,23 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
         return null;
     })
 
+    const triangleBlocks = Props.presentation.slides[Props.slideId - 1].blocks.map((block, id) => {
+        if (block.blockType.typeBlock.type === "figure") {
+            if (block.blockType.typeBlock.figureType === "circle") {
+                return <Circle
+                    key={id}
+                    color={block.blockType.typeBlock.color}
+                    borderColor={block.blockType.typeBlock.borderColor}
+                />
+            }
+        }
+    })
+
     return (
         <div className={styles.workingPlace}>
             <div className={styles.slidePlace}>
                 {textBlocks}
+                {triangleBlocks}
             </div>
         </div>
     );

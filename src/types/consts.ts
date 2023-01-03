@@ -1,6 +1,9 @@
 export const colors = {
     black: "#000000",
-    white: "#FFFFFF"
+    white: "#FFFFFF",
+    red: "#ff0000",
+    blue: "#0000FF",
+    green: "#008000"
 }
 
 export const newBackground: BackgroundColor = {
@@ -24,4 +27,15 @@ export const defaultTextBlock: TText = {
 
 export const defaultTextBlockType: ContentType = {
     typeBlock: defaultTextBlock
+}
+
+export const defaultCircleBlock: Figure = {
+    type: 'figure',
+    figureType: 'circle',
+    color: colors.blue,
+    borderColor: colors.red
+}
+
+export const defaultCircleBlockType: ContentType = {
+    typeBlock: defaultCircleBlock
 }
