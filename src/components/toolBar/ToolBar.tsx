@@ -28,46 +28,28 @@ import {
 export function ToolBar(Props: { presentation: Presentation }) {
     return (
         <div className={styles.toolBar}>
-            <button
-                onClick={addSlideHandler}
-                className={styles.toolBarTool}
-            >
+            <button onClick={addSlideHandler} className={styles.toolBarTool}>
                 Добавить слайд
                 <img src={addSlide} className={styles.icon}/>
             </button>
-            <button
-                onClick={() => removeSlideHandler(Props.presentation.selectedSlides[0].slideId)}
-                className={styles.toolBarTool}
-            >
+            <button onClick={() => removeSlideHandler(Props.presentation.selectedSlides[0].slideId)} className={styles.toolBarTool}>
                 <img src={deleteSlide} className={styles.icon}/>
             </button>
             <button className={styles.toolBarTool}><img src={back} className={styles.icon}/></button>
             <button className={styles.toolBarTool}><img src={forward} className={styles.icon}/></button>
             <button className={styles.toolBarTool}><img src={addImage} className={styles.icon}/></button>
-            <button
-                onClick={() => createBlockHandler(Props.presentation.selectedSlides[0].slideId, defaultTextBlockType)}
-                className={styles.toolBarTool}
-            >
+            <button onClick={() => createBlockHandler(Props.presentation.selectedSlides[0].slideId, defaultTextBlockType)} className={styles.toolBarTool}>
                 <img src={addText} className={styles.icon}/>
             </button>
             <div className={styles.toolBarTool + " " + styles.toolBarToolFigure}><img src={addFigure} className={styles.icon}/>
                 <div className={styles.toolBarToolMenu}>
-                    <button
-                        onClick={() => createBlockHandler(Props.presentation.selectedSlides[0].slideId, defaultTriangleBlockType)}
-                        className={styles.figureBtn}
-                    >
+                    <button onClick={() => createBlockHandler(Props.presentation.selectedSlides[0].slideId, defaultTriangleBlockType)} className={styles.figureBtn}>
                         <img src={triangle} className={styles.toolBarToolMenuFigure}/>
                     </button>
-                    <button
-                        onClick={() => createBlockHandler(Props.presentation.selectedSlides[0].slideId, defaultCircleBlockType)}
-                        className={styles.figureBtn}
-                    >
+                    <button onClick={() => createBlockHandler(Props.presentation.selectedSlides[0].slideId, defaultCircleBlockType)} className={styles.figureBtn}>
                         <img src={circle} className={styles.toolBarToolMenuFigure}/>
                     </button>
-                    <button
-                        onClick={() => createBlockHandler(Props.presentation.selectedSlides[0].slideId, defaultRectangleBlockType)}
-                        className={styles.mini + " " + styles.figureBtn}
-                    >
+                    <button onClick={() => createBlockHandler(Props.presentation.selectedSlides[0].slideId, defaultRectangleBlockType)} className={styles.mini + " " + styles.figureBtn}>
                         <img src={square} className={styles.toolBarToolMenuFigure}/>
                     </button>
                 </div>
