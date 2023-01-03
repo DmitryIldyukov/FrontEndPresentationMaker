@@ -3,13 +3,20 @@ import styles from './Triangle.module.css'
 import useDragger from '../../../hooks/useDragger';
 let count = 0;
 let countstr = "";
-function Triangle(Props: {color: string, borderColor: string}) {
+
+function Triangle(Props: {color: string, borderColor: string, size: Size}) {
     count = count + 1;
     countstr = count.toString();
     useDragger(countstr);
+
     const triangleStyle = {
         color: Props.color,
         borderColor: Props.borderColor
+    }
+
+    const sizing = {
+        height: Props.size.height,
+        width: Props.size.width
     }
 
     return (
