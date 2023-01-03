@@ -22,6 +22,7 @@ import {
     defaultTextBlockType,
     defaultCircleBlockType,
     defaultRectangleBlockType,
+    defaultTriangleBlockType
 } from "../../types/consts";
 
 export function ToolBar(Props: { presentation: Presentation }) {
@@ -52,6 +53,7 @@ export function ToolBar(Props: { presentation: Presentation }) {
             <div className={styles.toolBarTool + " " + styles.toolBarToolFigure}><img src={addFigure} className={styles.icon}/>
                 <div className={styles.toolBarToolMenu}>
                     <button
+                        onClick={() => createBlockHandler(Props.presentation.selectedSlides[0].slideId, defaultTriangleBlockType)}
                         className={styles.figureBtn}
                     >
                         <img src={triangle} className={styles.toolBarToolMenuFigure}/>

@@ -50,3 +50,14 @@ export const defaultRectangleBlock: Figure = {
 export const defaultRectangleBlockType: ContentType = {
     typeBlock: defaultRectangleBlock
 }
+
+export const defaultTriangleBlock: Figure = {
+    type: 'figure',
+    figureType: 'triangle',
+    color: colors.black,
+    borderColor: colors.red
+}
+
+export const defaultTriangleBlockType: ContentType = {
+    typeBlock: defaultTriangleBlock
+}

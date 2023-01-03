@@ -20,7 +20,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
         return null;
     })
 
-    const triangleBlocks = Props.presentation.slides[Props.slideId - 1].blocks.map((block, id) => {
+    const figureBlocks = Props.presentation.slides[Props.slideId - 1].blocks.map((block, id) => {
         if (block.blockType.typeBlock.type === "figure") {
             if (block.blockType.typeBlock.figureType === "circle") {
                 return <Circle
@@ -29,13 +29,15 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
                     borderColor={block.blockType.typeBlock.borderColor}
                 />
             }
-        }
-    })
-
-    const rectangleBlocks = Props.presentation.slides[Props.slideId - 1].blocks.map((block, id) => {
-        if (block.blockType.typeBlock.type === "figure") {
             if (block.blockType.typeBlock.figureType === "rectangle") {
                 return <Rectangle
+                    key={id}
+                    color={block.blockType.typeBlock.color}
+                    borderColor={block.blockType.typeBlock.borderColor}
+                />
+            }
+            if (block.blockType.typeBlock.figureType === "triangle") {
+                return <Triangle
                     key={id}
                     color={block.blockType.typeBlock.color}
                     borderColor={block.blockType.typeBlock.borderColor}
@@ -48,8 +50,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
         <div className={styles.workingPlace}>
             <div className={styles.slidePlace}>
                 {textBlocks}
-                {triangleBlocks}
-                {rectangleBlocks}
+                {figureBlocks}
             </div>
         </div>
     );
