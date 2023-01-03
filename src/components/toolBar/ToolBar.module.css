@@ -144,3 +144,26 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+
+/* input[type="color"] {
+    -webkit-appearance: none;
+    border: none;
+    border-radius: 50%;
+    overflow: hidden;
+    outline: none;
+    cursor: inherit;
+    color: transparent;
+  } */
+
+.backgroundColor {
+    background-image: url(../../assets/color.svg);
+    background-repeat: no-repeat;
+    margin-left: 4px;
+}
+
+.toolBarToolBucket {
+    width: 30px;
+    height: 27px;
+    opacity: 0;
+}

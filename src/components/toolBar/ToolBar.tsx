@@ -11,7 +11,7 @@ import showSlides from "../../assets/showSlides.svg";
 import triangle from "../../assets/triangle.svg"
 import circle from "../../assets/circle.svg"
 import square from "../../assets/square.svg"
-import color from "../../assets/color.svg";
+import colorBucket from "../../assets/color.svg";
 import image from "../../assets/background-img.svg"
 import {
     addSlideHandler,
@@ -26,6 +26,8 @@ import {
 } from "../../types/consts";
 
 export function ToolBar(Props: { presentation: Presentation }) {
+     const [color, setColor]=useState('')
+
     return (
         <div className={styles.toolBar}>
             <button onClick={addSlideHandler} className={styles.toolBarTool}>
@@ -54,7 +56,13 @@ export function ToolBar(Props: { presentation: Presentation }) {
                     </button>
                 </div>
             </div>
-            <div className={styles.toolBarToolBackground}>Фон<img src={color} className={styles.toolBarToolBackgroundImg} /><img src={image}/></div>
+            <div className={styles.toolBarToolBackground} >
+                Фон
+                <div className={styles.backgroundColor}>
+                    <input type='color' onChange={(e)=>setColor(e.target.value)} className={styles.toolBarToolBucket}/>
+                </div>
+                <img src={image}/>
+            </div>
             <button className={styles.toolBarTool}><img src={showSlides} className={styles.icon}/>Показ слайдов</button>
         </div>
     )
