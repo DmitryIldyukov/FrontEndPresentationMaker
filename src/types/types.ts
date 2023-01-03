@@ -47,6 +47,7 @@ type TText = {
     content: string;
     fontSize: number;
     fontFamily: string;
+    id:number
 } 
 
 type Image = {
@@ -58,5 +59,6 @@ type Figure = {
     type: 'figure';
     figureType: 'rectangle' | 'circle' | 'triangle';
     color: string;
-    borderColor: string
+    borderColor: string,
+    id: number
 }
