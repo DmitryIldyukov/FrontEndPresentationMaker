@@ -19,10 +19,16 @@ function Triangle(Props: {color: string, borderColor: string, size: Size}) {
         width: Props.size.width
     }
 
+    function point() {
+        let str: string;
+        str = "4," + (Props.size.height - 4).toString() + " " + ((Props.size.height - 4) / 2).toString() + ",4 " + (Props.size.height - 4).toString() +","+ (Props.size.width - 4).toString();
+        return str;
+    }
+
     return (
-        <svg width="140" height="140" style={triangleStyle} className={styles.triangle} id={countstr}>
-            <polygon points="4,136 68,4 136,136"
-                     fill={Props.color} stroke={Props.borderColor} stroke-width="5"
+        <svg width={sizing.width} height={sizing.height} style={triangleStyle} className={styles.triangle} id={countstr}>
+            <polygon points={point()}
+                     fill={Props.color} stroke={Props.borderColor} stroke-width="3"
             />
         </svg>
     );
