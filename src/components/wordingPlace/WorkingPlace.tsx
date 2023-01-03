@@ -43,7 +43,9 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
                     borderColor={block.blockType.typeBlock.borderColor}
                 />
             }
+            return null;
         }
+        return null;
     })
 
     return (

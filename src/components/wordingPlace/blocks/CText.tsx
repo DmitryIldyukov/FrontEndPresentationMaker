@@ -6,7 +6,7 @@ function CText(Props: {fontFamily: string, fontColor: string, fontSize: number, 
     const textStyle = {
         fontFamily: Props.fontFamily,
         fontColor: Props.fontColor,
-        fontsize: Props.fontSize
+        fontSize: Props.fontSize
     }
 
     return (
