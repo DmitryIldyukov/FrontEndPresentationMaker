@@ -19,19 +19,21 @@ function Triangle(Props: {color: string, borderColor: string, size: Size}) {
         width: Props.size.width
     }
 
-    function point() {
-        let str: string;
-        str = "4," + (Props.size.height - 4).toString() + " " + ((Props.size.height - 4) / 2).toString() + ",4 " + (Props.size.height - 4).toString() +","+ (Props.size.width - 4).toString();
-        return str;
-    }
+    // function point() {
+    //     let str: string;
+    //     str = "4," + (Props.size.height - 4).toString() + " " + ((Props.size.height - 4) / 2).toString() + ",4 " + (Props.size.height - 4).toString() +","+ (Props.size.width - 4).toString();
+    //     return str;
+    // }
 
     return (
-        <div className={styles.triangle} style={sizing} id={countstr}>
-            <svg width={sizing.width} height={sizing.height} style={triangleStyle} className={styles.triangle} id={countstr}>
-                <polygon points={point()}
-                         fill={Props.color} stroke={Props.borderColor} strokeWidth="3"
-                />
-            </svg>
+        <div>
+            <div className={styles.triangle} style={sizing} id={countstr}>
+                <svg width='100%' height='100%' style={triangleStyle} id={countstr} viewBox='0 0 100 100'>
+                    <polygon points='5,100 50,5 95,100'
+                            fill={Props.color} stroke={Props.borderColor} strokeWidth="2"
+                    />
+                </svg>
+            </div>
         </div>
     );
 };
