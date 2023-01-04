@@ -1,5 +1,5 @@
 .rectangle {
     position: absolute;
     resize: both;
-    overflow: auto;
+    overflow: hidden;
 }

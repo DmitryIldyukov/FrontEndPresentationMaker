@@ -3,7 +3,8 @@ export const colors = {
     white: "#FFFFFF",
     red: "#ff0000",
     blue: "#0000FF",
-    green: "#008000"
+    green: "#008000",
+    transparent: "#00000000"
 }
 
 export const newBackground: BackgroundColor = {
@@ -33,7 +34,7 @@ export const defaultTextBlockType: ContentType = {
 export const defaultCircleBlock: Figure = {
     type: 'figure',
     figureType: 'circle',
-    color: colors.white,
+    color: colors.transparent,
     borderColor: colors.black,
     id: 1
 }
@@ -45,7 +46,7 @@ export const defaultCircleBlockType: ContentType = {
 export const defaultRectangleBlock: Figure = {
     type: 'figure',
     figureType: 'rectangle',
-    color: colors.white,
+    color: colors.transparent,
     borderColor: colors.black,
     id: 1
 }
@@ -57,7 +58,7 @@ export const defaultRectangleBlockType: ContentType = {
 export const defaultTriangleBlock: Figure = {
     type: 'figure',
     figureType: 'triangle',
-    color: colors.white,
+    color: colors.transparent,
     borderColor: colors.black,
     id: 1
 }
