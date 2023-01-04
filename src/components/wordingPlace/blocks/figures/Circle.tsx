@@ -20,11 +20,13 @@ function Circle(Props: {color: string, borderColor: string, size: Size}) {
     }
 
     return (
-        <svg width={sizing.width} height={sizing.height} style={circleStyle} className={styles.circle} id={countstr}>
-            <circle r={(sizing.width / 2) - 3} cx={sizing.width / 2} cy={sizing.height / 2}
-                    fill={Props.color} stroke={Props.borderColor} stroke-width="3"
-            />
-        </svg>
+        <div className={styles.circle} style={sizing} id={countstr}>
+            <svg width={sizing.width} height={sizing.height} style={circleStyle}>
+                <circle r={(sizing.width / 2) - 3} cx={sizing.width / 2} cy={sizing.height / 2}
+                        fill={Props.color} stroke={Props.borderColor} stroke-width="3"
+                />
+            </svg>
+        </div>
     )
 }
 

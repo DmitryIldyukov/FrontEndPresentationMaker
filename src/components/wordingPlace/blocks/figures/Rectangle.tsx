@@ -20,11 +20,13 @@ function Rectangle(Props: {color: string, borderColor: string, size: Size}) {
     }
 
     return (
-        <svg width={sizing.width} height={sizing.height} style={rectangleStyle} className={styles.rectangle} id={countstr}>
-            <rect x="3" y="3" width={sizing.width - 6} height={sizing.height - 6}
-                    fill={Props.color} stroke={Props.borderColor} stroke-width="3"
-            />
-        </svg>
+        <div className={styles.rectangle} style={sizing} id={countstr}>
+            <svg width={sizing.width} height={sizing.height} style={rectangleStyle} className={styles.rectangle} id={countstr}>
+                <rect x="3" y="3" width={sizing.width - 6} height={sizing.height - 6}
+                        fill={Props.color} stroke={Props.borderColor} stroke-width="3"
+                />
+            </svg>
+        </div>
     )
 }
 export default Rectangle;

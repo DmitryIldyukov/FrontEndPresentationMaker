@@ -26,13 +26,14 @@ function Triangle(Props: {color: string, borderColor: string, size: Size}) {
     }
 
     return (
-        <svg width={sizing.width} height={sizing.height} style={triangleStyle} className={styles.triangle} id={countstr}>
-            <polygon points={point()}
-                     fill={Props.color} stroke={Props.borderColor} stroke-width="3"
-            />
-        </svg>
+        <div className={styles.triangle} style={sizing} id={countstr}>
+            <svg width={sizing.width} height={sizing.height} style={triangleStyle} className={styles.triangle} id={countstr}>
+                <polygon points={point()}
+                         fill={Props.color} stroke={Props.borderColor} stroke-width="3"
+                />
+            </svg>
+        </div>
     );
 };
 
 export default Triangle;
-
