@@ -164,3 +164,19 @@
     box-sizing: border-box;
     margin-top: 2px;
 }
+
+.toolBarToolAddImage {
+    background-image: url("../../assets/add-image.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: 22px;
+}
+
+.inputFile {
+    top: 0;
+    left: 0;
+    width: 35px;
+    height: 35px;
+    opacity: 0;
+}
