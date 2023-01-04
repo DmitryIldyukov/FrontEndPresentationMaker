@@ -4,8 +4,17 @@ export function createPresentation(): Presentation {
     return {
         presentationName: 'New PresentationComponent',
         slides: [defaultSlide],
-        selectedSlides: [defaultSlide]
+        selectedSlides: [defaultSlide],
+        chosen: 'none'
     };
+}
+
+export function chosenTypeBlock(presentation:Presentation, type: string): Presentation {
+
+    return {
+        ...presentation,
+        chosen: type
+    }
 }
 
 export function showPresentation(presentation:Presentation): Presentation{
@@ -118,13 +127,17 @@ export function createBlock(presentation: Presentation, payload: {slideId: numbe
         }
         // isSelectedBlock: true
     }
+
+    const temp = payload.typeOfBlock.typeBlock.type
+
     const newBlocks = [...presentation.slides[payload.slideId - 1].blocks, newBlock];
     const newSlide = {
         ...presentation.slides[payload.slideId - 1],
-        blocks: newBlocks
+        blocks: newBlocks,
     }
     return {
         ...presentation,
+        chosen: temp,
         slides: presentation.slides.map((currentSlide, id) => {
             return (id === payload.slideId - 1) ? newSlide : currentSlide;
         })

@@ -5,7 +5,8 @@ import {
     selectSlide,
     changePresentationName,
     createBlock,
-    editSlideBackground
+    editSlideBackground,
+    chosenTypeBlock
 } from "../../types/functions";
 import {dispatch} from "./Editor";
 
@@ -41,4 +42,8 @@ export const backgroundColorHandler = (slideId: number, colorNumber: string) => 
     const newBackground: BackgroundColor = newColor;
 
     dispatch(editSlideBackground, {slideId, newBackground})
+}
+
+export const chosenTypeBlockHandler = (type: string) => {
+    dispatch(chosenTypeBlock, type)
 }

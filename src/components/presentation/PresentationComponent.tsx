@@ -19,7 +19,7 @@ const PresentationComponent = () => {
             <div className={styles.mainPart}>
                 <SlideList slideList={presentationSlideList} selectedSlides={presentationSelectedSlideList}/>
                 <WorkingPlace presentation={presentation} slideId={presentation.selectedSlides[0].slideId}/>
-                <ToolsPanel />
+                <ToolsPanel presentation={presentation}/>
             </div>
         </div>
     );
