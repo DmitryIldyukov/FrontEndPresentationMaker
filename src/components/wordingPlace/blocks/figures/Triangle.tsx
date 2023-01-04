@@ -20,16 +20,10 @@ function Triangle(Props: {color: string, borderColor: string, size: Size, typeCh
         width: Props.size.width
     }
 
-    // function point() {
-    //     let str: string;
-    //     str = "4," + (Props.size.height - 4).toString() + " " + ((Props.size.height - 4) / 2).toString() + ",4 " + (Props.size.height - 4).toString() +","+ (Props.size.width - 4).toString();
-    //     return str;
-    // }
-
     return (
         <div onClick={() => chosenTypeBlockHandler(Props.typeCh)}>
             <div className={styles.triangle} style={sizing} id={countstr}>
-                <svg width='100%' height='100%' style={triangleStyle} id={countstr} viewBox='0 0 100 100'>
+                <svg width='100%' height='100%' style={triangleStyle} preserveAspectRatio="none" id={countstr} viewBox='0 0 100 100'>
                     <polygon points='5,90 50,5 95,90'
                             fill={Props.color} stroke={Props.borderColor} strokeWidth="2"
                     />

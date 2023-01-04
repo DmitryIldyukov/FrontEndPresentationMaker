@@ -21,7 +21,7 @@ export const defaultSlide: TSlide = {
 export const defaultTextBlock: TText = {
     type: "text",
     fontColor: colors.black,
-    content: "TEXT",
+    content: "new text",
     fontSize: "36px",
     fontFamily: "Open Sans",
     id: 1
