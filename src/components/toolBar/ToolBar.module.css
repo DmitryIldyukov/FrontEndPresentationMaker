@@ -78,7 +78,6 @@
     font-family:  'Open Sasn', sans-serif;
     font-weight: 600;
     font-size: 14px;
-    cursor: pointer;
 }
 
 .toolBarToolBackgroundImg {
@@ -145,17 +144,6 @@
     transform: translate(-50%, -50%);
 }
 
-
-/* input[type="color"] {
-    -webkit-appearance: none;
-    border: none;
-    border-radius: 50%;
-    overflow: hidden;
-    outline: none;
-    cursor: inherit;
-    color: transparent;
-  } */
-
 .backgroundColor {
     background-image: url(../../assets/color.svg);
     background-repeat: no-repeat;
@@ -166,4 +154,13 @@
     width: 30px;
     height: 27px;
     opacity: 0;
+    cursor: pointer;
+}
+
+.backgroundImg {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    box-sizing: border-box;
+    margin-top: 2px;
 }

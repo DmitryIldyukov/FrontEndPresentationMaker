@@ -61,7 +61,9 @@ export function ToolBar(Props: { presentation: Presentation }) {
                 <div className={styles.backgroundColor}>
                     <input type='color' onChange={(e)=>setColor(e.target.value)} className={styles.toolBarToolBucket}/>
                 </div>
-                <img src={image}/>
+                <button className={styles.backgroundImg}>
+                    <img src={image}/>
+                </button>
             </div>
             <button className={styles.toolBarTool}><img src={showSlides} className={styles.icon}/>Показ слайдов</button>
         </div>
