@@ -23,7 +23,7 @@ function Circle(Props: {color: string, borderColor: string, size: Size}) {
         <div className={styles.circle} style={sizing} id={countstr}>
             <svg width={sizing.width} height={sizing.height} style={circleStyle}>
                 <circle r={(sizing.width / 2) - 3} cx={sizing.width / 2} cy={sizing.height / 2}
-                        fill={Props.color} stroke={Props.borderColor} stroke-width="3"
+                        fill={Props.color} stroke={Props.borderColor} strokeWidth="3"
                 />
             </svg>
         </div>

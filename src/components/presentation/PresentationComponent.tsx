@@ -5,7 +5,7 @@ import Header from "../header/Header";
 import SlideList from "../slideList/SlideList";
 import WorkingPlace from "../wordingPlace/WorkingPlace";
 import ToolsPanel from "../toolsPanel/ToolsPanel";
-import {getState} from "../editor/Editor";
+import { getState } from "../editor/Editor";
 
 const PresentationComponent = () => {
     const presentation: Presentation = getState();

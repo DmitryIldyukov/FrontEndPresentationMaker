@@ -4,14 +4,12 @@ import addSlide from "../../assets/add-slide.svg";
 import deleteSlide from "../../assets/minus.svg";
 import back from "../../assets/arrow-left.svg"
 import forward from "../../assets/arrow-right.svg"
-import addImage from "../../assets/add-image.svg";
 import addText from "../../assets/add-text.svg";
 import addFigure from "../../assets/add-figure.svg";
 import showSlides from "../../assets/showSlides.svg";
 import triangle from "../../assets/triangle.svg"
 import circle from "../../assets/circle.svg"
 import square from "../../assets/square.svg"
-import colorBucket from "../../assets/color.svg";
 import image from "../../assets/background-img.svg"
 import {
     addSlideHandler,
@@ -23,9 +21,7 @@ import {
     defaultTextBlockType,
     defaultCircleBlockType,
     defaultRectangleBlockType,
-    defaultTriangleBlockType,
-    colors,
-    newBackground
+    defaultTriangleBlockType
 } from "../../types/consts";
 
 export function ToolBar(Props: { presentation: Presentation }) {

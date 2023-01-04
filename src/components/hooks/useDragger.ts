@@ -24,8 +24,6 @@ function useDragger(id: string): void {
     const container = target.parentElement;
     if (!container) throw new Error("target element must have a parent");
 
-
-
     const onMouseDown = (e: MouseEvent) => {
       isClicked.current = true;
       coords.current.startX = e.clientX;

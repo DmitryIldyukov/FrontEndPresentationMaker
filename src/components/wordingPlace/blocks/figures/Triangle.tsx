@@ -29,7 +29,7 @@ function Triangle(Props: {color: string, borderColor: string, size: Size}) {
         <div className={styles.triangle} style={sizing} id={countstr}>
             <svg width={sizing.width} height={sizing.height} style={triangleStyle} className={styles.triangle} id={countstr}>
                 <polygon points={point()}
-                         fill={Props.color} stroke={Props.borderColor} stroke-width="3"
+                         fill={Props.color} stroke={Props.borderColor} strokeWidth="3"
                 />
             </svg>
         </div>

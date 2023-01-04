@@ -1,6 +1,5 @@
-import React, {FormEvent, useState, useRef, useEffect} from 'react';
+import React, { useState } from 'react';
 import styles from './PresentationName.module.css';
-import { dispatch } from '../editor/Editor';
 import { changePresentationNameHandler } from '../editor/EditorFn';
 
 const  PresentationName = () => {
