@@ -16,17 +16,25 @@ import image from "../../assets/background-img.svg"
 import {
     addSlideHandler,
     removeSlideHandler,
-    createBlockHandler
+    createBlockHandler,
+    backgroundColorHandler
 } from "../editor/EditorFn";
 import {
     defaultTextBlockType,
     defaultCircleBlockType,
     defaultRectangleBlockType,
-    defaultTriangleBlockType
+    defaultTriangleBlockType,
+    colors,
+    newBackground
 } from "../../types/consts";
 
 export function ToolBar(Props: { presentation: Presentation }) {
      const [color, setColor]=useState('')
+
+     const changeColorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setColor(e.target.value);
+        backgroundColorHandler(Props.presentation.selectedSlides[0].slideId, color)
+     }
 
     return (
         <div className={styles.toolBar}>
@@ -59,7 +67,7 @@ export function ToolBar(Props: { presentation: Presentation }) {
             <div className={styles.toolBarToolBackground} >
                 Фон
                 <div className={styles.backgroundColor}>
-                    <input type='color' onChange={(e)=>setColor(e.target.value)} className={styles.toolBarToolBucket}/>
+                    <input type='color' onChange={(changeColorHandler)} value={color} className={styles.toolBarToolBucket}/>
                 </div>
                 <button className={styles.backgroundImg}>
                     <img src={image}/>

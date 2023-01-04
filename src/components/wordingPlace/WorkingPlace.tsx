@@ -64,9 +64,15 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
         return null;
     })
 
+
+    const newBackground: string = Props.presentation.selectedSlides[0].background.color;
+    const style = {
+        background: newBackground
+    }
+
     return (
         <div className={styles.workingPlace}>
-            <div className={styles.slidePlace}>
+            <div className={styles.slidePlace} style={style}>
                 {textBlocks}
                 {figureBlocks}
             </div>

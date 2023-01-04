@@ -7,7 +7,7 @@ type Presentation = {
 type TSlide = {
     slideId: number;
     blocks: Block[];
-    background: BackgroundColor | BackgroundImage;
+    background: BackgroundColor;
     selectedBlocks: Block[]
 }
 

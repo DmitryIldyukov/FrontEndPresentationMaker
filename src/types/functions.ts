@@ -79,16 +79,16 @@ export function selectSlides(presentation:Presentation, slideIds: []): Presentat
     return presentation;
 }
 
-export function editSlideBackground(presentation: Presentation, slideId: number, newBackground: BackgroundColor): Presentation {
-    const slide = presentation.slides[slideId]
+export function editSlideBackground(presentation: Presentation, payload: {slideId: number, newBackground: BackgroundColor}): Presentation {
+    const slide = presentation.slides[payload.slideId - 1]
     const newSlide = {
         ...slide,
-        background:newBackground,
+        background: payload.newBackground,
     }
     return {
         ...presentation,
         slides: presentation.slides.map(( currentSlide, id) => {
-            return (id === slideId) ? newSlide : currentSlide;
+            return (id === payload.slideId - 1 ) ? newSlide : currentSlide;
         })
     };
 }

@@ -7,7 +7,7 @@ export const colors = {
 }
 
 export const newBackground: BackgroundColor = {
-    color: colors.white
+    color: "#FFFFFF"
 }
 
 export const defaultSlide: TSlide = {
