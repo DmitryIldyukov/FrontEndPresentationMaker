@@ -9,7 +9,14 @@ const TextTool = () => {
     return (
         <div className={styles.textTool}>
             <button className={styles.toolBtn}><img src={deleteImg}/></button>
-            <button className={styles.toolBtn}><img src={arImg}/></button>
+            <button className={styles.toolBtn + ' ' + styles.toolBtnFontBtn}><img src={arImg}/>
+                <div className={styles.toolBtnFont}>
+                    <a>Arial</a>
+                    <a>Times New Roman</a>
+                    <a>Open Sans</a>
+                    <a>Montserrat</a>
+                </div>
+            </button>
             <div className={styles.toolFontSize}>
                 <button className={styles.incrementFontSize + ' ' + styles.actionFontSize}>
                     <span className={styles.action}>+</span>
