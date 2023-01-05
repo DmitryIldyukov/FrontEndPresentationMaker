@@ -17,6 +17,37 @@ export function createPresentation(): Presentation {
 //     }
 // }
 
+export function createImage(presentation: Presentation, payload: {slideId: number, typeOfBlock: ContentType, urlImage: string}): Presentation {
+    const newBlock = {
+        blockType:  payload.typeOfBlock,
+        blockId: presentation.slides[payload.slideId - 1].blocks.length + 1,
+        position: {
+            x: 300,
+            y: 300
+        },
+        size :{
+            width: 300,
+            height: 300
+        }
+    }
+
+    const newSelectedBlocks = [];
+    const newBlocks = [...presentation.slides[payload.slideId - 1].blocks, newBlock];
+    newSelectedBlocks[0] = newBlock;
+    const newSlide = {
+        ...presentation.slides[payload.slideId - 1],
+        selectedBlocks: newSelectedBlocks,
+        blocks: newBlocks
+    }
+    return {
+        ...presentation,
+        slides: presentation.slides.map((currentSlide, id) => {
+            return (id === payload.slideId - 1) ? newSlide : currentSlide;
+        })
+    };
+}
+
+
 export function showPresentation(presentation:Presentation): Presentation{
     return presentation;
 }

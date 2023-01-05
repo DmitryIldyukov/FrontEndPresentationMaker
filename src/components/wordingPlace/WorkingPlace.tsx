@@ -4,8 +4,26 @@ import CText from './blocks/CText';
 import Triangle from "./blocks/figures/Triangle";
 import Rectangle from "./blocks/figures/Rectangle";
 import Circle from "./blocks/figures/Circle";
+import Image from './blocks/Image';
 
 function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
+
+    const imageBlocks = Props.presentation.slides[Props.slideId - 1].blocks.map((block, id) => {
+        if (block.blockType.typeBlock.type === "image") {
+
+            block.size = {
+                height: 40,
+                width: 40
+            }
+
+            return <Image 
+                key={id}
+                size={block.size}
+                imageUrl={block.blockType.typeBlock.src}
+            />
+        }
+        return null
+    })
 
     const textBlocks = Props.presentation.slides[Props.slideId - 1].blocks.map((block, id) => {
         if (block.blockType.typeBlock.type === "text") {
@@ -79,6 +97,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
             <div className={styles.slidePlace} style={style}>
                 {textBlocks}
                 {figureBlocks}
+                {imageBlocks}
             </div>
         </div>
     );

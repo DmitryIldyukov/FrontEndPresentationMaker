@@ -15,13 +15,16 @@ import {
     addSlideHandler,
     removeSlideHandler,
     createBlockHandler,
-    backgroundColorHandler
+    backgroundColorHandler,
+    createImageHandler
 } from "../editor/EditorFn";
 import {
     defaultTextBlockType,
     defaultCircleBlockType,
     defaultRectangleBlockType,
-    defaultTriangleBlockType
+    defaultTriangleBlockType,
+    defaultImage,
+    defaultImageType
 } from "../../types/consts";
 
 export function ToolBar(Props: { presentation: Presentation }) {
@@ -30,7 +33,16 @@ export function ToolBar(Props: { presentation: Presentation }) {
      const changeColorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setColor(e.target.value);
         backgroundColorHandler(Props.presentation.selectedSlides[0].slideId, color)
+        console.log(color)
      }
+
+     const [file, setFile] = useState('');
+
+     const addImageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFile(e.target.value)
+        createImageHandler(Props.presentation.selectedSlides[0].slideId, defaultImageType, file)
+        console.log(file)
+    }
 
     return (
         <div className={styles.toolBar}>
@@ -44,8 +56,9 @@ export function ToolBar(Props: { presentation: Presentation }) {
             <button className={styles.toolBarTool}><img src={back} className={styles.icon}/></button>
             <button className={styles.toolBarTool}><img src={forward} className={styles.icon}/></button>
             <div className={styles.toolBarTool + " " + styles.toolBarToolAddImage}>
-                <input type="file" name="file" className={styles.inputFile} multiple/>
+                <input onChange={addImageHandler} value = {file} type="file" name="file" className={styles.inputFile} multiple/>
             </div>
+           
             <button onClick={() => createBlockHandler(Props.presentation.selectedSlides[0].slideId, defaultTextBlockType)} className={styles.toolBarTool}>
                 <img src={addText} className={styles.icon}/>
             </button>

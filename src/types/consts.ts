@@ -39,6 +39,15 @@ export const defaultCircleBlock: Figure = {
     id: 1
 }
 
+export const defaultImage: Image = {
+    type:'image',
+    src: ''
+}
+
+export const defaultImageType: ContentType = {
+    typeBlock: defaultImage
+}
+
 export const defaultCircleBlockType: ContentType = {
     typeBlock: defaultCircleBlock
 }
