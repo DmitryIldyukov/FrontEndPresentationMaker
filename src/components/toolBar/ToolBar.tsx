@@ -36,13 +36,23 @@ export function ToolBar(Props: { presentation: Presentation }) {
         console.log(color)
      }
 
-     const [file, setFile] = useState('');
+     const [filebase64,setFileBase64] = useState<string>("")
 
-     const addImageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFile(e.target.value)
-        createImageHandler(Props.presentation.selectedSlides[0].slideId, defaultImageType, file)
-        console.log(file)
-    }
+     function convertFile(files: FileList|null) {
+        if (files) {
+          const fileRef = files[0] || ""
+          const fileType: string= fileRef.type || ""
+          console.log("This file upload is of type:",fileType)
+          const reader = new FileReader()
+          reader.readAsBinaryString(fileRef)
+          reader.onload=(ev: any) => {
+            setFileBase64(`data:${fileType};base64,${btoa(ev.target.result)}`)
+          }
+        }
+        console.log(filebase64)
+        createImageHandler(Props.presentation.selectedSlides[0].slideId, defaultImageType, filebase64)
+      }
+    
 
     return (
         <div className={styles.toolBar}>
@@ -56,7 +66,7 @@ export function ToolBar(Props: { presentation: Presentation }) {
             <button className={styles.toolBarTool}><img src={back} className={styles.icon}/></button>
             <button className={styles.toolBarTool}><img src={forward} className={styles.icon}/></button>
             <div className={styles.toolBarTool + " " + styles.toolBarToolAddImage}>
-                <input onChange={addImageHandler} value = {file} type="file" name="file" className={styles.inputFile} multiple/>
+                <input onChange={(e)=> convertFile(e.target.files)} type="file" name="file" className={styles.inputFile} multiple/>
             </div>
            
             <button onClick={() => createBlockHandler(Props.presentation.selectedSlides[0].slideId, defaultTextBlockType)} className={styles.toolBarTool}>
@@ -80,10 +90,11 @@ export function ToolBar(Props: { presentation: Presentation }) {
                 <div className={styles.backgroundColor}>
                     <input type='color' onChange={(changeColorHandler)} value={color} className={styles.toolBarToolBucket}/>
                 </div>
-                <button className={styles.backgroundImg}>
-                    <img src={image}/>
-                </button>
+                <button className={styles.backgroundImg}></button>
             </div>
+            {(filebase64.indexOf("image/") > -1) && 
+            <img src={filebase64} width={300} />
+            }
             <button className={styles.toolBarTool}><img src={showSlides} className={styles.icon}/>Показ слайдов</button>
         </div>
     )
