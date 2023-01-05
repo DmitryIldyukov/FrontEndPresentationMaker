@@ -22,7 +22,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
                 fontSize={block.blockType.typeBlock.fontSize}
                 content={block.blockType.typeBlock.content}
                 size={block.size}
-                typeCh={'text'}
+                // typeCh={'text'}
             />
         }
         return null;
@@ -42,7 +42,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
                     color={block.blockType.typeBlock.color}
                     borderColor={block.blockType.typeBlock.borderColor}
                     size={block.size}
-                    typeCh={'figure'}
+                    // typeCh={'figure'}
                 />
             }
             if (block.blockType.typeBlock.figureType === "rectangle") {
@@ -51,7 +51,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
                     color={block.blockType.typeBlock.color}
                     borderColor={block.blockType.typeBlock.borderColor}
                     size={block.size}
-                    typeCh={'figure'}
+                    // typeCh={'figure'}
                 />
             }
             if (block.blockType.typeBlock.figureType === "triangle") {
@@ -60,7 +60,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
                     color={block.blockType.typeBlock.color}
                     borderColor={block.blockType.typeBlock.borderColor}
                     size={block.size}
-                    typeCh={'figure'}
+                    // typeCh={'figure'}
                 />
             }
             return null;

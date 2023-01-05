@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './Circle.module.css';
 import useDragger from '../../../hooks/useDragger';
-import { chosenTypeBlockHandler } from "../../../editor/EditorFn";
+// import { chosenTypeBlockHandler } from "../../../editor/EditorFn";
 let count = 0;
 let countstr = "";
 
-function Circle(Props: {color: string, borderColor: string, size: Size, typeCh: string}) {
+function Circle(Props: {color: string, borderColor: string, size: Size}) {
     count = count + 1;
     countstr = count.toString();
     useDragger(countstr);
@@ -22,7 +22,7 @@ function Circle(Props: {color: string, borderColor: string, size: Size, typeCh: 
 
     return (
         <div>
-            <div className={styles.circle} style={sizing} id={countstr} onClick={() => chosenTypeBlockHandler(Props.typeCh)}>
+            <div className={styles.circle} style={sizing} id={countstr} /* onClick={() => chosenTypeBlockHandler(Props.typeCh)}*/>
                 <svg width='100%' height='100%' style={circleStyle}>
                     <ellipse cx='50%' cy='50%' rx="45%" ry="45%"
                             fill={Props.color} stroke={Props.borderColor} strokeWidth="3"

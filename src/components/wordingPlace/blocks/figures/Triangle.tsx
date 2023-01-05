@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './Triangle.module.css'
 import useDragger from '../../../hooks/useDragger';
-import {chosenTypeBlockHandler} from "../../../editor/EditorFn";
+// import {chosenTypeBlockHandler} from "../../../editor/EditorFn";
 let count = 0;
 let countstr = "";
 
-function Triangle(Props: {color: string, borderColor: string, size: Size, typeCh: string}) {
+function Triangle(Props: {color: string, borderColor: string, size: Size}) {
     count = count + 1;
     countstr = count.toString();
     useDragger(countstr);
@@ -21,7 +21,7 @@ function Triangle(Props: {color: string, borderColor: string, size: Size, typeCh
     }
 
     return (
-        <div onClick={() => chosenTypeBlockHandler(Props.typeCh)}>
+        <div /*onClick={() => chosenTypeBlockHandler(Props.typeCh)}*/>
             <div className={styles.triangle} style={sizing} id={countstr}>
                 <svg width='100%' height='100%' style={triangleStyle} preserveAspectRatio="none" id={countstr} viewBox='0 0 100 100'>
                     <polygon points='5,90 50,5 95,90'

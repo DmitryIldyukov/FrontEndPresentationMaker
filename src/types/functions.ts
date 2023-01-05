@@ -4,18 +4,18 @@ export function createPresentation(): Presentation {
     return {
         presentationName: 'New Presentation',
         slides: [defaultSlide],
-        selectedSlides: [defaultSlide],
-        chosen: 'none'
+        selectedSlides: [defaultSlide]
+        // chosen: 'none'
     };
 }
 
-export function chosenTypeBlock(presentation:Presentation, type: string): Presentation {
-
-    return {
-        ...presentation,
-        chosen: type
-    }
-}
+// export function chosenTypeBlock(presentation:Presentation, type: string): Presentation {
+//
+//     return {
+//         ...presentation,
+        // chosen: type
+//     }
+// }
 
 export function showPresentation(presentation:Presentation): Presentation{
     return presentation;
@@ -125,19 +125,20 @@ export function createBlock(presentation: Presentation, payload: {slideId: numbe
             width: 50,
             height: 50
         }
-        // isSelectedBlock: true
     }
 
-    const temp = payload.typeOfBlock.typeBlock.type
-
+    // const temp = payload.typeOfBlock.typeBlock.type
+    const newSelectedBlocks = [];
     const newBlocks = [...presentation.slides[payload.slideId - 1].blocks, newBlock];
+    newSelectedBlocks[0] = newBlock;
     const newSlide = {
         ...presentation.slides[payload.slideId - 1],
-        blocks: newBlocks,
+        selectedBlocks: newSelectedBlocks,
+        blocks: newBlocks
     }
     return {
         ...presentation,
-        chosen: temp,
+        // chosen: temp,
         slides: presentation.slides.map((currentSlide, id) => {
             return (id === payload.slideId - 1) ? newSlide : currentSlide;
         })

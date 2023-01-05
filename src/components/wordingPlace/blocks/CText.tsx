@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './CText.module.css';
 import useDragger from '../../hooks/useDragger';
-import {chosenTypeBlockHandler} from "../../editor/EditorFn";
+// import {chosenTypeBlockHandler} from "../../editor/EditorFn";
 
 let count = 0;
 let countstr = ""
 
-function CText(Props: {fontFamily: string, fontColor: string, fontSize: string, content: string, size: Size, typeCh: string}) {
+function CText(Props: {fontFamily: string, fontColor: string, fontSize: string, content: string, size: Size}) {
     count = count + 1;
     countstr = count.toString();
     useDragger(countstr);
@@ -26,7 +26,7 @@ function CText(Props: {fontFamily: string, fontColor: string, fontSize: string, 
             type="textarea"
             defaultValue={Props.content}
             id={countstr}
-            onClick={() => chosenTypeBlockHandler(Props.typeCh)}
+            // onClick={() => chosenTypeBlockHandler(Props.typeCh)}
         />
     );
 };

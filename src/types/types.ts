@@ -2,7 +2,7 @@ type Presentation = {
     presentationName: string;
     slides: TSlide[];
     selectedSlides: TSlide[],
-    chosen: string
+    // chosen: string
 }
 
 type TSlide = {
@@ -25,7 +25,6 @@ type Block = {
     blockId: number;
     blockType: ContentType;
     size: Size;
-    // isSelectedBlock: boolean
 }
 
 type Position = {
