@@ -21,9 +21,8 @@ function Image(Props: {size: Size, imageUrl: string}) {
                 src={Props.imageUrl}
                 id={countstr} 
                 className={styles.imgStyle}
-            /> 
-
-    );
-};
+            />
+    )
+}
 
 export default Image;

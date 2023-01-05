@@ -3,7 +3,7 @@ import styles from "./PresentationComponent.module.css";
 import ToolBar from "../toolBar/ToolBar";
 import Header from "../header/Header";
 import SlideList from "../slideList/SlideList";
-import WorkingPlace from "../wordingPlace/WorkingPlace";
+import WorkingPlace from "../workingPlace/WorkingPlace";
 import ToolsPanel from "../toolsPanel/ToolsPanel";
 import { getState } from "../editor/Editor";
 

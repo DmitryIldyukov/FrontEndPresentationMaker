@@ -1,8 +1,7 @@
 type Presentation = {
     presentationName: string;
     slides: TSlide[];
-    selectedSlides: TSlide[],
-    // chosen: string
+    selectedSlides: TSlide[]
 }
 
 type TSlide = {

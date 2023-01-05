@@ -5,17 +5,8 @@ export function createPresentation(): Presentation {
         presentationName: 'New Presentation',
         slides: [defaultSlide],
         selectedSlides: [defaultSlide]
-        // chosen: 'none'
     };
 }
-
-// export function chosenTypeBlock(presentation:Presentation, type: string): Presentation {
-//
-//     return {
-//         ...presentation,
-        // chosen: type
-//     }
-// }
 
 export function createImage(presentation: Presentation, payload: {slideId: number, typeOfBlock: ContentType, urlImage: string}): Presentation {
 
@@ -160,7 +151,6 @@ export function createBlock(presentation: Presentation, payload: {slideId: numbe
         }
     }
 
-    // const temp = payload.typeOfBlock.typeBlock.type
     const newSelectedBlocks = [];
     const newBlocks = [...presentation.slides[payload.slideId - 1].blocks, newBlock];
     newSelectedBlocks[0] = newBlock;
@@ -171,7 +161,6 @@ export function createBlock(presentation: Presentation, payload: {slideId: numbe
     }
     return {
         ...presentation,
-        // chosen: temp,
         slides: presentation.slides.map((currentSlide, id) => {
             return (id === payload.slideId - 1) ? newSlide : currentSlide;
         })
@@ -287,8 +276,8 @@ export function editFigureBorderColor(presentation: Presentation, slideId: numbe
         })
     };}
 
- //chars
-export function editCharsColor(presentation: Presentation, slideId: number, blockId: number, newColor: string): Presentation {
+ //text
+export function editTextColor(presentation: Presentation, slideId: number, blockId: number, newColor: string): Presentation {
     const slide = presentation.slides[slideId]
     const block = slide.blocks[blockId]
     const newBlock = {
@@ -307,7 +296,7 @@ export function editCharsColor(presentation: Presentation, slideId: number, bloc
         })
     };}
 
-export function editCharsFontFamily(presentation: Presentation, slideId: number, blockId: number, newFontFamily: string): Presentation {
+export function editTextFontFamily(presentation: Presentation, slideId: number, blockId: number, newFontFamily: string): Presentation {
     const slide = presentation.slides[slideId]
     const block = slide.blocks[blockId]
     const newBlock = {
@@ -326,7 +315,7 @@ export function editCharsFontFamily(presentation: Presentation, slideId: number,
         })
     };}
     
-export function editCharsContent(presentation: Presentation, slideId: number, blockId: number, newContent: string): Presentation {
+export function editTextContent(presentation: Presentation, slideId: number, blockId: number, newContent: string): Presentation {
     const slide = presentation.slides[slideId]
     const block = slide.blocks[blockId]
     const newBlock = {
@@ -345,7 +334,7 @@ export function editCharsContent(presentation: Presentation, slideId: number, bl
         })};
     }
 
-export function editCharsFontSize(presentation: Presentation, slideId: number, blockId: number, newFontSize: string): Presentation {
+export function editTextFontSize(presentation: Presentation, slideId: number, blockId: number, newFontSize: string): Presentation {
     const slide = presentation.slides[slideId]
     const block = slide.blocks[blockId]
     const newBlock = {
@@ -365,7 +354,7 @@ export function editCharsFontSize(presentation: Presentation, slideId: number, b
     };
 }
 
-export function editCharsFontBold(presentation: Presentation, slideId: number, blockId: number, newFontBold: boolean): Presentation {
+export function editTextFontBold(presentation: Presentation, slideId: number, blockId: number, newFontBold: boolean): Presentation {
     const slide = presentation.slides[slideId]
     const block = slide.blocks[blockId]
     const newBlock = {
@@ -384,7 +373,7 @@ export function editCharsFontBold(presentation: Presentation, slideId: number, b
         })};
     }
 
-export function editCharsFontItalic(presentation: Presentation, slideId: number, blockId: number, newFontItalic: boolean): Presentation {
+export function editTextFontItalic(presentation: Presentation, slideId: number, blockId: number, newFontItalic: boolean): Presentation {
     const slide = presentation.slides[slideId]
     const block = slide.blocks[blockId]
     const newBlock = {

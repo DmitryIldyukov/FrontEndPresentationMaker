@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Header.module.css';
 import logo from '../../assets/logo.svg';
 import PresentationName from "./PresentationName";
-import { createPresentationHandler, changePresentationNameHandler } from '../editor/EditorFn';
+import { createPresentationHandler } from '../editor/EditorFn';
 
 export function Header(Props: { presentation: Presentation }) {
     return (

@@ -10,7 +10,6 @@ import showSlides from "../../assets/showSlides.svg";
 import triangle from "../../assets/triangle.svg"
 import circle from "../../assets/circle.svg"
 import square from "../../assets/square.svg"
-import image from "../../assets/background-img.svg"
 import {
     addSlideHandler,
     removeSlideHandler,
@@ -26,7 +25,6 @@ import {
     defaultImage,
     defaultImageType
 } from "../../types/consts";
-import { url } from 'inspector';
 
 export function ToolBar(Props: { presentation: Presentation }) {
      const [color, setColor]=useState('')
