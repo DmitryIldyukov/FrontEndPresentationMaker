@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './PresentationName.module.css';
 import { changePresentationNameHandler } from '../editor/EditorFn';
 
-const  PresentationName = () => {
-    const [name, setName] = useState('New presentation');
+const  PresentationName = (Props: {presentation:Presentation}) => {
+    const [name, setName] = useState(Props.presentation.presentationName);
+
+    useEffect(() => {
+        setName(Props.presentation.presentationName);
+    }, [Props.presentation.presentationName]);
 
     function CheckPresentationName(newName: string): string {
-        if (newName == "" || newName.length == 0 || newName == null) {
-            newName = "Nameless presentation"
+        if (newName === "" || newName.length === 0 || newName === null) {
+            newName = "Nameless presentation";
             setName(newName);
         }
         return (

@@ -2,7 +2,7 @@ import {defaultSlide, newBackground} from "./consts"
 
 export function createPresentation(): Presentation {
     return {
-        presentationName: 'New PresentationComponent',
+        presentationName: 'New Presentation',
         slides: [defaultSlide],
         selectedSlides: [defaultSlide],
         chosen: 'none'

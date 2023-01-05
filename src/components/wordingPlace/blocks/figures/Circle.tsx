@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Circle.module.css';
 import useDragger from '../../../hooks/useDragger';
-import {chosenTypeBlockHandler} from "../../../editor/EditorFn";
+import { chosenTypeBlockHandler } from "../../../editor/EditorFn";
 let count = 0;
 let countstr = "";
 

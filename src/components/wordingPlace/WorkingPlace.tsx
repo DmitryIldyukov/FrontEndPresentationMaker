@@ -69,7 +69,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
     })
 
 
-    const newBackground: string = Props.presentation.selectedSlides[0].background.color;
+    const newBackground: string = Props.presentation.slides[Props.slideId - 1].background.color;
     const style = {
         background: newBackground
     }
