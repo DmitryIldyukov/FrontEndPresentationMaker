@@ -36,6 +36,7 @@ export const createBlockHandler = (slideId: number, typeOfBlock: ContentType) =>
 }
 
 export const backgroundColorHandler = (slideId: number, colorNumber: string) => {
+    console.log(colorNumber)
     const newColor: BackgroundColor = {
         color: colorNumber
     }

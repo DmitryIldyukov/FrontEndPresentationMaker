@@ -26,6 +26,7 @@ import {
     defaultImage,
     defaultImageType
 } from "../../types/consts";
+import { url } from 'inspector';
 
 export function ToolBar(Props: { presentation: Presentation }) {
      const [color, setColor]=useState('')
@@ -35,24 +36,16 @@ export function ToolBar(Props: { presentation: Presentation }) {
         backgroundColorHandler(Props.presentation.selectedSlides[0].slideId, color)
         console.log(color)
      }
-
-     const [filebase64,setFileBase64] = useState<string>("")
-
-     function convertFile(files: FileList|null) {
-        if (files) {
-          const fileRef = files[0] || ""
-          const fileType: string= fileRef.type || ""
-          console.log("This file upload is of type:",fileType)
-          const reader = new FileReader()
-          reader.readAsBinaryString(fileRef)
-          reader.onload=(ev: any) => {
-            setFileBase64(`data:${fileType};base64,${btoa(ev.target.result)}`)
-          }
-        }
-        console.log(filebase64)
-        createImageHandler(Props.presentation.selectedSlides[0].slideId, defaultImageType, filebase64)
-      }
     
+      const [fileImg, setFile] = useState("");
+  
+      const convertFile = (e: React.ChangeEvent<HTMLInputElement>) =>{
+          if (e.target.files && e.target.files.length > 0) 
+          { let url = URL.createObjectURL(e.target.files[0])
+            setFile(url.toString())
+            createImageHandler(Props.presentation.selectedSlides[0].slideId, defaultImageType, url)
+        }
+      }
 
     return (
         <div className={styles.toolBar}>
@@ -66,7 +59,7 @@ export function ToolBar(Props: { presentation: Presentation }) {
             <button className={styles.toolBarTool}><img src={back} className={styles.icon}/></button>
             <button className={styles.toolBarTool}><img src={forward} className={styles.icon}/></button>
             <div className={styles.toolBarTool + " " + styles.toolBarToolAddImage}>
-                <input onChange={(e)=> convertFile(e.target.files)} type="file" name="file" className={styles.inputFile} multiple/>
+                <input onChange={convertFile} type="file" name="file" className={styles.inputFile} multiple/>
             </div>
            
             <button onClick={() => createBlockHandler(Props.presentation.selectedSlides[0].slideId, defaultTextBlockType)} className={styles.toolBarTool}>
@@ -92,9 +85,6 @@ export function ToolBar(Props: { presentation: Presentation }) {
                 </div>
                 <button className={styles.backgroundImg}></button>
             </div>
-            {(filebase64.indexOf("image/") > -1) && 
-            <img src={filebase64} width={300} />
-            }
             <button className={styles.toolBarTool}><img src={showSlides} className={styles.icon}/>Показ слайдов</button>
         </div>
     )

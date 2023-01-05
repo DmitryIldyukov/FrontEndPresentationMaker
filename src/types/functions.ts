@@ -18,17 +18,19 @@ export function createPresentation(): Presentation {
 // }
 
 export function createImage(presentation: Presentation, payload: {slideId: number, typeOfBlock: ContentType, urlImage: string}): Presentation {
+
     const newBlock = {
         blockType:  payload.typeOfBlock,
         blockId: presentation.slides[payload.slideId - 1].blocks.length + 1,
         position: {
-            x: 300,
-            y: 300
+            x: 60,
+            y: 60
         },
         size :{
-            width: 300,
-            height: 300
-        }
+            width: 60,
+            height: 60
+        },
+        link: payload.urlImage
     }
 
     const newSelectedBlocks = [];

@@ -12,15 +12,18 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
         if (block.blockType.typeBlock.type === "image") {
 
             block.size = {
-                height: 40,
-                width: 40
+                height: 200,
+                width: 200
             }
 
-            return <Image 
-                key={id}
-                size={block.size}
-                imageUrl={block.blockType.typeBlock.src}
-            />
+            if (block.link !== undefined) {
+                return <Image 
+                    key={id}
+                    size={block.size}
+                    imageUrl={block.link}
+                    
+                />
+            }
         }
         return null
     })

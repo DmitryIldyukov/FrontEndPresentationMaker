@@ -25,6 +25,7 @@ type Block = {
     blockId: number;
     blockType: ContentType;
     size: Size;
+    link?: string;
 }
 
 type Position = {
