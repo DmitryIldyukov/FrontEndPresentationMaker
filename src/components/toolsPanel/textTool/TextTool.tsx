@@ -4,10 +4,11 @@ import deleteImg from '../../../assets/deleteBlock.svg';
 import arImg from '../../../assets/Ar.svg';
 import fontBoldImg from '../../../assets/BoldImg.svg';
 import cursiveImg from '../../../assets/CursiveImg.svg';
-import {removeBlockHandler} from "../../editor/EditorFn";
+import {removeBlockHandler, changeTextColorHandler} from "../../editor/EditorFn";
 
 const TextTool = (Props: {presentation: Presentation, slideId: number}) => {
     const [fontSizeU, setFontSizeU] = useState(36);
+    const [color, setColor] = useState('')
 
     function increment() {
         if (fontSizeU < 80) {
@@ -19,6 +20,11 @@ const TextTool = (Props: {presentation: Presentation, slideId: number}) => {
         if (fontSizeU > 1) {
             setFontSizeU(fontSizeU - 1);
         }
+    }
+
+    const editTextColorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setColor(e.target.value);
+        changeTextColorHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, e.target.value)
     }
 
     return (
@@ -37,14 +43,14 @@ const TextTool = (Props: {presentation: Presentation, slideId: number}) => {
                     <span className={styles.action}>+</span>
                 </button>
 
-                <input className={styles.changeFontSize} type="number"/>
+                <input className={styles.changeFontSize} value={fontSizeU} type="number"/>
 
                 <button className={styles.decrementFontSize + ' ' + styles.actionFontSize} onClick={decrement}>
                     <span className={styles.action}>-</span>
                 </button>
             </div>
             <button className={styles.toolBtn}>
-                <input type='color' className={styles.toolBarToolPencil}/>
+                <input onChange={editTextColorHandler} type='color' className={styles.toolBarToolPencil}/>
             </button>
             <button className={styles.toolBtn}><img src={fontBoldImg}/></button>
             <button className={styles.toolBtn}><img src={cursiveImg}/></button>

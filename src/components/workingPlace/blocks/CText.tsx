@@ -25,7 +25,7 @@ function CText(Props: {presentation: Presentation, slideId: number, fontFamily: 
 
     const textStyle = {
         fontFamily: Props.fontFamily,
-        fontColor: Props.fontColor,
+        color: Props.fontColor,
         fontSize: Props.fontSize,
         height: Props.size.height,
         width: Props.size.width
