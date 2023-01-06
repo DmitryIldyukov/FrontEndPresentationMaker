@@ -3,3 +3,7 @@
     resize: both;
     overflow: hidden;
 }
+
+.checked {
+    background-color: aquamarine;
+}

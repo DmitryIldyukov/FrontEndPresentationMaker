@@ -17,11 +17,13 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
             }
 
             if (block.link !== undefined) {
-                return <Image 
+                return <Image
+                    presentation={Props.presentation}
+                    slideId={Props.slideId}
                     key={id}
                     size={block.size}
                     imageUrl={block.link}
-                    
+                    blockId={block.blockId}
                 />
             }
         }
@@ -38,11 +40,14 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
 
             return <CText
                 key={id}
+                presentation={Props.presentation}
+                slideId={Props.slideId}
                 fontFamily={block.blockType.typeBlock.fontFamily}
                 fontColor={block.blockType.typeBlock.fontColor}
                 fontSize={block.blockType.typeBlock.fontSize}
                 content={block.blockType.typeBlock.content}
                 size={block.size}
+                blockId={block.blockId}
             />
         }
         return null;
@@ -58,6 +63,9 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
 
             if (block.blockType.typeBlock.figureType === "circle") {
                 return <Circle
+                    presentation={Props.presentation}
+                    blockId={block.blockId}
+                    slideId={Props.slideId}
                     key={id}
                     color={block.blockType.typeBlock.color}
                     borderColor={block.blockType.typeBlock.borderColor}
@@ -66,6 +74,9 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
             }
             if (block.blockType.typeBlock.figureType === "rectangle") {
                 return <Rectangle
+                    presentation={Props.presentation}
+                    blockId={block.blockId}
+                    slideId={Props.slideId}
                     key={id}
                     color={block.blockType.typeBlock.color}
                     borderColor={block.blockType.typeBlock.borderColor}
@@ -74,6 +85,9 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
             }
             if (block.blockType.typeBlock.figureType === "triangle") {
                 return <Triangle
+                    presentation={Props.presentation}
+                    blockId={block.blockId}
+                    slideId={Props.slideId}
                     key={id}
                     color={block.blockType.typeBlock.color}
                     borderColor={block.blockType.typeBlock.borderColor}
