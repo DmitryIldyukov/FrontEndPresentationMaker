@@ -37,11 +37,11 @@ function Circle(Props: {presentation: Presentation, color: string, borderColor: 
         <div>
             <div
                 onClick={() => selectBlockHandler(Props.slideId - 1, count - 1)}
-                className={styles.circle + " " }
+                className={styles.circle + " " + (checkSelect() ? styles.checked : undefined)}
                 style={sizing}
                 id={countstr}
             >
-                <svg width='100%' height='100%' style={circleStyle} className={(checkSelect() ? styles.checked : undefined)}>
+                <svg width='100%' height='100%' style={circleStyle}>
                     <ellipse cx='50%' cy='50%' rx="45%" ry="45%"
                             fill={Props.color} stroke={Props.borderColor} strokeWidth="3"
                     />

@@ -1,9 +1,9 @@
 .rectangle {
     position: absolute;
-    resize: both;
-    overflow: hidden;
 }
 
 .checked {
-    background-color: aquamarine;
+    border: 1px solid;
+    resize: both;
+    overflow: hidden;
 }
