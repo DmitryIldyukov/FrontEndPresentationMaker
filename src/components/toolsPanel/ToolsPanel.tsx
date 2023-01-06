@@ -12,7 +12,10 @@ function ToolsPanel(Props: {presentation: Presentation, slideId: number})  {
             if (Props.presentation.slides[Props.slideId - 1].selectedBlocks[0].blockType.typeBlock.type === 'text') {
                 return (
                     <div className={styles.toolsPanel}>
-                        <TextTool />
+                        <TextTool
+                            presentation={Props.presentation}
+                            slideId={Props.slideId}
+                        />
                     </div>
                 )
             }
@@ -30,7 +33,10 @@ function ToolsPanel(Props: {presentation: Presentation, slideId: number})  {
             else if (Props.presentation.slides[Props.slideId - 1].selectedBlocks[0].blockType.typeBlock.type === 'image') {
                 return  (
                     <div className={styles.toolsPanel}>
-                        <ImgTool />
+                        <ImgTool
+                            presentation={Props.presentation}
+                            slideId={Props.slideId}
+                        />
                     </div>
                 )
             }
