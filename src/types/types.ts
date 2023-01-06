@@ -47,7 +47,7 @@ type TText = {
     type: "text";
     fontColor: string;
     content: string;
-    fontSize: string;
+    fontSize: number;
     fontFamily: string;
     id: number
 } 

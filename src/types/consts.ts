@@ -23,7 +23,7 @@ export const defaultTextBlock: TText = {
     type: "text",
     fontColor: colors.black,
     content: "new text",
-    fontSize: "36px",
+    fontSize: 36,
     fontFamily: "Open Sans",
     id: 1
 }

@@ -369,22 +369,28 @@ export function editTextContent(presentation: Presentation, slideId: number, blo
         })};
     }
 
-export function editTextFontSize(presentation: Presentation, slideId: number, blockId: number, newFontSize: string): Presentation {
-    const slide = presentation.slides[slideId]
-    const block = slide.blocks[blockId]
-    const newBlock = {
+export function editTextFontSize(presentation: Presentation, payload:{ slideId: number, blockId: number, newFontSize: number}): Presentation {
+    const slide = presentation.slides[payload.slideId]
+    const block = slide.selectedBlocks[0]
+    const newTextsize = {
         ...block,
-        fontSize: newFontSize
-    }
+        blockType: {        
+            ...block.blockType,
+            typeBlock: {        
+                ...block.blockType.typeBlock,
+                fontSize: payload.newFontSize
+            }
+        }
+    };
     const newSlide = {
         ...slide,
         blocks: slide.blocks.map(( currentBlock, id) => {
-            return (id === blockId) ? newBlock : currentBlock;
+            return (id === payload.blockId - 1) ? newTextsize : currentBlock;
         })};
     return {
         ...presentation,
         slides: presentation.slides.map(( currentSlide, id) => {
-            return (id === slideId) ? newSlide : currentSlide;
+            return (id === payload.slideId) ? newSlide : currentSlide;
         })
     };
 }

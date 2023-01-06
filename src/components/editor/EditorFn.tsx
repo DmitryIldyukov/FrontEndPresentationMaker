@@ -7,7 +7,7 @@ import {
     createBlock,
     editSlideBackground,
     createImage,
-    selectBlock, removeBlock, editFigureColor, editFigureBorderColor, editTextColor
+    selectBlock, removeBlock, editFigureColor, editFigureBorderColor, editTextColor, editTextFontSize
 } from "../../types/functions";
 import {dispatch} from "./Editor";
 
@@ -74,4 +74,8 @@ export const changeFigureBorderColorHandler = (blockId: number, slideId: number,
 
 export const changeTextColorHandler = (blockId: number, slideId: number, newColor: string) => {
     dispatch(editTextColor, {blockId, slideId, newColor})
+}
+
+export const changeTextSizeHandler = (blockId: number, slideId: number, newFontSize: number) => {
+    dispatch(editTextFontSize, {blockId, slideId, newFontSize})
 }
