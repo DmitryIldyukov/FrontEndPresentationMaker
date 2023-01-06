@@ -20,7 +20,10 @@ function ToolsPanel(Props: {presentation: Presentation, slideId: number})  {
             else if (Props.presentation.slides[Props.slideId - 1].selectedBlocks[0].blockType.typeBlock.type === 'figure') {
                 return (
                     <div className={styles.toolsPanel}>
-                        <FigureTool />
+                        <FigureTool
+                            presentation={Props.presentation}
+                            slideId={Props.slideId}
+                        />
                     </div>
                 )
             }

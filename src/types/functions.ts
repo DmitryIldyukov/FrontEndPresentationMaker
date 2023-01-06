@@ -166,19 +166,34 @@ export function createBlock(presentation: Presentation, payload: {slideId: numbe
     };
 }
 
-export function removeBlock(presentation: Presentation, blockId: number, slideId: number): Presentation {
+export function removeBlock(presentation: Presentation, payload: {blockId: number, slideId: number}): Presentation {
     const slides = presentation.slides;
-    const slide = slides[slideId];
-    const newSlide = {
-        ...slide,
-        blocks: slide.blocks.filter((block, id) => id !== blockId)
+    const slide = slides[payload.slideId];
+
+    if (presentation.slides[payload.slideId] !== undefined) {
+        if (presentation.slides[payload.slideId].blocks.length !== 0) {
+            let newBlocks = [];
+            for (let i = 0; i < slide.blocks.length; i++) {
+                if (slide.blocks[i].blockId !== payload.blockId) {
+                    newBlocks.push(slide.blocks[i])
+                }
+            }
+
+            const newSlide = {
+                ...slide,
+                blocks: newBlocks
+            }
+
+            return {
+                ...presentation,
+                slides: presentation.slides.map((currentSlide, id) => {
+                    return (id === payload.slideId) ? newSlide : currentSlide;
+                })
+            }
+        }
+        return presentation
     }
-    return {
-        ...presentation,
-        slides: presentation.slides.map(( currentSlide, id) => {
-            return (id === slideId) ? newSlide : currentSlide;
-        })
-    };
+    return presentation;
 }
 
 export function selectBlock(presentation: Presentation, payload: {slideId: number, blockId: number}): Presentation {
