@@ -36,7 +36,7 @@ const TextTool = () => {
                     <span className={styles.action}>+</span>
                 </button>
 
-                <input className={styles.changeFontSize} type="number" value={fontSizeU}/>
+                <input className={styles.changeFontSize} type="number"/>
 
                 <button className={styles.decrementFontSize + ' ' + styles.actionFontSize} onClick={decrement}>
                     <span className={styles.action}>-</span>

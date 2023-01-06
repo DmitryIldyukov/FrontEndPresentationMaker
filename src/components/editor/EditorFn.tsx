@@ -7,7 +7,7 @@ import {
     createBlock,
     editSlideBackground,
     createImage,
-    selectBlock, removeBlock
+    selectBlock, removeBlock, editFigureColor
 } from "../../types/functions";
 import {dispatch} from "./Editor";
 
@@ -62,4 +62,8 @@ export const selectBlockHandler = (slideId: number, blockId: number) => {
 
 export const removeBlockHandler = (blockId: number, slideId: number) => {
     dispatch(removeBlock, {blockId, slideId})
+}
+
+export const changeFigureColorHandler = (blockId: number, slideId: number, newColor: string) => {
+    dispatch(editFigureColor, {blockId, slideId, newColor})
 }

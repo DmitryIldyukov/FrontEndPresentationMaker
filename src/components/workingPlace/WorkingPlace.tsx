@@ -61,6 +61,8 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
                 width: 140
             }
 
+            console.log(block.blockType.typeBlock.color)
+
             if (block.blockType.typeBlock.figureType === "circle") {
                 return <Circle
                     presentation={Props.presentation}
@@ -117,9 +119,9 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
         }
     }
 
-    for (let i = 0; i < Props.presentation.slides[Props.slideId - 1].blocks.length; i++) {
-        console.log(Props.presentation.slides[Props.slideId - 1].blocks.length)
-    }
+    // for (let i = 0; i < Props.presentation.slides[Props.slideId - 1].blocks.length; i++) {
+    //     console.log(Props.presentation.slides[Props.slideId - 1].blocks.length)
+    // }
 
     return (
         <div className={styles.workingPlace}>

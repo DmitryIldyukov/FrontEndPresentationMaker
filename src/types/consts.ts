@@ -35,8 +35,8 @@ export const defaultTextBlockType: ContentType = {
 export const defaultCircleBlock: Figure = {
     type: 'figure',
     figureType: 'circle',
-    color: colors.transparent,
-    borderColor: colors.black,
+    color: 'transparent',
+    borderColor: 'black',
     id: 1
 }
 
@@ -56,8 +56,8 @@ export const defaultCircleBlockType: ContentType = {
 export const defaultRectangleBlock: Figure = {
     type: 'figure',
     figureType: 'rectangle',
-    color: colors.transparent,
-    borderColor: colors.black,
+    color: 'transparent',
+    borderColor: 'black',
     id: 1
 }
 
@@ -68,8 +68,8 @@ export const defaultRectangleBlockType: ContentType = {
 export const defaultTriangleBlock: Figure = {
     type: 'figure',
     figureType: 'triangle',
-    color: colors.transparent,
-    borderColor: colors.black,
+    color: 'transparent',
+    borderColor: 'black',
     id: 1
 }
 
