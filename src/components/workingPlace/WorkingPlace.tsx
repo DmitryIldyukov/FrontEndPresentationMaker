@@ -105,6 +105,10 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
         background: newBackground
     }
 
+    for (let i = 0; i < Props.presentation.slides[Props.slideId - 1].blocks.length; i++) {
+        console.log(Props.presentation.slides[Props.slideId - 1].blocks.length)
+    }
+
     return (
         <div className={styles.workingPlace}>
             <div className={styles.slidePlace} style={style}>

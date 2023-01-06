@@ -182,16 +182,16 @@ export function removeBlock(presentation: Presentation, blockId: number, slideId
 }
 
 export function selectBlock(presentation: Presentation, payload: {slideId: number, blockId: number}): Presentation {
-    const newSelectedBlock = presentation.slides[payload.slideId - 1].blocks[payload.blockId - 1];
+    const newSelectedBlock = presentation.slides[payload.slideId].blocks[payload.blockId];
     const newSelectedBlocks = [newSelectedBlock];
     const newSlide = {
-        ...presentation.slides[payload.slideId - 1],
+        ...presentation.slides[payload.slideId],
         selectedBlocks: newSelectedBlocks
     }
     return {
         ...presentation,
         slides: presentation.slides.map(( currentSlide, id) => {
-            return (id === payload.slideId - 1) ? newSlide : currentSlide;
+            return (id === payload.slideId) ? newSlide : currentSlide;
         })
     };
 }
