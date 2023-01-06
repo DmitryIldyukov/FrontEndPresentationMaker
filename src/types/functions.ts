@@ -151,9 +151,8 @@ export function createBlock(presentation: Presentation, payload: {slideId: numbe
         }
     }
 
-    const newSelectedBlocks = [];
+    const newSelectedBlocks = [newBlock];
     const newBlocks = [...presentation.slides[payload.slideId - 1].blocks, newBlock];
-    newSelectedBlocks[0] = newBlock;
     const newSlide = {
         ...presentation.slides[payload.slideId - 1],
         selectedBlocks: newSelectedBlocks,
@@ -182,17 +181,17 @@ export function removeBlock(presentation: Presentation, blockId: number, slideId
     };
 }
 
-export function selectBlock(presentation: Presentation, slideId: number, blockId: number): Presentation {
-    const newSelectedBlock = presentation.slides[slideId].blocks[blockId];
-    const newSelectedBlocks = [...presentation.slides[slideId].selectedBlocks, newSelectedBlock];
+export function selectBlock(presentation: Presentation, payload: {slideId: number, blockId: number}): Presentation {
+    const newSelectedBlock = presentation.slides[payload.slideId - 1].blocks[payload.blockId - 1];
+    const newSelectedBlocks = [newSelectedBlock];
     const newSlide = {
-        ...presentation.slides[slideId],
+        ...presentation.slides[payload.slideId - 1],
         selectedBlocks: newSelectedBlocks
     }
     return {
         ...presentation,
         slides: presentation.slides.map(( currentSlide, id) => {
-            return (id === slideId) ? newSlide : currentSlide;
+            return (id === payload.slideId - 1) ? newSlide : currentSlide;
         })
     };
 }
