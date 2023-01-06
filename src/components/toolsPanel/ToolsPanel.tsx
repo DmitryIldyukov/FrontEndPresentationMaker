@@ -14,7 +14,7 @@ function ToolsPanel(Props: {presentation: Presentation, slideId: number})  {
                     <div className={styles.toolsPanel}>
                         <TextTool />
                     </div>
-                );
+                )
             }
 
             else if (Props.presentation.slides[Props.slideId - 1].selectedBlocks[0].blockType.typeBlock.type === 'figure') {
@@ -22,7 +22,7 @@ function ToolsPanel(Props: {presentation: Presentation, slideId: number})  {
                     <div className={styles.toolsPanel}>
                         <FigureTool />
                     </div>
-                );
+                )
             }
             else if (Props.presentation.slides[Props.slideId - 1].selectedBlocks[0].blockType.typeBlock.type === 'image') {
                 return  (

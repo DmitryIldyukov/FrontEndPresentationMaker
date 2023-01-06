@@ -1,8 +1,9 @@
 .text {
     position: absolute;
     border: none;
-    text-decoration: none;
+    /*text-decoration: none;*/
     background-color: transparent;
+    resize: both;
 }
 
 .checked {
