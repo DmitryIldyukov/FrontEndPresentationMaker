@@ -1,3 +1,4 @@
 .imgStyle {
     position: absolute;
+    object-fit: contain;
 }
