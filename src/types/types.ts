@@ -7,15 +7,17 @@ type Presentation = {
 type TSlide = {
     slideId: number;
     blocks: Block[];
-    background: BackgroundColor;
+    background: BackgroundColor | BackgroundImage;
     selectedBlocks: Block[]
 }
 
 type BackgroundColor = {
+    type: 'color'
     color: string
 }
 
 type BackgroundImage = {
+    type: 'image'
     src: string
 }
 

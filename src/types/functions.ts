@@ -1,4 +1,4 @@
-import {defaultSlide, newBackground} from "./consts"
+import {defaultSlide, defaultSlideBackground} from "./consts"
 
 export function createPresentation(): Presentation {
     return {
@@ -62,7 +62,7 @@ export function createSlide(presentation: Presentation): Presentation {
     const newSlide: TSlide = {
         slideId: presentation.slides.length + 1,
         blocks: [],
-        background: newBackground,
+        background: defaultSlideBackground,
         selectedBlocks: []
     };
     const newSlides = [...presentation.slides, newSlide];
@@ -112,7 +112,7 @@ export function selectSlides(presentation:Presentation, slideIds: []): Presentat
     return presentation;
 }
 
-export function editSlideBackground(presentation: Presentation, payload: {slideId: number, newBackground: BackgroundColor}): Presentation {
+export function editSlideBackground(presentation: Presentation, payload: {slideId: number, newBackground: BackgroundColor | BackgroundImage}): Presentation {
     const slide = presentation.slides[payload.slideId - 1]
     const newSlide = {
         ...slide,

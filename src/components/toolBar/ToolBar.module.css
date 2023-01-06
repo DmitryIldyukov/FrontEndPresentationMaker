@@ -162,7 +162,11 @@
     cursor: pointer;
     background-color: transparent;
     box-sizing: border-box;
-    margin-top: 2px;
+    background-image: url("../../assets/add-image.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: 20px;
 }
 
 .toolBarToolAddImage {
@@ -176,7 +180,7 @@
 .inputFile {
     top: 0;
     left: 0;
-    width: 35px;
+    width: 23px;
     height: 35px;
     opacity: 0;
 }

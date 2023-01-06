@@ -35,13 +35,19 @@ export const createBlockHandler = (slideId: number, typeOfBlock: ContentType) =>
     dispatch(createBlock, {slideId, typeOfBlock})
 }
 
-export const backgroundColorHandler = (slideId: number, colorNumber: string) => {
-    console.log(colorNumber)
-    const newColor: BackgroundColor = {
-        color: colorNumber
-    }
-    
-    const newBackground: BackgroundColor = newColor;
+export const backgroundHandler = (slideId: number, type: string,  value: string) => {
+    let newBackground: BackgroundColor| BackgroundImage 
+        if (type === 'color') {
+            newBackground = {
+                type: 'color',
+                color: value
+            }
+        } else {
+            newBackground = {
+                type: 'image',
+                src: value
+            }
+        }
 
     dispatch(editSlideBackground, {slideId, newBackground})
 }

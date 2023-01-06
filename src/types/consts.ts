@@ -7,14 +7,15 @@ export const colors = {
     transparent: "#00000000"
 }
 
-export const newBackground: BackgroundColor = {
+export const defaultSlideBackground: BackgroundColor = {
+    type: 'color',
     color: "#FFFFFF"
 }
 
 export const defaultSlide: TSlide = {
     slideId: 1,
     blocks: [],
-    background: newBackground,
+    background: defaultSlideBackground,
     selectedBlocks: []
 }
 

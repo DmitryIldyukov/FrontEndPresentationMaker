@@ -100,9 +100,21 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
     })
 
 
-    const newBackground: string = Props.presentation.slides[Props.slideId - 1].background.color;
-    const style = {
-        background: newBackground
+    const newBackground: BackgroundColor| BackgroundImage = Props.presentation.slides[Props.slideId - 1].background;
+    let style;
+    if (newBackground.type === 'color') {
+        style = {
+            background: newBackground.color
+        }
+    } else {
+        style = {
+            background: 'url(' + (newBackground.src) + ')',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            width: 'x',
+            height: 'y',
+
+        }
     }
 
     for (let i = 0; i < Props.presentation.slides[Props.slideId - 1].blocks.length; i++) {

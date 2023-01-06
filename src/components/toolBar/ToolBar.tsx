@@ -14,7 +14,7 @@ import {
     addSlideHandler,
     removeSlideHandler,
     createBlockHandler,
-    backgroundColorHandler,
+    backgroundHandler,
     createImageHandler
 } from "../editor/EditorFn";
 import {
@@ -29,13 +29,19 @@ import {
 export function ToolBar(Props: { presentation: Presentation }) {
      const [color, setColor]=useState('')
 
-     const changeColorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+     const changeBackgroundColorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setColor(e.target.value);
-        backgroundColorHandler(Props.presentation.selectedSlides[0].slideId, color)
-        console.log(color)
+        backgroundHandler(Props.presentation.selectedSlides[0].slideId, 'color' ,color)
      }
     
-      const [fileImg, setFile] = useState("");
+     const changeBackgroundImageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files.length > 0) 
+        { let url = URL.createObjectURL(e.target.files[0])
+          setFile(url.toString())
+          backgroundHandler(Props.presentation.selectedSlides[0].slideId, 'image' ,url)
+      }
+     }
+      const [fileImg, setFile] = useState('');
   
       const convertFile = (e: React.ChangeEvent<HTMLInputElement>) =>{
           if (e.target.files && e.target.files.length > 0) 
@@ -79,9 +85,11 @@ export function ToolBar(Props: { presentation: Presentation }) {
             <div className={styles.toolBarToolBackground} >
                 Фон
                 <div className={styles.backgroundColor}>
-                    <input type='color' onChange={(changeColorHandler)} value={color} className={styles.toolBarToolBucket}/>
+                    <input type='color' onChange={(changeBackgroundColorHandler)} value={color} className={styles.toolBarToolBucket}/>
                 </div>
-                <button className={styles.backgroundImg}></button>
+                <button className={styles.backgroundImg}>
+                    <input onChange={(changeBackgroundImageHandler)} type="file" name="file" className={styles.inputFile} multiple/>
+                </button>
             </div>
             <button className={styles.toolBarTool}><img src={showSlides} className={styles.icon}/>Показ слайдов</button>
         </div>
