@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styles from './FigureTool.module.css';
 import deleteImg from '../../../assets/deleteBlock.svg';
-import {removeBlockHandler, changeFigureColorHandler} from "../../editor/EditorFn";
+import {removeBlockHandler, changeFigureColorHandler, changeFigureBorderColorHandler} from "../../editor/EditorFn";
 
 const FigureTool = (Props: {presentation: Presentation, slideId: number}) => {
 
@@ -9,7 +9,12 @@ const FigureTool = (Props: {presentation: Presentation, slideId: number}) => {
     const editFigureColorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setColor(e.target.value);
         changeFigureColorHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, e.target.value)
-     }
+    }
+
+    const editFigureBorderColorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setColor(e.target.value);
+        changeFigureBorderColorHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, e.target.value)
+    }
 
     return (
         <div className={styles.figureTool}>
@@ -20,10 +25,10 @@ const FigureTool = (Props: {presentation: Presentation, slideId: number}) => {
                 <img src={deleteImg}/>
             </button>
             <button className={styles.toolBtn}>
-                <input type='color' className={styles.toolBarToolPencil} value={color}/>
+                <input onChange={editFigureBorderColorHandler} value={color} type='color' className={styles.toolBarToolPencil}/>
             </button>
             <button className={styles.toolBtn}>
-                <input onChange={editFigureColorHandler} type='color' className={styles.toolBarToolBucket}/>
+                <input onChange={editFigureColorHandler} type='color' value={color} className={styles.toolBarToolBucket}/>
             </button>
         </div>
     );

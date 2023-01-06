@@ -280,22 +280,28 @@ export function editFigureColor(presentation: Presentation, payload: {slideId: n
         })};
     }
 
-export function editFigureBorderColor(presentation: Presentation, slideId: number, blockId: number, newBorderColor: string): Presentation {
-    const slide = presentation.slides[slideId]
-    const block = slide.blocks[blockId]
-    const newBlock = {
+export function editFigureBorderColor(presentation: Presentation, payload: {slideId: number, blockId: number, newBorderColor: string}): Presentation {
+    const slide = presentation.slides[payload.slideId]
+    const block = slide.selectedBlocks[0]
+    const newFigureBorderColor = {
         ...block,
-        borderColor: newBorderColor
-    }
+        blockType: {        
+            ...block.blockType,
+            typeBlock: {        
+                ...block.blockType.typeBlock,
+                borderColor: payload.newBorderColor
+            }
+        }
+    };
     const newSlide = {
         ...slide,
         blocks: slide.blocks.map(( currentBlock, id) => {
-            return (id === blockId) ? newBlock : currentBlock;
+            return (id === payload.blockId - 1) ? newFigureBorderColor : currentBlock;
         })};
     return {
         ...presentation,
         slides: presentation.slides.map(( currentSlide, id) => {
-            return (id === slideId) ? newSlide : currentSlide;
+            return (id === payload.slideId) ? newSlide : currentSlide;
         })
     };}
 
