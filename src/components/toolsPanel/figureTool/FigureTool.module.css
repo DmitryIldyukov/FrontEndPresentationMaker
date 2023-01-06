@@ -22,3 +22,22 @@
 .toolBtn:active {
     opacity: 0.7;
 }
+
+.toolBarToolPencil,
+.toolBarToolBucket{
+    width: 30px;
+    height: 27px;
+    opacity: 0;
+    cursor: pointer;
+
+}
+
+.toolBtn:nth-child(3) {
+    background-image: url(../../../assets/colorImg.svg);
+    background-repeat: no-repeat;
+}
+
+.toolBtn:nth-child(2) {
+    background-image: url(../../../assets/borderImg.svg);
+    background-repeat: no-repeat;
+}

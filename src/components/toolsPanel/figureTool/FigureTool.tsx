@@ -1,8 +1,6 @@
 import React from 'react';
 import styles from './FigureTool.module.css';
 import deleteImg from '../../../assets/deleteBlock.svg';
-import borderImg from '../../../assets/borderImg.svg';
-import colorImg from '../../../assets/colorImg.svg';
 import {removeBlockHandler} from "../../editor/EditorFn";
 //blockId: number, slideId: number
 const FigureTool = (Props: {presentation: Presentation, slideId: number}) => {
@@ -14,8 +12,12 @@ const FigureTool = (Props: {presentation: Presentation, slideId: number}) => {
             >
                 <img src={deleteImg}/>
             </button>
-            <button className={styles.toolBtn}><img src={borderImg}/></button>
-            <button className={styles.toolBtn}><img src={colorImg}/></button>
+            <button className={styles.toolBtn}>
+                <input type='color' className={styles.toolBarToolPencil}/>
+            </button>
+            <button className={styles.toolBtn}>
+                <input type='color' className={styles.toolBarToolBucket}/>
+            </button>
         </div>
     );
 };

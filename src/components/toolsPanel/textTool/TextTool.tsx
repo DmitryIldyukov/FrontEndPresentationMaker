@@ -42,6 +42,9 @@ const TextTool = () => {
                     <span className={styles.action}>-</span>
                 </button>
             </div>
+            <button className={styles.toolBtn}>
+                <input type='color' className={styles.toolBarToolPencil}/>
+            </button>
             <button className={styles.toolBtn}><img src={fontBoldImg}/></button>
             <button className={styles.toolBtn}><img src={cursiveImg}/></button>
         </div>
