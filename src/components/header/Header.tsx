@@ -6,14 +6,17 @@ import { createPresentationHandler } from '../editor/EditorFn';
 import {saveAsJsonHandler, openJsonHandler} from '../editor/EditorFn'
 
 export function Header(Props: { presentation: Presentation }) {
-    const fileChangeHandle = (e: any) => {
-        const file: any  = e.target.files[0];
-        const reader = new FileReader();
-        reader.readAsText(file);
-        reader.onload = () => {
-            let result = reader.result
-            if (typeof result === 'string') {
-                openJsonHandler(result);
+    const fileChangeHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files.length > 0) 
+        {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+            reader.readAsText(file);
+            reader.onload = () => {
+                let result = reader.result
+                if (typeof result === 'string') {
+                    openJsonHandler(result);
+                }
             }
         }
     }
@@ -26,14 +29,17 @@ export function Header(Props: { presentation: Presentation }) {
                     <li className={styles.headerTool}>
                         <button onClick={createPresentationHandler} className={styles.headerButton}>Создать</button>
                     </li>
-                    <label htmlFor='json-file-handler' className={styles.headerButton}>Открыть</label>
-                <input
-                    onChange={fileChangeHandle}
-                    id='json-file-handler'
-                    type='file'
-                    accept='.json'
-                    className={styles.headerButton}
-                />
+                    <li className={styles.headerButton}> Открыть
+                      <div className={styles.headerButtonContainer}>
+                            <input
+                                onChange={fileChangeHandle}
+                                id='json-file-handler'
+                                type='file'
+                                accept='.json'
+                                className={styles.headerButtonInput}
+                            />
+                        </div>
+                    </li>
                     <li className={styles.headerTool}>
                         <button  onClick={saveAsJsonHandler} className={styles.headerButton}>Сохранить</button>
                     </li>
