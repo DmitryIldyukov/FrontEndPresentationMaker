@@ -144,6 +144,5 @@ export const updateHistoryHandler = () => {
 }
 
 export const savePosBlockHandler = (slideId: number, blockId: number, newPosition: Position) => {
-    console.log("Position: ", newPosition);
     dispatch(savePosBlock, {slideId, blockId, newPosition})
 }
