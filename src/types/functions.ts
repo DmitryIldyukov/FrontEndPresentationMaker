@@ -184,8 +184,8 @@ export function createBlock(editor: Editor, payload: {slideId: number, typeOfBlo
         blockType:  payload.typeOfBlock,
         blockId: editor.presentation.slides[payload.slideId - 1].blocks.length + 1,
         position: {
-            x: 300,
-            y: 300
+            x: 0,
+            y: 0
         },
         size :{
             width: 50,
@@ -262,23 +262,26 @@ export function selectBlock(editor: Editor, payload: {slideId: number, blockId: 
     };
 }
 
-export function moveBlock(presentation: Presentation, slideId: number, blockId: number, newPosition: Position): Presentation {
-    const slide = presentation.slides[slideId]
-    const block = slide.blocks[blockId]
+export function savePosBlock(editor: Editor, payload: {slideId: number, blockId: number, newPosition: Position}): Editor {
+    const slide = editor.presentation.slides[payload.slideId - 1]
+    const block = slide.blocks[payload.blockId - 1]
     const newBlock = {
         ...block,
-        position: newPosition
+        position: payload.newPosition
     }
     const newSlide = {
         ...slide,
         blocks: slide.blocks.map(( currentBlock, id) => {
-            return (id === blockId) ? newBlock : currentBlock;
-    })}
+            return (id === payload.blockId - 1) ? newBlock : currentBlock;
+        })}
     return {
-        ...presentation,
-        slides: presentation.slides.map(( currentSlide, id) => {
-            return (id === slideId) ? newSlide : currentSlide;
-        })
+        ...editor,
+        presentation: {
+            ...editor.presentation,
+            slides: editor.presentation.slides.map(( currentSlide, id) => {
+                return (id === payload.slideId - 1) ? newSlide : currentSlide;
+            })
+        }
     }
 }
 

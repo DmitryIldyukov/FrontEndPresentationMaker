@@ -3,13 +3,12 @@ import styles from './Image.module.css';
 import useDragger from '../../hooks/useDragger';
 import {selectBlockHandler} from "../../editor/EditorFn";
 
-// let count = 0;
 let countstr = ""
 
-function Image(Props: {presentation: Presentation, slideId: number, size: Size, imageUrl: string, blockId: number}) {
+function Image(Props: {presentation: Presentation, slideId: number, size: Size, imageUrl: string, blockId: number, position: Position}) {
     let count = Props.blockId;
     countstr = count.toString();
-    useDragger(countstr)
+    let newPos: Position = useDragger(countstr, Props.position);
 
     function checkSelect() {
         if (Props.presentation.slides[Props.slideId - 1].blocks.length > 0) {

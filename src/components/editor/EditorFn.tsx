@@ -19,7 +19,7 @@ import {
     editTextFontFamily,
     editTextContent,
     convertJsonToPresentation,
-    convertPresentationToJson, undo, redo, updateHistory
+    convertPresentationToJson, undo, redo, updateHistory, savePosBlock
 } from "../../types/functions";
 import {dispatch} from "./Editor";
 
@@ -141,4 +141,9 @@ export const redoHandler = () => {
 
 export const updateHistoryHandler = () => {
     dispatch(updateHistory, {})
+}
+
+export const savePosBlockHandler = (slideId: number, blockId: number, newPosition: Position) => {
+    console.log("Position: ", newPosition);
+    dispatch(savePosBlock, {slideId, blockId, newPosition})
 }

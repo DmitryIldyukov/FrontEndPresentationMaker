@@ -7,10 +7,8 @@ import Circle from "./blocks/figures/Circle";
 import Image from './blocks/Image';
 
 function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
-
     const imageBlocks = Props.presentation.slides[Props.slideId - 1].blocks.map((block, id) => {
         if (block.blockType.typeBlock.type === "image") {
-
             block.size = {
                 height: 200,
                 width: 200
@@ -24,6 +22,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
                     size={block.size}
                     imageUrl={block.link}
                     blockId={block.blockId}
+                    position={block.position}
                 />
             }
         }
@@ -50,6 +49,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
                 fontStyle={block.blockType.typeBlock.fontStyle}
                 size={block.size}
                 blockId={block.blockId}
+                position={block.position}
             />
         }
         return null;
@@ -74,6 +74,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
                     color={block.blockType.typeBlock.color}
                     borderColor={block.blockType.typeBlock.borderColor}
                     size={block.size}
+                    position={block.position}
                 />
             }
             if (block.blockType.typeBlock.figureType === "rectangle") {
@@ -85,6 +86,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
                     color={block.blockType.typeBlock.color}
                     borderColor={block.blockType.typeBlock.borderColor}
                     size={block.size}
+                    position={block.position}
                 />
             }
             if (block.blockType.typeBlock.figureType === "triangle") {
@@ -96,6 +98,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
                     color={block.blockType.typeBlock.color}
                     borderColor={block.blockType.typeBlock.borderColor}
                     size={block.size}
+                    position={block.position}
                 />
             }
             return null;
@@ -120,10 +123,6 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
 
         }
     }
-
-    // for (let i = 0; i < Props.presentation.slides[Props.slideId - 1].blocks.length; i++) {
-    //     console.log(Props.presentation.slides[Props.slideId - 1].blocks.length)
-    // }
 
     return (
         <div className={styles.workingPlace}>

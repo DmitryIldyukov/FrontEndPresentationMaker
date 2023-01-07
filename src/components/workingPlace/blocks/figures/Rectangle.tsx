@@ -1,14 +1,21 @@
 import React from "react";
 import styles from "./Rectangle.module.css";
 import useDragger from '../../../hooks/useDragger';
-import {selectBlockHandler} from "../../../editor/EditorFn";
-// let count = 0;
+import {savePosBlockHandler, selectBlockHandler} from "../../../editor/EditorFn";
+
 let countstr = "";
 
-function Rectangle(Props: {presentation: Presentation, slideId: number, color: string, borderColor: string, size: Size, blockId: number}) {
+function Rectangle(Props: {presentation: Presentation, slideId: number, color: string, borderColor: string, size: Size, blockId: number, position: Position}) {
     let count = Props.blockId;
     countstr = count.toString();
-    useDragger(countstr);
+    let lastPosition: Position = Props.position;
+    let newPos: Position;
+    newPos = useDragger(countstr, lastPosition);
+
+    if (lastPosition.x !== newPos.x || lastPosition.y !== newPos.y) {
+        savePosBlockHandler(Props.slideId, Props.blockId, newPos);
+        lastPosition = newPos;
+    }
 
     function checkSelect() {
         if (Props.presentation.slides[Props.slideId - 1].blocks.length > 0) {
@@ -30,7 +37,9 @@ function Rectangle(Props: {presentation: Presentation, slideId: number, color: s
 
     const sizing = {
         height: Props.size.height,
-        width: Props.size.width
+        width: Props.size.width,
+        top: Props.position.y + 'px',
+        left: Props.position.x + 'px'
     }
 
     return (

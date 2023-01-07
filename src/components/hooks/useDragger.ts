@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
+import {savePosBlockHandler} from "../editor/EditorFn";
 
-function useDragger(id: string): void {
+function useDragger(id: string, startPos: Position) {
 
   const isClicked = useRef<boolean>(false);
 
@@ -10,10 +11,10 @@ function useDragger(id: string): void {
     lastX: number,
     lastY: number
   }>({
-    startX: 0,
-    startY: 0,
-    lastX: 0,
-    lastY: 0
+    startX: startPos.x,
+    startY: startPos.y,
+    lastX: startPos.x,
+    lastY: startPos.y
   })
 
   useEffect(() => {
@@ -57,10 +58,15 @@ function useDragger(id: string): void {
       container.removeEventListener('mousemove', onMouseMove);
       container.removeEventListener('mouseleave', onMouseUp);
     }
-
     return cleanup;
   }, [id])
 
+  const newPos: Position = {
+    x: coords.current.lastX,
+    y: coords.current.lastY
+  }
+
+  return newPos
 }
 
 export default useDragger;
