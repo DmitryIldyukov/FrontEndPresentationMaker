@@ -1,5 +1,22 @@
 import {defaultSlide, defaultSlideBackground} from "./consts"
 
+export function convertPresentationToJson(editor: Editor): Editor {
+    const json: string = JSON.stringify(editor.presentation);
+    const blob = new Blob([json], { type: "text/plain" });
+    const link = document.createElement("a");
+    link.setAttribute("href", URL.createObjectURL(blob));
+    link.setAttribute("download", editor.presentation.presentationName + ".json");
+    link.click();
+    return editor;
+}
+export function convertJsonToPresentation(editor: Editor, json: string): Editor {
+    if (typeof json === "object") {
+        return json;
+    }
+    editor.presentation = JSON.parse(json);
+    return editor;
+}
+
 export function createPresentation(): Editor {
     return {
         history: {

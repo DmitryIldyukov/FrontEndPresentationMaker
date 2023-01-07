@@ -17,7 +17,9 @@ import {
     editTextFontItalic,
     editTextFontBold,
     editTextFontFamily,
-    editTextContent
+    editTextContent,
+     convertJsonToPresentation,
+      convertPresentationToJson 
 } from "../../types/functions";
 import {dispatch} from "./Editor";
 
@@ -104,4 +106,11 @@ export const changeFontFamilyHandler = (blockId: number, slideId: number, newFon
 
 export const changeTextContent = (blockId: number, slideId: number, newContent: string) => {
     dispatch(editTextContent, {blockId, slideId, newContent})
+}
+export const saveAsJsonHandler = () => {
+    dispatch(convertPresentationToJson, {})
+}
+
+export const openJsonHandler = (json: string) => {
+    dispatch(convertJsonToPresentation, json);
 }
