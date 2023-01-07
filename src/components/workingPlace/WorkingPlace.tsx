@@ -63,8 +63,6 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
                 width: 140
             }
 
-            console.log(block.blockType.typeBlock.color)
-
             if (block.blockType.typeBlock.figureType === "circle") {
                 return <Circle
                     presentation={Props.presentation}
@@ -106,7 +104,6 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
         return null;
     })
 
-
     const newBackground: BackgroundColor| BackgroundImage = Props.presentation.slides[Props.slideId - 1].background;
     let style;
     if (newBackground.type === 'color') {
@@ -119,8 +116,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             width: 'x',
-            height: 'y',
-
+            height: 'y'
         }
     }
 
