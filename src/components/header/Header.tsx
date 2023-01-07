@@ -4,6 +4,7 @@ import logo from '../../assets/logo.svg';
 import PresentationName from "./PresentationName";
 import { createPresentationHandler } from '../editor/EditorFn';
 import {saveAsJsonHandler, openJsonHandler} from '../editor/EditorFn'
+import {saveProgramAsPDF} from '../editor/exportFunction'
 
 export function Header(Props: { presentation: Presentation }) {
     const fileChangeHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,6 +40,9 @@ export function Header(Props: { presentation: Presentation }) {
                                 className={styles.headerButtonInput}
                             />
                         </div>
+                        </li>
+                    <li className={styles.headerButton}>
+                    <button  onClick={() => saveProgramAsPDF(Props.presentation)} className={styles.headerButton}>Сохранить пдф</button>
                     </li>
                     <li className={styles.headerTool}>
                         <button  onClick={saveAsJsonHandler} className={styles.headerButton}>Сохранить</button>
