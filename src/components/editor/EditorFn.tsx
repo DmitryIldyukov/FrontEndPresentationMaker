@@ -24,6 +24,7 @@ import {
 import {dispatch} from "./Editor";
 
 export const addSlideHandler = () => {
+    updateHistoryHandler();
     dispatch(createSlide, {});
 }
 

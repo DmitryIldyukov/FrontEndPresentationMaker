@@ -15,7 +15,7 @@ import {
     removeSlideHandler,
     createBlockHandler,
     backgroundHandler,
-    createImageHandler
+    createImageHandler, updateHistoryHandler, redoHandler, undoHandler
 } from "../editor/EditorFn";
 import {
     defaultTextBlockType,
@@ -56,7 +56,6 @@ export function ToolBar(Props: { editor: Editor }) {
     return (
         <div className={styles.toolBar}>
             <button onClick={() => {
-                dispatch(updateHistory, Props.editor);
                 addSlideHandler();
             }} className={styles.toolBarTool}>
                 Добавить слайд
@@ -66,11 +65,11 @@ export function ToolBar(Props: { editor: Editor }) {
                 <img src={deleteSlide} className={styles.icon}/>
             </button>
             <button
-                onClick={() => dispatch(undo, Props.editor)}
+                onClick={() => undoHandler()}
                 className={styles.toolBarTool}><img src={back} className={styles.icon}/>
             </button>
             <button
-                onClick={() => dispatch(redo, Props.editor)}
+                onClick={() => redoHandler()}
                 className={styles.toolBarTool}><img src={forward} className={styles.icon}/>
             </button>
             <div className={styles.toolBarTool + " " + styles.toolBarToolAddImage}>

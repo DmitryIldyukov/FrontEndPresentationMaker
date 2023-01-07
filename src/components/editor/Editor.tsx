@@ -1,19 +1,19 @@
 import {createPresentation} from "../../types/functions";
 
-let editorU: Editor = createPresentation();
+let editor: Editor = createPresentation();
 
 let onChangeHandler: Function = () => {};
 
 function dispatch(modifyFn: Function, payload: Object): void {
-    setState(modifyFn(editorU, payload));
+    setState(modifyFn(editor, payload));
 }
 
 function getState(): Editor {
-    return editorU;
+    return editor;
 }
 
 function setState(newPresentation: Editor): void {
-    editorU = newPresentation;
+    editor = newPresentation;
     onChangeHandler();
 }
 
@@ -21,4 +21,4 @@ function addOnChangeHandler(handler: Function): void {
     onChangeHandler = handler;
 }
 
-export {dispatch, getState, setState, addOnChangeHandler}
+export { dispatch, getState, setState, addOnChangeHandler }
