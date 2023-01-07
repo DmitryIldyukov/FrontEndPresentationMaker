@@ -1,11 +1,12 @@
 .text {
     position: absolute;
     border: none;
-    /*text-decoration: none;*/
     background-color: transparent;
-    resize: both;
+    resize: none;
 }
 
 .checked {
-    background-color: aquamarine;
+    background-color: rgba(137, 228, 176, 0.564);
+    resize: both;
+    overflow: hidden;
 }

@@ -24,7 +24,7 @@ function CText(Props: {presentation: Presentation, slideId: number, fontFamily: 
         return false
     }
 
-    const editTextContentHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const editTextContentHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setText(e.target.value);
         changeTextContent(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, e.target.value)
     }
@@ -34,21 +34,21 @@ function CText(Props: {presentation: Presentation, slideId: number, fontFamily: 
         color: Props.fontColor,
         fontSize: Props.fontSize,
         height: Props.size.height,
-        width: Props.size.width,
         fontWeight: Props.fontWeight,
         fontStyle: Props.fontStyle
     }
 
     return (
-        <input
-            onClick={() => selectBlockHandler(Props.slideId - 1, count - 1)}
-            onChange={editTextContentHandler}
-            className={styles.text + " " + (checkSelect() ? styles.checked : undefined)}
-            style={textStyle}
-            type="textarea"
-            defaultValue={Props.content}
-            id={countstr}
-        />
+        <div>
+            <textarea
+                onClick={() => selectBlockHandler(Props.slideId - 1, count - 1)}
+                onChange={(e) => editTextContentHandler(e)}
+                className={styles.text + " " + (checkSelect() ? styles.checked : undefined)}
+                style={textStyle}
+                defaultValue={Props.content}
+                id={countstr}
+            />
+        </div>
     );
 };
 
