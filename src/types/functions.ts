@@ -401,24 +401,31 @@ export function editTextFontFamily(presentation: Presentation, payload:{slideId:
     };
     };
     
-export function editTextContent(presentation: Presentation, slideId: number, blockId: number, newContent: string): Presentation {
-    const slide = presentation.slides[slideId]
-    const block = slide.blocks[blockId]
-    const newBlock = {
+export function editTextContent(presentation: Presentation, payload:{slideId: number, blockId: number, newContent: string}): Presentation {
+    const slide = presentation.slides[payload.slideId]
+    const block = slide.selectedBlocks[0]
+    const newTextsize = {
         ...block,
-        content: newContent
-    }
+        blockType: {        
+            ...block.blockType,
+            typeBlock: {        
+                ...block.blockType.typeBlock,
+                content: payload.newContent
+            }
+        }
+    };
     const newSlide = {
         ...slide,
         blocks: slide.blocks.map(( currentBlock, id) => {
-            return (id === blockId) ? newBlock : currentBlock;
+            return (id === payload.blockId - 1) ? newTextsize : currentBlock;
         })};
     return {
         ...presentation,
         slides: presentation.slides.map(( currentSlide, id) => {
-            return (id === slideId) ? newSlide : currentSlide;
-        })};
-    }
+            return (id === payload.slideId) ? newSlide : currentSlide;
+        })
+    };
+}
 
 export function editTextFontSize(presentation: Presentation, payload:{ slideId: number, blockId: number, newFontSize: number}): Presentation {
     const slide = presentation.slides[payload.slideId]

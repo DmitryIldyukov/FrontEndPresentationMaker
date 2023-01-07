@@ -1,3 +1,4 @@
+import exp from "constants";
 import {
     createPresentation,
     createSlide,
@@ -15,7 +16,8 @@ import {
     editTextFontSize,
     editTextFontItalic,
     editTextFontBold,
-    editTextFontFamily
+    editTextFontFamily,
+    editTextContent
 } from "../../types/functions";
 import {dispatch} from "./Editor";
 
@@ -98,4 +100,8 @@ export const changeTextWeightHandler = (blockId: number, slideId: number, newFon
 
 export const changeFontFamilyHandler = (blockId: number, slideId: number, newFontFamily: string) => {
     dispatch(editTextFontFamily, {blockId, slideId, newFontFamily})
+}
+
+export const changeTextContent = (blockId: number, slideId: number, newContent: string) => {
+    dispatch(editTextContent, {blockId, slideId, newContent})
 }

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import styles from './CText.module.css';
 import useDragger from '../../hooks/useDragger';
-import {selectBlockHandler} from "../../editor/EditorFn";
+import {selectBlockHandler,  changeTextContent} from "../../editor/EditorFn";
 
 let countstr = ""
 
@@ -9,6 +9,7 @@ function CText(Props: {presentation: Presentation, slideId: number, fontFamily: 
     let count = Props.blockId;
     countstr = count.toString();
     useDragger(countstr);
+    const [text, setText] = useState('')
 
     function checkSelect() {
         if (Props.presentation.slides[Props.slideId - 1].blocks.length > 0) {
@@ -21,6 +22,11 @@ function CText(Props: {presentation: Presentation, slideId: number, fontFamily: 
             }
         }
         return false
+    }
+
+    const editTextContentHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setText(e.target.value);
+        changeTextContent(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, e.target.value)
     }
 
     const textStyle = {
@@ -36,6 +42,7 @@ function CText(Props: {presentation: Presentation, slideId: number, fontFamily: 
     return (
         <input
             onClick={() => selectBlockHandler(Props.slideId - 1, count - 1)}
+            onChange={editTextContentHandler}
             className={styles.text + " " + (checkSelect() ? styles.checked : undefined)}
             style={textStyle}
             type="textarea"

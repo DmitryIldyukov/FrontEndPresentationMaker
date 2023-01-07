@@ -64,8 +64,7 @@ export function ToolBar(Props: { presentation: Presentation }) {
             <button className={styles.toolBarTool}><img src={forward} className={styles.icon}/></button>
             <div className={styles.toolBarTool + " " + styles.toolBarToolAddImage}>
                 <input onChange={convertFile} type="file" name="file" className={styles.inputFile} multiple/>
-            </div>
-           
+            </div>        
             <button onClick={() => createBlockHandler(Props.presentation.selectedSlides[0].slideId, defaultTextBlockType)} className={styles.toolBarTool}>
                 <img src={addText} className={styles.icon}/>
             </button>
