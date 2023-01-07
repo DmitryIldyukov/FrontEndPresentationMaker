@@ -56,8 +56,8 @@ export function ToolBar(Props: { editor: Editor }) {
     return (
         <div className={styles.toolBar}>
             <button onClick={() => {
-                addSlideHandler();
                 dispatch(updateHistory, Props.editor);
+                addSlideHandler();
             }} className={styles.toolBarTool}>
                 Добавить слайд
                 <img src={addSlide} className={styles.icon}/>

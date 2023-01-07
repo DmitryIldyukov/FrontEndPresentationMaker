@@ -547,6 +547,7 @@ export function undo(editor: Editor): Editor {
         newEditor.presentation = editor.history.states[newEditor.history.index];
     }
 
+
     return newEditor;
 }
 
@@ -572,8 +573,8 @@ export function updateHistory(editor: Editor): Editor {
         },
     };
 
-    const newStates = newEditor.history.states.filter((value, index) =>
-        index <= newEditor.history.index && value)
+    const newStates = newEditor.history.states.filter((value, id) =>
+        id <= newEditor.history.index && value)
 
     newEditor.history.states = [...newStates, editor.presentation]
 
