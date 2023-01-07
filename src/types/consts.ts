@@ -9,7 +9,7 @@ export const colors = {
 
 export const defaultSlideBackground: BackgroundColor = {
     type: 'color',
-    color: "#FFFFFF"
+    color: colors.white
 }
 
 export const defaultSlide: TSlide = {
@@ -37,8 +37,8 @@ export const defaultTextBlockType: ContentType = {
 export const defaultCircleBlock: Figure = {
     type: 'figure',
     figureType: 'circle',
-    color: 'transparent',
-    borderColor: 'black',
+    color: colors.white,
+    borderColor: colors.black,
     id: 1
 }
 
@@ -58,8 +58,8 @@ export const defaultCircleBlockType: ContentType = {
 export const defaultRectangleBlock: Figure = {
     type: 'figure',
     figureType: 'rectangle',
-    color: 'transparent',
-    borderColor: 'black',
+    color: colors.white,
+    borderColor: colors.black,
     id: 1
 }
 
@@ -70,8 +70,8 @@ export const defaultRectangleBlockType: ContentType = {
 export const defaultTriangleBlock: Figure = {
     type: 'figure',
     figureType: 'triangle',
-    color: 'transparent',
-    borderColor: 'black',
+    color: colors.white,
+    borderColor: colors.black,
     id: 1
 }
 
