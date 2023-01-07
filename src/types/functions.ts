@@ -1,10 +1,54 @@
 import {defaultSlide, defaultSlideBackground} from "./consts"
+export function addToHistory(editor:Presentation){
+    let count = 0;
+    return{
+        ...editor,
+        history:[...editor.history.filter(e =>{
+            if (count <= editor.historyIndex){
+                count++;
+                return e;
+              }
+            }),editor.history],
+            historyIndex:count
+    }
+}
+export function prevHistory(editor:Presentation){
+    if(editor.historyIndex > 0){
+        return{
+            ...editor,
+            presentation: editor.history[editor.historyIndex - 1],
+            historyIndex: editor.historyIndex - 1
+        }
+    }
+    else{
+        return{
+            ...editor
+        }
+    }
+}
 
+export function currHistory(editor:Presentation){
+    console.log(editor)
+    if(editor.historyIndex === editor.history.length - 1){
+        return{
+            ...editor
+        }
+    }
+    else{
+        return{
+            ...editor,
+            presentation: editor.history[editor.historyIndex + 1],
+            historyIndex: editor.historyIndex + 1
+        }
+    }
+}
 export function createPresentation(): Presentation {
     return {
         presentationName: 'New Presentation',
         slides: [defaultSlide],
-        selectedSlides: [defaultSlide]
+        selectedSlides: [defaultSlide],
+        history:[],
+        historyIndex: 0
     };
 }
 
