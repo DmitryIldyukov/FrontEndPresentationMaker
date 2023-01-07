@@ -4,7 +4,7 @@ import deleteImg from '../../../assets/deleteBlock.svg';
 import arImg from '../../../assets/Ar.svg';
 import fontBoldImg from '../../../assets/BoldImg.svg';
 import cursiveImg from '../../../assets/CursiveImg.svg';
-import {removeBlockHandler, changeTextColorHandler, changeTextSizeHandler} from "../../editor/EditorFn";
+import {removeBlockHandler, changeTextColorHandler, changeTextSizeHandler, changeTextStyleHandler, changeTextWeightHandler} from "../../editor/EditorFn";
 import { defaultTextBlock } from '../../../types/consts';
 
 const TextTool = (Props: {presentation: Presentation, slideId: number}) => {
@@ -53,8 +53,8 @@ const TextTool = (Props: {presentation: Presentation, slideId: number}) => {
             <button className={styles.toolBtn}>
                 <input onChange={editTextColorHandler} type='color' className={styles.toolBarToolPencil}/>
             </button>
-            <button className={styles.toolBtn}><img src={fontBoldImg}/></button>
-            <button className={styles.toolBtn}><img src={cursiveImg}/></button>
+            <button onClick={() => changeTextWeightHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, 700 )}className={styles.toolBtn}><img src={fontBoldImg}/></button>
+            <button onClick={() => changeTextStyleHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, "italic")} className={styles.toolBtn}><img src={cursiveImg}/></button>
         </div>
     );
 };

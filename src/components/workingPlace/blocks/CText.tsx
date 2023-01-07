@@ -5,7 +5,7 @@ import {selectBlockHandler} from "../../editor/EditorFn";
 
 let countstr = ""
 
-function CText(Props: {presentation: Presentation, slideId: number, fontFamily: string, fontColor: string, fontSize: number, content: string, size: Size, blockId: number}) {
+function CText(Props: {presentation: Presentation, slideId: number, fontFamily: string, fontColor: string, fontSize: number, content: string, size: Size, blockId: number, fontWeight: number, fontStyle: string}) {
     let count = Props.blockId;
     countstr = count.toString();
     useDragger(countstr);
@@ -28,7 +28,9 @@ function CText(Props: {presentation: Presentation, slideId: number, fontFamily: 
         color: Props.fontColor,
         fontSize: Props.fontSize,
         height: Props.size.height,
-        width: Props.size.width
+        width: Props.size.width,
+        fontWeight: Props.fontWeight,
+        fontStyle: Props.fontStyle
     }
 
     return (

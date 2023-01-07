@@ -46,6 +46,8 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
                 fontColor={block.blockType.typeBlock.fontColor}
                 fontSize={block.blockType.typeBlock.fontSize}
                 content={block.blockType.typeBlock.content}
+                fontWeight={block.blockType.typeBlock.fontWeight}
+                fontStyle={block.blockType.typeBlock.fontStyle}
                 size={block.size}
                 blockId={block.blockId}
             />

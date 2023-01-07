@@ -49,6 +49,8 @@ type TText = {
     content: string;
     fontSize: number;
     fontFamily: string;
+    fontStyle: string,
+    fontWeight: number,
     id: number
 } 
 

@@ -25,6 +25,8 @@ export const defaultTextBlock: TText = {
     content: "new text",
     fontSize: 36,
     fontFamily: "Open Sans",
+    fontWeight: 400,
+    fontStyle: "normal",
     id: 1
 }
 
