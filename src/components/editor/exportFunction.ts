@@ -3,7 +3,6 @@ import jsPDF from "jspdf";
 const exportWidth = 1110
 const exportHeight = 660
 
-
 function setElementToPagePDF(progSlide: Block, doc:jsPDF) {
     if (progSlide.blockType.typeBlock.type === "image"){
         let imgData2 = progSlide.blockType.typeBlock.src;
@@ -101,7 +100,7 @@ function setPDF(prog: Presentation, doc: jsPDF) {
 
 async function saveDocPDF(prog: Presentation, Path:string, doc:jsPDF){
     await setPDF(prog, doc)
-    doc.save("/" + prog.presentationName + ".pdf")
+    doc.save(prog.presentationName + ".pdf")
 }
 
 export function saveProgramAsPDF(prog: Presentation) {
