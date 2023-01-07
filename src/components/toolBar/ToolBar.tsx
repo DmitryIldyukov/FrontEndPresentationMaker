@@ -25,20 +25,22 @@ import {
     defaultImage,
     defaultImageType
 } from "../../types/consts";
+import {dispatch} from "../editor/Editor";
+import {redo, undo, updateHistory} from "../../types/functions";
 
-export function ToolBar(Props: { presentation: Presentation }) {
+export function ToolBar(Props: { editor: Editor }) {
      const [color, setColor]=useState('')
 
      const changeBackgroundColorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setColor(e.target.value);
-        backgroundHandler(Props.presentation.selectedSlides[0].slideId, 'color' ,color)
+        backgroundHandler(Props.editor.presentation.selectedSlides[0].slideId, 'color' ,color)
      }
     
      const changeBackgroundImageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files.length > 0) 
         { let url = URL.createObjectURL(e.target.files[0])
           setFile(url.toString())
-          backgroundHandler(Props.presentation.selectedSlides[0].slideId, 'image' ,url)
+          backgroundHandler(Props.editor.presentation.selectedSlides[0].slideId, 'image' ,url)
       }
      }
       const [fileImg, setFile] = useState('');
@@ -47,36 +49,45 @@ export function ToolBar(Props: { presentation: Presentation }) {
           if (e.target.files && e.target.files.length > 0) 
           { let url = URL.createObjectURL(e.target.files[0])
             setFile(url.toString())
-            createImageHandler(Props.presentation.selectedSlides[0].slideId, defaultImageType, url)
+            createImageHandler(Props.editor.presentation.selectedSlides[0].slideId, defaultImageType, url)
         }
       }
 
     return (
         <div className={styles.toolBar}>
-            <button onClick={addSlideHandler} className={styles.toolBarTool}>
+            <button onClick={() => {
+                addSlideHandler();
+                dispatch(updateHistory, Props.editor);
+            }} className={styles.toolBarTool}>
                 Добавить слайд
                 <img src={addSlide} className={styles.icon}/>
             </button>
-            <button onClick={() => removeSlideHandler(Props.presentation.selectedSlides[0].slideId)} className={styles.toolBarTool}>
+            <button onClick={() => removeSlideHandler(Props.editor.presentation.selectedSlides[0].slideId)} className={styles.toolBarTool}>
                 <img src={deleteSlide} className={styles.icon}/>
             </button>
-            <button className={styles.toolBarTool}><img src={back} className={styles.icon}/></button>
-            <button className={styles.toolBarTool}><img src={forward} className={styles.icon}/></button>
+            <button
+                onClick={() => dispatch(undo, Props.editor)}
+                className={styles.toolBarTool}><img src={back} className={styles.icon}/>
+            </button>
+            <button
+                onClick={() => dispatch(redo, Props.editor)}
+                className={styles.toolBarTool}><img src={forward} className={styles.icon}/>
+            </button>
             <div className={styles.toolBarTool + " " + styles.toolBarToolAddImage}>
                 <input onChange={convertFile} type="file" name="file" className={styles.inputFile} multiple/>
             </div>        
-            <button onClick={() => createBlockHandler(Props.presentation.selectedSlides[0].slideId, defaultTextBlockType)} className={styles.toolBarTool}>
+            <button onClick={() => createBlockHandler(Props.editor.presentation.selectedSlides[0].slideId, defaultTextBlockType)} className={styles.toolBarTool}>
                 <img src={addText} className={styles.icon}/>
             </button>
             <div className={styles.toolBarTool + " " + styles.toolBarToolFigure}><img src={addFigure} className={styles.icon}/>
                 <div className={styles.toolBarToolMenu}>
-                    <button onClick={() => createBlockHandler(Props.presentation.selectedSlides[0].slideId, defaultTriangleBlockType)} className={styles.figureBtn}>
+                    <button onClick={() => createBlockHandler(Props.editor.presentation.selectedSlides[0].slideId, defaultTriangleBlockType)} className={styles.figureBtn}>
                         <img src={triangle} className={styles.toolBarToolMenuFigure}/>
                     </button>
-                    <button onClick={() => createBlockHandler(Props.presentation.selectedSlides[0].slideId, defaultCircleBlockType)} className={styles.figureBtn}>
+                    <button onClick={() => createBlockHandler(Props.editor.presentation.selectedSlides[0].slideId, defaultCircleBlockType)} className={styles.figureBtn}>
                         <img src={circle} className={styles.toolBarToolMenuFigure}/>
                     </button>
-                    <button onClick={() => createBlockHandler(Props.presentation.selectedSlides[0].slideId, defaultRectangleBlockType)} className={styles.mini + " " + styles.figureBtn}>
+                    <button onClick={() => createBlockHandler(Props.editor.presentation.selectedSlides[0].slideId, defaultRectangleBlockType)} className={styles.mini + " " + styles.figureBtn}>
                         <img src={square} className={styles.toolBarToolMenuFigure}/>
                     </button>
                 </div>

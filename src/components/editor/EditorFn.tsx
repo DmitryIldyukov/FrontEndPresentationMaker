@@ -18,8 +18,8 @@ import {
     editTextFontBold,
     editTextFontFamily,
     editTextContent,
-     convertJsonToPresentation,
-      convertPresentationToJson 
+    convertJsonToPresentation,
+    convertPresentationToJson, undo, redo, updateHistory
 } from "../../types/functions";
 import {dispatch} from "./Editor";
 
@@ -113,4 +113,16 @@ export const saveAsJsonHandler = () => {
 
 export const openJsonHandler = (json: string) => {
     dispatch(convertJsonToPresentation, json);
+}
+
+export const undoHandler = () => {
+    dispatch(undo, {})
+}
+
+export const redoHandler = () => {
+    dispatch(redo, {})
+}
+
+export const updateHistoryHandler = () => {
+    dispatch(updateHistory, {})
 }

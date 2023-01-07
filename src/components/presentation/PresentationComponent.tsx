@@ -16,7 +16,7 @@ const PresentationComponent = () => {
     return (
         <div className="App">
             <Header presentation={presentation}/>
-            <ToolBar presentation={presentation}/>
+            <ToolBar editor={editor}/>
             <div className={styles.mainPart}>
                 <SlideList slideList={presentationSlideList} selectedSlides={presentationSelectedSlideList}/>
                 <WorkingPlace presentation={presentation} slideId={presentation.selectedSlides[0].slideId}/>
