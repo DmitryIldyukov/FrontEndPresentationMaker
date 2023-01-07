@@ -71,21 +71,20 @@ export function savePresentation(presentation:Presentation): Presentation{
 //slide
 export function createSlide(editor: Editor): Editor {
 
-    const { presentation } = editor
-    const { slides } = presentation
-
     const newSlide: TSlide = {
-        slideId: presentation.slides.length + 1,
+        slideId: editor.presentation.slides.length + 1,
         blocks: [],
         background: defaultSlideBackground,
         selectedBlocks: []
     };
+    const newSlides = [...editor.presentation.slides, newSlide]
 
     return {
         ...editor,
         presentation: {
-            ...presentation,
-            slides: [...slides, newSlide]
+            ...editor.presentation,
+            slides: newSlides,
+            selectedSlides: [newSlide]
         }
     }
 }
@@ -110,7 +109,8 @@ export function removeSlide(editor: Editor, slideId: number): Editor {
         ...editor,
         presentation: {
             ...editor.presentation,
-            slides: newSlides
+            slides: newSlides,
+            selectedSlides: [editor.presentation.slides[0]]
         }
     }
 }
