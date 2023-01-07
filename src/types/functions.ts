@@ -331,24 +331,31 @@ export function editTextColor(presentation: Presentation, payload:{slideId: numb
         })
     };}
 
-export function editTextFontFamily(presentation: Presentation, slideId: number, blockId: number, newFontFamily: string): Presentation {
-    const slide = presentation.slides[slideId]
-    const block = slide.blocks[blockId]
-    const newBlock = {
+export function editTextFontFamily(presentation: Presentation, payload:{slideId: number, blockId: number, newFontFamily: string}): Presentation {
+    const slide = presentation.slides[payload.slideId]
+    const block = slide.selectedBlocks[0]
+    const newTextFamily = {
         ...block,
-        fontFamily: newFontFamily
-    }
+        blockType: {        
+            ...block.blockType,
+            typeBlock: {        
+                ...block.blockType.typeBlock,
+                fontFamily: payload.newFontFamily
+            }
+        }
+    };
     const newSlide = {
         ...slide,
         blocks: slide.blocks.map(( currentBlock, id) => {
-            return (id === blockId) ? newBlock : currentBlock;
+            return (id === payload.blockId - 1) ? newTextFamily : currentBlock;
         })};
     return {
         ...presentation,
         slides: presentation.slides.map(( currentSlide, id) => {
-            return (id === slideId) ? newSlide : currentSlide;
+            return (id === payload.slideId) ? newSlide : currentSlide;
         })
-    };}
+    };
+    };
     
 export function editTextContent(presentation: Presentation, slideId: number, blockId: number, newContent: string): Presentation {
     const slide = presentation.slides[slideId]

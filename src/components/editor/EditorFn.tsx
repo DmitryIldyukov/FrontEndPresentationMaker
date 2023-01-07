@@ -7,7 +7,15 @@ import {
     createBlock,
     editSlideBackground,
     createImage,
-    selectBlock, removeBlock, editFigureColor, editFigureBorderColor, editTextColor, editTextFontSize, editTextFontItalic, editTextFontBold
+    selectBlock,
+    removeBlock,
+    editFigureColor,
+    editFigureBorderColor,
+    editTextColor,
+    editTextFontSize,
+    editTextFontItalic,
+    editTextFontBold,
+    editTextFontFamily
 } from "../../types/functions";
 import {dispatch} from "./Editor";
 
@@ -86,4 +94,8 @@ export const changeTextStyleHandler = (blockId: number, slideId: number, newFont
 
 export const changeTextWeightHandler = (blockId: number, slideId: number, newFontBold: number) => {
     dispatch(editTextFontBold, {blockId, slideId, newFontBold})
+}
+
+export const changeFontFamilyHandler = (blockId: number, slideId: number, newFontFamily: string) => {
+    dispatch(editTextFontFamily, {blockId, slideId, newFontFamily})
 }
