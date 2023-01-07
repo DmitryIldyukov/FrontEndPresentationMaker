@@ -8,7 +8,8 @@ import ToolsPanel from "../toolsPanel/ToolsPanel";
 import { getState } from "../editor/Editor";
 
 const PresentationComponent = () => {
-    const presentation: Presentation = getState();
+    const editor: Editor = getState();
+    const presentation: Presentation = editor.presentation;
     const presentationSlideList: TSlide[] = presentation.slides;
     const presentationSelectedSlideList: TSlide[]= presentation.selectedSlides;
 

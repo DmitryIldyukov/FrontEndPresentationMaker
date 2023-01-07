@@ -1,9 +1,17 @@
+type Editor = {
+    history: THistory;
+    presentation: Presentation;
+}
+
+type THistory = {
+    index: number;
+    states: Presentation[];
+}
+
 type Presentation = {
     presentationName: string;
     slides: TSlide[];
     selectedSlides: TSlide[];
-    history:Presentation[];
-    historyIndex: number;
 }
 
 type TSlide = {

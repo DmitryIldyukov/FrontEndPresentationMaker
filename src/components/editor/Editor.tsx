@@ -1,19 +1,19 @@
 import {createPresentation} from "../../types/functions";
 
-let editor: Presentation = createPresentation();
+let editorU: Editor = createPresentation();
 
 let onChangeHandler: Function = () => {};
 
 function dispatch(modifyFn: Function, payload: Object): void {
-    setState(modifyFn(editor, payload));
+    setState(modifyFn(editorU, payload));
 }
 
-function getState(): Presentation {
-    return editor;
+function getState(): Editor {
+    return editorU;
 }
 
-function setState(newPresentation: Presentation): void {
-    editor = newPresentation;
+function setState(newPresentation: Editor): void {
+    editorU = newPresentation;
     onChangeHandler();
 }
 
