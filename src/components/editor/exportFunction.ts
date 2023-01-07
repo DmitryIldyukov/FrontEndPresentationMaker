@@ -101,7 +101,7 @@ function setPDF(prog: Presentation, doc: jsPDF) {
 
 async function saveDocPDF(prog: Presentation, Path:string, doc:jsPDF){
     await setPDF(prog, doc)
-    doc.save("/" + prog.presentationName + ".pdf")
+    doc.save(prog.presentationName + ".pdf")
 }
 
 export function saveProgramAsPDF(prog: Presentation) {
