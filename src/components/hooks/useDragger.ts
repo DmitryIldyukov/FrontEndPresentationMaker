@@ -41,6 +41,7 @@ function useDragger(id: string, startPos: Position, slideId: number, blockId: nu
         y: coords.current.lastY
       }
 
+      // console.log(slideId, blockId)
       savePosBlockHandler(slideId, blockId, newPosit)
     }
 
@@ -53,7 +54,7 @@ function useDragger(id: string, startPos: Position, slideId: number, blockId: nu
       target.style.top = `${nextY}px`;
       target.style.left = `${nextX}px`;
 
-      selectBlockHandler(slideId - 1, blockId - 1)
+      selectBlockHandler(slideId - 1, blockId)
     }
 
     target.addEventListener('mousedown', onMouseDown);
@@ -69,13 +70,6 @@ function useDragger(id: string, startPos: Position, slideId: number, blockId: nu
     }
     return cleanup;
   }, [id])
-
-  const newPos: Position = {
-    x: coords.current.lastX,
-    y: coords.current.lastY
-  }
-
-  return newPos
 }
 
 export default useDragger;

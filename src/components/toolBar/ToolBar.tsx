@@ -15,18 +15,17 @@ import {
     removeSlideHandler,
     createBlockHandler,
     backgroundHandler,
-    createImageHandler, updateHistoryHandler, redoHandler, undoHandler
+    createImageHandler,
+    redoHandler,
+    undoHandler
 } from "../editor/EditorFn";
 import {
     defaultTextBlockType,
     defaultCircleBlockType,
     defaultRectangleBlockType,
     defaultTriangleBlockType,
-    defaultImage,
     defaultImageType
 } from "../../types/consts";
-import {dispatch} from "../editor/Editor";
-import {redo, undo, updateHistory} from "../../types/functions";
 
 export function ToolBar(Props: { editor: Editor }) {
      const [color, setColor]=useState('')

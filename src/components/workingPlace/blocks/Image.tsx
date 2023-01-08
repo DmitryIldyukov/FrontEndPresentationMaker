@@ -38,7 +38,7 @@ function Image(Props: {presentation: Presentation, slideId: number, size: Size, 
     return (
         <div id={countstr} style={sizing} className={styles.container} >
             <img
-                onClick={() => selectBlockHandler(Props.slideId - 1, Props.blockId - 1)}
+                onClick={() => selectBlockHandler(Props.slideId - 1, Props.blockId)}
                 src={Props.imageUrl}
                 className={styles.imgStyle}
             />

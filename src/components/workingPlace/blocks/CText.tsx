@@ -34,7 +34,7 @@ function CText(Props: {
         if (Props.presentation.slides[Props.slideId - 1].blocks.length > 0) {
             if (Props.presentation.slides[Props.slideId - 1].selectedBlocks.length > 0) {
                 if ((Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1] !== undefined)) {
-                    if ((Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId) === count) {
+                    if ((Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId) === Props.blockId) {
                         return true
                     }
                 }
