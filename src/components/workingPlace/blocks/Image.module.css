@@ -8,6 +8,9 @@
 
 .container {
     position: absolute;
+}
+
+.checked {
     resize: both;
     overflow: hidden;
     border: 1px dashed;
