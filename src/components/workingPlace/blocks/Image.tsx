@@ -36,12 +36,14 @@ function Image(Props: {presentation: Presentation, slideId: number, size: Size, 
     }
 
     return (
-        <div id={countstr} style={sizing} className={styles.container} >
-            <img
-                onClick={() => selectBlockHandler(Props.slideId - 1, Props.blockId)}
-                src={Props.imageUrl}
-                className={styles.imgStyle}
-            />
+        <div>
+            <div id={countstr} style={sizing} className={styles.container + " " + (checkSelect() ? styles.checked : undefined)} >
+                <img
+                    onClick={() => selectBlockHandler(Props.slideId - 1, Props.blockId)}
+                    src={Props.imageUrl}
+                    className={styles.imgStyle}
+                />
+            </div>
         </div>
     )
 }
