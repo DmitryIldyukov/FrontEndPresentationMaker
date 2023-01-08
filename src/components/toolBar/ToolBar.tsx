@@ -15,18 +15,17 @@ import {
     removeSlideHandler,
     createBlockHandler,
     backgroundHandler,
-    createImageHandler, updateHistoryHandler, redoHandler, undoHandler
+    createImageHandler,
+    redoHandler,
+    undoHandler
 } from "../editor/EditorFn";
 import {
     defaultTextBlockType,
     defaultCircleBlockType,
     defaultRectangleBlockType,
     defaultTriangleBlockType,
-    defaultImage,
     defaultImageType
 } from "../../types/consts";
-import {dispatch} from "../editor/Editor";
-import {redo, undo, updateHistory} from "../../types/functions";
 
 export function ToolBar(Props: { editor: Editor }) {
      const [color, setColor]=useState('')
@@ -73,7 +72,7 @@ export function ToolBar(Props: { editor: Editor }) {
                 className={styles.toolBarTool}><img src={forward} className={styles.icon}/>
             </button>
             <div className={styles.toolBarTool + " " + styles.toolBarToolAddImage}>
-                <input onChange={convertFile} type="file" name="file" className={styles.inputFile} multiple/>
+                <input onChange={convertFile} type="file" name="file" accept='.jpg, .jpeg, .png, .svg' className={styles.inputFile} multiple/>
             </div>        
             <button onClick={() => createBlockHandler(Props.editor.presentation.selectedSlides[0].slideId, defaultTextBlockType)} className={styles.toolBarTool}>
                 <img src={addText} className={styles.icon}/>
@@ -97,7 +96,7 @@ export function ToolBar(Props: { editor: Editor }) {
                     <input type='color' onChange={(changeBackgroundColorHandler)} value={color} className={styles.toolBarToolBucket}/>
                 </div>
                 <button className={styles.backgroundImg}>
-                    <input onChange={(changeBackgroundImageHandler)} type="file" name="file" className={styles.inputFile} multiple/>
+                    <input onChange={(changeBackgroundImageHandler)} type="file" name="file" accept='.jpg, .jpeg, .png' className={styles.inputFile} multiple/>
                 </button>
             </div>
             <button className={styles.toolBarTool}><img src={showSlides} className={styles.icon}/>Показ слайдов</button>

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import {savePosBlockHandler} from "../editor/EditorFn";
+import {savePosBlockHandler, selectBlockHandler} from "../editor/EditorFn";
 
-function useDragger(id: string, startPos: Position) {
+function useDragger(id: string, startPos: Position, slideId: number, blockId: number) {
 
   const isClicked = useRef<boolean>(false);
 
@@ -22,7 +22,7 @@ function useDragger(id: string, startPos: Position) {
     const target = document.getElementById(id);
     if (!target) throw new Error("Element with given id doesn't exist");
 
-    const container = target.parentElement;
+    const container = document.getElementById(slideId.toString());
     if (!container) throw new Error("target element must have a parent");
 
     const onMouseDown = (e: MouseEvent) => {
@@ -35,6 +35,13 @@ function useDragger(id: string, startPos: Position) {
       isClicked.current = false;
       coords.current.lastX = target.offsetLeft;
       coords.current.lastY = target.offsetTop;
+
+      const newPosit: Position = {
+        x: coords.current.lastX,
+        y: coords.current.lastY
+      }
+
+      savePosBlockHandler(slideId, blockId, newPosit)
     }
 
     const onMouseMove = (e: MouseEvent) => {
@@ -45,6 +52,8 @@ function useDragger(id: string, startPos: Position) {
 
       target.style.top = `${nextY}px`;
       target.style.left = `${nextX}px`;
+
+      selectBlockHandler(slideId - 1, blockId)
     }
 
     target.addEventListener('mousedown', onMouseDown);
@@ -60,13 +69,6 @@ function useDragger(id: string, startPos: Position) {
     }
     return cleanup;
   }, [id])
-
-  const newPos: Position = {
-    x: coords.current.lastX,
-    y: coords.current.lastY
-  }
-
-  return newPos
 }
 
 export default useDragger;

@@ -1,21 +1,19 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './Circle.module.css';
 import useDragger from '../../../hooks/useDragger';
 import {savePosBlockHandler, selectBlockHandler} from "../../../editor/EditorFn";
 
-let countstr = "";
-
 function Circle(Props: {presentation: Presentation, color: string, borderColor: string, size: Size, slideId: number, blockId: number, position: Position}) {
-    let count = Props.blockId;
-    countstr = count.toString();
-    let lastPosition: Position = Props.position;
-    let newPos: Position;
-    newPos = useDragger(countstr, lastPosition);
+    const [pos, setPos] = useState(Props.position)
 
-    if (lastPosition.x !== newPos.x || lastPosition.y !== newPos.y) {
-        savePosBlockHandler(Props.slideId, Props.blockId, newPos);
-        lastPosition = newPos;
-    }
+    const count = Props.blockId;
+    const countstr = count.toString();
+
+    useEffect(() => {
+        setPos(Props.position)
+    })
+
+    useDragger(countstr, Props.position, Props.slideId, Props.blockId);
 
     const sizing = {
         height: Props.size.height,
@@ -34,7 +32,7 @@ function Circle(Props: {presentation: Presentation, color: string, borderColor: 
             if (Props.presentation.slides[Props.slideId - 1].selectedBlocks.length > 0) {
                 if ((Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1] !== undefined)) {
                     if ((Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId) === count) {
-                        return true;
+                        return true
                     }
                 }
             }
@@ -45,7 +43,7 @@ function Circle(Props: {presentation: Presentation, color: string, borderColor: 
     return (
         <div>
             <div
-                onClick={() => selectBlockHandler(Props.slideId - 1, count - 1)}
+                onClick={() => selectBlockHandler(Props.slideId - 1, Props.blockId)}
                 className={styles.circle + " " + (checkSelect() ? styles.checked : undefined)}
                 style={sizing}
                 id={countstr}
