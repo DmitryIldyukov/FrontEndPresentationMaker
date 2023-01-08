@@ -1,23 +1,32 @@
 import React from 'react';
 import styles from './Circle.module.css';
 import useDragger from '../../../hooks/useDragger';
-import { selectBlockHandler } from "../../../editor/EditorFn";
+import {savePosBlockHandler, selectBlockHandler} from "../../../editor/EditorFn";
 
 let countstr = "";
 
-function Circle(Props: {presentation: Presentation, color: string, borderColor: string, size: Size, slideId: number, blockId: number}) {
+function Circle(Props: {presentation: Presentation, color: string, borderColor: string, size: Size, slideId: number, blockId: number, position: Position}) {
     let count = Props.blockId;
     countstr = count.toString();
-    useDragger(countstr);
+    let lastPosition: Position = Props.position;
+    let newPos: Position;
+    newPos = useDragger(countstr, lastPosition);
 
-    const circleStyle = {
-        color: Props.color,
-        borderColor: Props.borderColor
+    if (lastPosition.x !== newPos.x || lastPosition.y !== newPos.y) {
+        savePosBlockHandler(Props.slideId, Props.blockId, newPos);
+        lastPosition = newPos;
     }
 
     const sizing = {
         height: Props.size.height,
-        width: Props.size.width
+        width: Props.size.width,
+        top: Props.position.y + 'px',
+        left: Props.position.x + 'px'
+    }
+
+    const circleStyle = {
+        color: Props.color,
+        borderColor: Props.borderColor
     }
 
     function checkSelect() {
@@ -25,7 +34,7 @@ function Circle(Props: {presentation: Presentation, color: string, borderColor: 
             if (Props.presentation.slides[Props.slideId - 1].selectedBlocks.length > 0) {
                 if ((Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1] !== undefined)) {
                     if ((Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId) === count) {
-                        return true
+                        return true;
                     }
                 }
             }
