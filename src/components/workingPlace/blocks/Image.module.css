@@ -1,4 +1,12 @@
 .imgStyle {
+    height: 95%;
+    width: 95%;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+}
+
+.container {
     position: absolute;
-    object-fit: contain;
+    resize: both;
+    overflow: hidden;
 }
