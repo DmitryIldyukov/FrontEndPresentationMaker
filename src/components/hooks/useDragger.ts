@@ -22,7 +22,7 @@ function useDragger(id: string, startPos: Position, slideId: number, blockId: nu
     const target = document.getElementById(id);
     if (!target) throw new Error("Element with given id doesn't exist");
 
-    const container = target.parentElement;
+    const container = document.getElementById(slideId.toString());
     if (!container) throw new Error("target element must have a parent");
 
     const onMouseDown = (e: MouseEvent) => {
@@ -41,7 +41,6 @@ function useDragger(id: string, startPos: Position, slideId: number, blockId: nu
         y: coords.current.lastY
       }
 
-      // console.log(slideId, blockId)
       savePosBlockHandler(slideId, blockId, newPosit)
     }
 

@@ -7,7 +7,7 @@ import Circle from "./blocks/figures/Circle";
 import Image from './blocks/Image';
 
 function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
-    const imageBlocks = Props.presentation.slides[Props.slideId - 1].blocks.map((block, id) => {
+    const blocks = Props.presentation.slides[Props.slideId - 1].blocks.map((block, id) => {
         if (block.blockType.typeBlock.type === "image") {
             block.size = {
                 height: 200,
@@ -26,10 +26,6 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
                 />
             }
         }
-        return null
-    })
-
-    const textBlocks = Props.presentation.slides[Props.slideId - 1].blocks.map((block, id) => {
         if (block.blockType.typeBlock.type === "text") {
 
             block.size = {
@@ -52,10 +48,6 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
                 position={block.position}
             />
         }
-        return null;
-    })
-
-    const figureBlocks = Props.presentation.slides[Props.slideId - 1].blocks.map((block, id) => {
         if (block.blockType.typeBlock.type === "figure") {
 
             block.size = {
@@ -101,7 +93,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
             }
             return null;
         }
-        return null;
+        return null
     })
 
     const newBackground: BackgroundColor| BackgroundImage = Props.presentation.slides[Props.slideId - 1].background;
@@ -119,10 +111,8 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
 
     return (
         <div className={styles.workingPlace}>
-            <div className={styles.slidePlace} style={style}>
-                {textBlocks}
-                {figureBlocks}
-                {imageBlocks}
+            <div className={styles.slidePlace} style={style} id={Props.slideId.toString()}>
+                {blocks}
             </div>
         </div>
     );
