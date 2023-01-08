@@ -131,3 +131,22 @@ input[type="number"]::-webkit-inner-spin-button {
     background-image: url(../../../assets/borderImg.svg);
     background-repeat: no-repeat;
 }
+
+.toolBtn:nth-child(5) {
+    background-image: url(../../../assets/BoldImg.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+} 
+
+.toolBtn:nth-child(5) input,
+.toolBtn:nth-child(6) input {
+    opacity: 0;
+    width: 36px;
+    height: 36px;
+}
+
+.toolBtn:nth-child(6) {
+    background-image: url(../../../assets/CursiveImg.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+} 

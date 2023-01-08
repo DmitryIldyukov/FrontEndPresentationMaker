@@ -2,14 +2,13 @@ import React, {useState} from 'react';
 import styles from './TextTool.module.css';
 import deleteImg from '../../../assets/deleteBlock.svg';
 import arImg from '../../../assets/Ar.svg';
-import fontBoldImg from '../../../assets/BoldImg.svg';
-import cursiveImg from '../../../assets/CursiveImg.svg';
 import {removeBlockHandler, changeTextColorHandler, changeTextSizeHandler, changeTextStyleHandler, changeTextWeightHandler, changeFontFamilyHandler} from "../../editor/EditorFn";
 import { defaultTextBlock } from '../../../types/consts';
 
 const TextTool = (Props: {presentation: Presentation, slideId: number}) => {
     const [fontSizeU, setFontSizeU] = useState(defaultTextBlock.fontSize);
-    const [color, setColor] = useState('')
+    const [color, setColor] = useState('');
+    const [isChecked, setIsChecked] = useState(false)
 
     function increment() {
         if (fontSizeU < 80) {
@@ -30,6 +29,24 @@ const TextTool = (Props: {presentation: Presentation, slideId: number}) => {
         changeTextColorHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, e.target.value)
     }
 
+
+    const checkHandler = () => {
+      setIsChecked(!isChecked)
+      if ((!isChecked) === true) {
+        changeTextWeightHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, 700 )
+      } else {
+        changeTextWeightHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, 400 )
+      }
+    }
+
+    const secondCheckHandler = () => {
+        setIsChecked(!isChecked)
+        if ((!isChecked) === true) {
+            changeTextStyleHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, "italic")
+        } else {
+            changeTextStyleHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, "normal")
+        }
+    }
     return (
         <div className={styles.textTool}>
             <button className={styles.toolBtn}><img src={deleteImg} onClick={() => removeBlockHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1)}/></button>
@@ -53,8 +70,12 @@ const TextTool = (Props: {presentation: Presentation, slideId: number}) => {
             <button className={styles.toolBtn}>
                 <input onChange={editTextColorHandler} type='color' className={styles.toolBarToolPencil}/>
             </button>
-            <button onClick={() => changeTextWeightHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, 700 )}className={styles.toolBtn}><img src={fontBoldImg}/></button>
-            <button onClick={() => changeTextStyleHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, "italic")} className={styles.toolBtn}><img src={cursiveImg}/></button>
+            <div className={styles.toolBtn}>
+                <input type={'checkbox'} checked={isChecked} onChange={checkHandler}/>
+            </div>
+            <div className={styles.toolBtn}>
+                <input type={'checkbox'} checked={isChecked} onChange={secondCheckHandler}/>
+            </div>
         </div>
     );
 };
