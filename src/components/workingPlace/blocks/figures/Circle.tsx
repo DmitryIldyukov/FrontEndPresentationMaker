@@ -3,13 +3,11 @@ import styles from './Circle.module.css';
 import useDragger from '../../../hooks/useDragger';
 import {savePosBlockHandler, selectBlockHandler} from "../../../editor/EditorFn";
 
-let countstr = "";
-
 function Circle(Props: {presentation: Presentation, color: string, borderColor: string, size: Size, slideId: number, blockId: number, position: Position}) {
     const [pos, setPos] = useState(Props.position)
 
-    let count = Props.blockId;
-    countstr = count.toString();
+    const count = Props.blockId;
+    const countstr = count.toString();
 
     useEffect(() => {
         setPos(Props.position)
