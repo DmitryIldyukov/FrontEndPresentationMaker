@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import {savePosBlockHandler} from "../editor/EditorFn";
+import {savePosBlockHandler, selectBlockHandler} from "../editor/EditorFn";
 
-function useDragger(id: string, startPos: Position) {
+function useDragger(id: string, startPos: Position, slideId: number, blockId: number) {
 
   const isClicked = useRef<boolean>(false);
 
@@ -35,6 +35,13 @@ function useDragger(id: string, startPos: Position) {
       isClicked.current = false;
       coords.current.lastX = target.offsetLeft;
       coords.current.lastY = target.offsetTop;
+
+      const newPosit: Position = {
+        x: coords.current.lastX,
+        y: coords.current.lastY
+      }
+
+      savePosBlockHandler(slideId, blockId, newPosit)
     }
 
     const onMouseMove = (e: MouseEvent) => {
@@ -45,6 +52,8 @@ function useDragger(id: string, startPos: Position) {
 
       target.style.top = `${nextY}px`;
       target.style.left = `${nextX}px`;
+
+      selectBlockHandler(slideId - 1, blockId - 1)
     }
 
     target.addEventListener('mousedown', onMouseDown);

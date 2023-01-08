@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './Image.module.css';
 import useDragger from '../../hooks/useDragger';
 import {selectBlockHandler} from "../../editor/EditorFn";
@@ -6,9 +6,16 @@ import {selectBlockHandler} from "../../editor/EditorFn";
 let countstr = ""
 
 function Image(Props: {presentation: Presentation, slideId: number, size: Size, imageUrl: string, blockId: number, position: Position}) {
+    const [pos, setPos] = useState(Props.position)
+
     let count = Props.blockId;
     countstr = count.toString();
-    let newPos: Position = useDragger(countstr, Props.position);
+
+    useEffect(() => {
+        setPos(Props.position)
+    })
+
+    useDragger(countstr, Props.position, Props.slideId, Props.blockId);
 
     function checkSelect() {
         if (Props.presentation.slides[Props.slideId - 1].blocks.length > 0) {
