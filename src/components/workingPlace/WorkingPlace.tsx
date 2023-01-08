@@ -113,10 +113,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
     } else {
         style = {
             background: 'url(' + (newBackground.src) + ')',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            width: 'x',
-            height: 'y'
+            backgroundSize: '854px 480px'
         }
     }
 
