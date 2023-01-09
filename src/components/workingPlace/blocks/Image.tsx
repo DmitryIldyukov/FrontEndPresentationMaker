@@ -32,7 +32,9 @@ function Image(Props: {presentation: Presentation, slideId: number, size: Size, 
     
     const sizing = {
         height: Props.size.height,
-        width: Props.size.width
+        width: Props.size.width,
+        top: Props.position.y + 'px',
+        left: Props.position.x + 'px'
     }
 
     return (
