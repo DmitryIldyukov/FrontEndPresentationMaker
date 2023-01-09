@@ -42,8 +42,8 @@ export function createImage(editor: Editor, payload: {slideId: number, typeOfBlo
             y: 60
         },
         size :{
-            width: 60,
-            height: 60
+            width: 300,
+            height: 300
         },
         link: payload.urlImage
     }
@@ -189,8 +189,8 @@ export function createBlock(editor: Editor, payload: {slideId: number, typeOfBlo
             y: 0
         },
         size :{
-            width: 50,
-            height: 50
+            width: 100,
+            height: 100
         }
     }
 
