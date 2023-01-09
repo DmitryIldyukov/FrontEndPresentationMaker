@@ -18,7 +18,7 @@ import {
     editTextFontBold,
     editTextFontFamily,
     editTextContent,
-    savePosBlock
+    savePosBlock, editBlockSize
 } from "../../types/functions";
 import {
     convertJsonToPresentation,
@@ -153,4 +153,8 @@ export const updateHistoryHandler = () => {
 
 export const savePosBlockHandler = (slideId: number, blockId: number, newPosition: Position) => {
     dispatch(savePosBlock, {slideId, blockId, newPosition})
+}
+
+export const editBlockSizeHandler = (slideId: number, blockId: number, newSize: Size) => {
+    dispatch(editBlockSize, {slideId, blockId, newSize})
 }
