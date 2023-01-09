@@ -287,23 +287,26 @@ export function savePosBlock(editor: Editor, payload: {slideId: number, blockId:
     }
 }
 
-export function editBlockSize(presentation: Presentation, slideId: number, blockId: number, newSize: Size): Presentation {
-    const slide = presentation.slides[slideId];
-    const block = slide.blocks[blockId];
+export function editBlockSize(editor: Editor, payload: {slideId: number, blockId: number, newSize: Size}): Editor {
+    const slide = editor.presentation.slides[payload.slideId - 1];
+    const block = slide.blocks[searchBlockId(payload.slideId, payload.blockId)];
     const newBlock = {
         ...block,
-        size : newSize
+        size : payload.newSize
     }
     const newSlide = {
         ...slide,
         blocks: slide.blocks.map(( currentBlock, id) => {
-            return (id === blockId) ? newBlock : currentBlock;
+            return (id === searchBlockId(payload.slideId, payload.blockId)) ? newBlock : currentBlock;
         })};
     return {
-        ...presentation,
-        slides: presentation.slides.map(( currentSlide, id) => {
-            return (id === slideId) ? newSlide : currentSlide;
-        })
+        ...editor,
+        presentation: {
+            ...editor.presentation,
+            slides: editor.presentation.slides.map(( currentSlide, id) => {
+                return (id === payload.slideId - 1) ? newSlide : currentSlide;
+            })
+        }
     };
 }
 
