@@ -5,6 +5,7 @@ import Triangle from "./blocks/figures/Triangle";
 import Rectangle from "./blocks/figures/Rectangle";
 import Circle from "./blocks/figures/Circle";
 import Image from './blocks/Image';
+import { selectBlockHandler } from '../editor/EditorFn';
 
 function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
     const blocks = Props.presentation.slides[Props.slideId - 1].blocks.map((block, id) => {
@@ -96,7 +97,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
     }
 
     return (
-        <div className={styles.workingPlace}>
+        <div className={styles.workingPlace} onClick={() => selectBlockHandler(Props.slideId -1 , 0)}>
             <div className={styles.slidePlace} style={style} id={Props.slideId.toString()}>
                 {blocks}
             </div>

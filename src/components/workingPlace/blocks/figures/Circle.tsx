@@ -43,7 +43,7 @@ function Circle(Props: {presentation: Presentation, color: string, borderColor: 
     return (
         <div>
             <div
-                onClick={() => selectBlockHandler(Props.slideId - 1, Props.blockId)}
+                onDoubleClick={() => selectBlockHandler(Props.slideId - 1, Props.blockId)}
                 className={styles.circle + " " + (checkSelect() ? styles.checked : undefined)}
                 style={sizing}
                 id={countstr}

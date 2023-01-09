@@ -62,7 +62,7 @@ function CText(Props: {
     return (
         <div>
             <textarea
-                onClick={() => selectBlockHandler(Props.slideId - 1, Props.blockId)}
+                onDoubleClick={() => selectBlockHandler(Props.slideId - 1, Props.blockId)}
                 onChange={(e) => editTextContentHandler(e)}
                 className={styles.text + " " + (checkSelect() ? styles.checked : undefined)}
                 style={textStyle}
