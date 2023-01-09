@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import {editBlockSizeHandler, savePosBlockHandler, selectBlockHandler} from "../editor/EditorFn";
-import {editBlockSize} from "../../types/functions";
 
 function useDragger(id: string, startPos: Position, slideId: number, blockId: number) {
 
@@ -49,7 +48,7 @@ function useDragger(id: string, startPos: Position, slideId: number, blockId: nu
         height: newSizeHeight,
         width: newSizeWidth
       }
-
+      
       editBlockSizeHandler(slideId, blockId, newSize)
       savePosBlockHandler(slideId, blockId, newPosit)
     }

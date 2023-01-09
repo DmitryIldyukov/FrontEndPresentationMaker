@@ -1,4 +1,4 @@
-import { defaultSlide, defaultSlideBackground } from ".././components/toolBar/ToolBarConst"
+import { defaultSlide, defaultSlideBackground } from "../components/toolBar/ToolBarConst"
 
 function searchBlockId(slideId: number, blockId: number): number {
 
