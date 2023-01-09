@@ -1,4 +1,4 @@
-import {defaultSlide, defaultSlideBackground} from "./consts"
+import { defaultSlide, defaultSlideBackground } from ".././components/toolBar/ToolBarConst"
 
 function searchBlockId(slideId: number, blockId: number): number {
 
@@ -16,23 +16,6 @@ function searchBlockId(slideId: number, blockId: number): number {
 
 function createBlockId(slideId: number, blockId: number) {
     return Number(slideId.toString() + (blockId + 1).toString())
-}
-
-export function convertPresentationToJson(editor: Editor): Editor {
-    const json: string = JSON.stringify(editor.presentation);
-    const blob = new Blob([json], { type: "text/plain" });
-    const link = document.createElement("a");
-    link.setAttribute("href", URL.createObjectURL(blob));
-    link.setAttribute("download", editor.presentation.presentationName + ".json");
-    link.click();
-    return editor;
-}
-export function convertJsonToPresentation(editor: Editor, json: string): Editor {
-    if (typeof json === "object") {
-        return json;
-    }
-    editor.presentation = JSON.parse(json);
-    return editor;
 }
 
 export function createPresentation(): Editor {
@@ -557,48 +540,4 @@ export function editTextFontItalic(editor: Editor, payload:{slideId: number, blo
             })
         }
     };
-}
-
-export function undo(editor: Editor): Editor {
-    const newEditor: Editor = {
-        ...editor,
-    };
-
-    if (editor.history.index > 0) {
-        newEditor.history.index = editor.history.index - 1;
-        newEditor.presentation = editor.history.states[newEditor.history.index];
-    }
-
-
-    return newEditor;
-}
-
-export function redo(editor: Editor): Editor {
-    const newEditor: Editor = {
-        ...editor,
-    };
-
-    if (editor.history.index < editor.history.states.length - 1) {
-        newEditor.history.index = editor.history.index + 1;
-        newEditor.presentation = editor.history.states[newEditor.history.index];
-    }
-
-    return newEditor;
-}
-
-export function updateHistory(editor: Editor): Editor {
-    const newEditor: Editor = {
-        ...editor,
-        history: {
-            ...editor.history,
-            index: editor.history.index + 1,
-        },
-    };
-
-    const newStates = newEditor.history.states.filter((value, id) =>
-        id <= newEditor.history.index && value)
-
-    newEditor.history.states = [...newStates, editor.presentation]
-
-    return newEditor;
 }

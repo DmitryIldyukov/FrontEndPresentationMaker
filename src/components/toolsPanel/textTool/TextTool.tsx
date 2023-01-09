@@ -3,7 +3,7 @@ import styles from './TextTool.module.css';
 import deleteImg from '../../../assets/deleteBlock.svg';
 import arImg from '../../../assets/Ar.svg';
 import {removeBlockHandler, changeTextColorHandler, changeTextSizeHandler, changeTextStyleHandler, changeTextWeightHandler, changeFontFamilyHandler} from "../../editor/EditorFn";
-import { defaultTextBlock } from '../../../types/consts';
+import { defaultTextBlock } from '../../toolBar/ToolBarConst';
 
 const TextTool = (Props: {presentation: Presentation, slideId: number}) => {
     const [fontSizeU, setFontSizeU] = useState(defaultTextBlock.fontSize);

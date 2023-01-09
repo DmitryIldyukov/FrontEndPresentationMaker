@@ -3,8 +3,8 @@ import styles from './Header.module.css';
 import logo from '../../assets/logo.svg';
 import PresentationName from "./PresentationName";
 import { createPresentationHandler } from '../editor/EditorFn';
-import {saveAsJsonHandler, openJsonHandler} from '../editor/EditorFn'
-import {saveProgramAsPDF} from '../editor/exportFunction'
+import { saveAsJsonHandler, openJsonHandler } from '../editor/EditorFn'
+import { saveProgramAsPDF } from '../hooks/exportFunctions'
 
 export function Header(Props: { presentation: Presentation }) {
     const fileChangeHandle = (e: React.ChangeEvent<HTMLInputElement>) => {

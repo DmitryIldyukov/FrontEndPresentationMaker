@@ -25,7 +25,7 @@ import {
     defaultRectangleBlockType,
     defaultTriangleBlockType,
     defaultImageType
-} from "../../types/consts";
+} from "./ToolBarConst";
 
 export function ToolBar(Props: { editor: Editor }) {
      const [color, setColor]=useState('')
