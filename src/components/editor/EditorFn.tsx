@@ -18,10 +18,18 @@ import {
     editTextFontBold,
     editTextFontFamily,
     editTextContent,
-    convertJsonToPresentation,
-    convertPresentationToJson, undo, redo, updateHistory, savePosBlock
+    savePosBlock
 } from "../../types/functions";
-import {dispatch} from "./Editor";
+import {
+    convertJsonToPresentation,
+    convertPresentationToJson
+} from "../hooks/exportFunctions";
+import {
+    undo,
+    redo,
+    updateHistory
+} from "../hooks/undoRedo";
+import { dispatch } from "./Editor";
 
 export const addSlideHandler = () => {
     updateHistoryHandler();
