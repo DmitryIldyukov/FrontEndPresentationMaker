@@ -1,12 +1,14 @@
 import jsPDF from "jspdf";
 
-const exportWidth = 1110
-const exportHeight = 660
+const exportWidth = 854
+const exportHeight = 480
 
 function setElementToPagePDF(progSlide: Block, doc:jsPDF) {
-    if (progSlide.blockType.typeBlock.type === "image"){
-        let imgData2 = progSlide.blockType.typeBlock.src;
-        doc.addImage(imgData2, 'jpg', +progSlide.position.x, +progSlide.position.y, +progSlide.size.width, +progSlide.size.height)
+    if (progSlide.blockType.typeBlock.type === 'image'){
+        if (progSlide.link !== undefined) {
+            let imgData2 = progSlide.link;
+            doc.addImage(imgData2, 'jpg', + progSlide.position.x, + progSlide.position.y, + progSlide.size.width, + progSlide.size.height)
+        }
     }
     else if (progSlide.blockType.typeBlock.type === "text"){
         let CanEl:HTMLCanvasElement = document.createElement('canvas')
