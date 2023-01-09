@@ -68,9 +68,9 @@ export function createImage(editor: Editor, payload: {slideId: number, typeOfBlo
 }
 
 
-export function showPresentation(presentation:Presentation): Presentation{
-    return presentation;
-}
+// export function showPresentation(presentation:Presentation): Presentation{
+//     return presentation;
+// }
 
 export function changePresentationName(editor: Editor, newName: string): Editor {
     return {
@@ -82,9 +82,9 @@ export function changePresentationName(editor: Editor, newName: string): Editor 
     }
 }
 
-export function savePresentation(presentation:Presentation): Presentation{
-    return presentation;
-}
+// export function savePresentation(presentation:Presentation): Presentation{
+//     return presentation;
+// }
 
 //slide
 export function createSlide(editor: Editor): Editor {
