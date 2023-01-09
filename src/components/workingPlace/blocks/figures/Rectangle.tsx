@@ -43,7 +43,7 @@ function Rectangle(Props: {presentation: Presentation, slideId: number, color: s
     }
 
     return (
-        <div className={styles.rectangleSize} onDoubleClick={() => selectBlockHandler(Props.slideId - 1, Props.blockId)}>
+        <div className={styles.rectangleSize} onClick={() => selectBlockHandler(Props.slideId - 1, Props.blockId)}>
             <div className={styles.rectangle + " " + (checkSelect() ? styles.checked : undefined)} style={sizing} id={countstr}>
                 <svg style={rectangleStyle} width='100%' height='100%' id={countstr} >
                     <rect x="1%" y="1%" width='98%' height='98%'

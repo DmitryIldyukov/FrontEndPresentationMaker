@@ -5,11 +5,14 @@ import Triangle from "./blocks/figures/Triangle";
 import Rectangle from "./blocks/figures/Rectangle";
 import Circle from "./blocks/figures/Circle";
 import Image from './blocks/Image';
-import { selectBlockHandler } from '../editor/EditorFn';
 
 function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
     const blocks = Props.presentation.slides[Props.slideId - 1].blocks.map((block, id) => {
         if (block.blockType.typeBlock.type === "image") {
+            block.size = {
+                height: 200,
+                width: 200
+            }
 
             if (block.link !== undefined) {
                 return <Image
@@ -24,6 +27,11 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
             }
         }
         if (block.blockType.typeBlock.type === "text") {
+
+            block.size = {
+                height: 40,
+                width: 200
+            }
 
             return <CText
                 key={id}
@@ -41,6 +49,11 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
             />
         }
         if (block.blockType.typeBlock.type === "figure") {
+
+            block.size = {
+                height: 140,
+                width: 140
+            }
 
             if (block.blockType.typeBlock.figureType === "circle") {
                 return <Circle
@@ -97,7 +110,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
     }
 
     return (
-        <div className={styles.workingPlace} onClick={() => selectBlockHandler(Props.slideId -1 , 0)}>
+        <div className={styles.workingPlace} >
             <div className={styles.slidePlace} style={style} id={Props.slideId.toString()}>
                 {blocks}
             </div>

@@ -1,7 +1,7 @@
 import jsPDF from "jspdf";
 
 const exportWidth = 854
-const exportHeight = 480
+const exportHeight = 500
 
 function setElementToPagePDF(progSlide: Block, doc:jsPDF) {
     if (progSlide.blockType.typeBlock.type === 'image'){

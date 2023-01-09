@@ -43,7 +43,7 @@ function Triangle(Props: {presentation: Presentation, slideId: number, color: st
 
     return (
         <div>
-            <div className={styles.triangle + " " + (checkSelect() ? styles.checked : undefined)} style={sizing} id={countstr} onDoubleClick={() => selectBlockHandler(Props.slideId - 1, Props.blockId)}>
+            <div className={styles.triangle + " " + (checkSelect() ? styles.checked : undefined)} style={sizing} id={countstr} onClick={() => selectBlockHandler(Props.slideId - 1, Props.blockId)}>
                 <svg width='100%' height='100%' style={triangleStyle} preserveAspectRatio="none" id={countstr} viewBox='0 0 100 100'>
                     <polygon points='5,90 50,5 95,90'
                             fill={Props.color} stroke={Props.borderColor} strokeWidth="2"
