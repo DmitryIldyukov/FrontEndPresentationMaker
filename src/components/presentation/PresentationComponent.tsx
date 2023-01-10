@@ -18,7 +18,7 @@ const PresentationComponent = () => {
             <Header presentation={presentation}/>
             <ToolBar editor={editor}/>
             <div className={styles.mainPart}>
-                <SlideList slideList={presentationSlideList} selectedSlides={presentationSelectedSlideList}/>
+                <SlideList presentation={presentation} slideList={presentationSlideList} selectedSlides={presentationSelectedSlideList}/>
                 <WorkingPlace presentation={presentation} slideId={presentation.selectedSlides[0].slideId}/>
                 <ToolsPanel presentation={presentation} slideId={presentation.selectedSlides[0].slideId}/>
             </div>

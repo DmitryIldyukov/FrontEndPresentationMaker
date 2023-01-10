@@ -37,8 +37,8 @@ function Triangle(Props: {presentation: Presentation, slideId: number, color: st
     const sizing = {
         height: Props.size.height,
         width: Props.size.width,
-        top: Props.position.y + 'px',
-        left: Props.position.x + 'px'
+        top: Props.position.y,
+        left: Props.position.x
     }
 
     return (

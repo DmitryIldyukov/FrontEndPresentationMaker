@@ -4,6 +4,7 @@
     border-radius: 5px;
     border: 1px solid #6F6F6F;
     background-color: #FFFFFF;
+    position: relative;
 }
 
 .slideChecked {
@@ -23,6 +24,7 @@
 .slideContainer {
     display: flex;
     padding-top: 20px;
+    position: relative;
 }
 
 .slideContainer input[type=radio] {
