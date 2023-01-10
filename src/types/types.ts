@@ -66,7 +66,8 @@ type TText = {
 
 type Image = {
     type: 'image';
-    src: string
+    src: string,
+    id: number
 }
 
 type Figure = {

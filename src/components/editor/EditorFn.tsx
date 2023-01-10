@@ -49,7 +49,6 @@ export const createPresentationHandler = () => {
 }
 
 export const selectSlideHandler = (slideId: number, e: MouseEvent<HTMLLIElement>) => {
-    console.log(e.altKey)
     if (e.altKey) {
         dispatch(selectSlides, slideId)}
     else {
@@ -161,9 +160,11 @@ export const updateHistoryHandler = () => {
 }
 
 export const savePosBlockHandler = (slideId: number, blockId: number, newPosition: Position) => {
+    updateHistoryHandler();
     dispatch(savePosBlock, {slideId, blockId, newPosition})
 }
 
 export const editBlockSizeHandler = (slideId: number, blockId: number, newSize: Size) => {
+    updateHistoryHandler();
     dispatch(editBlockSize, {slideId, blockId, newSize})
 }

@@ -37,7 +37,8 @@ export const defaultCircleBlock: Figure = {
 
 export const defaultImage: Image = {
     type:'image',
-    src: ''
+    src: '',
+    id: 1
 }
 
 export const defaultImageType: ContentType = {
