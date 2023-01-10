@@ -71,6 +71,11 @@ function CText(Props: {
                 style={textStyle}
                 defaultValue={Props.content}
                 id={countstr}
+                onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                        e.currentTarget.blur();
+                    }
+                }}
             />
         </div>
     );
