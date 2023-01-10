@@ -101,7 +101,7 @@ const Slide = (Props: {presentation: Presentation, slideId: number, isSelectedSl
 
     return (
         <li
-            onClick={() => selectSlideHandler(Props.slideId - 1)}
+            onClick={(e) => selectSlideHandler(Props.slideId - 1, e)}
             className={styles.slideContainer}
             key={Props.slideId}
         >

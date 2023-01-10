@@ -145,12 +145,13 @@ export function selectSlide(editor: Editor, slideId: number): Editor {
     }
 }
 
-// export function selectSlides(presentation:Presentation, slideIds: []): Presentation {
-//     slideIds.forEach((item) => {
-//         selectSlide(presentation, item);
-//     });
-//     return presentation;
-// }
+export function selectSlides(editor: Editor, slideId: number): Editor {
+    const slide = editor.presentation.slides[slideId];
+    editor.presentation.selectedSlides.push(slide)
+    return {
+        ...editor,
+    };
+}
 
 export function editSlideBackground(editor: Editor, payload: {slideId: number, newBackground: BackgroundColor | BackgroundImage}): Editor {
     const slide = editor.presentation.slides[payload.slideId - 1]

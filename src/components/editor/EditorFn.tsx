@@ -18,7 +18,9 @@ import {
     editTextFontBold,
     editTextFontFamily,
     editTextContent,
-    savePosBlock, editBlockSize
+    savePosBlock, 
+    editBlockSize,
+    selectSlides
 } from "../../types/functions";
 import {
     convertJsonToPresentation,
@@ -30,6 +32,7 @@ import {
     updateHistory
 } from "../hooks/undoRedo";
 import { dispatch } from "./Editor";
+import { MouseEvent } from "react";
 
 export const addSlideHandler = () => {
     updateHistoryHandler();
@@ -45,14 +48,20 @@ export const createPresentationHandler = () => {
     dispatch(createPresentation, {});
 }
 
-export const selectSlideHandler = (slideId: number) => {
-    dispatch(selectSlide, slideId)
+export const selectSlideHandler = (slideId: number, e: MouseEvent<HTMLLIElement>) => {
+    console.log(e.altKey)
+    if (e.altKey) {
+        dispatch(selectSlides, slideId)}
+    else {
+        dispatch(selectSlide, slideId)
+    }
 }
 
 export const changePresentationNameHandler = (newName: string) => {
     updateHistoryHandler();
     dispatch(changePresentationName, newName)
 }
+
 
 export const createBlockHandler = (slideId: number, typeOfBlock: ContentType) => {
     updateHistoryHandler();
