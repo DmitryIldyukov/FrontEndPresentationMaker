@@ -25,8 +25,8 @@ function setElementToPagePDF(progSlide: Block, doc:jsPDF) {
                 if (ctx != null) {
                     ctx.fillStyle = progSlide.blockType.typeBlock.fontColor
                     let styleT = '';
-                    if(progSlide.blockType.typeBlock.fontWeight){styleT = styleT+'bold '};
-                    if(progSlide.blockType.typeBlock.fontStyle){styleT = styleT+'italic '};
+                    if(progSlide.blockType.typeBlock.fontWeight == 700){styleT = styleT+' bold '};
+                    if(progSlide.blockType.typeBlock.fontStyle == 'italic'){styleT = styleT+' italic '};
 
                     ctx.font = styleT + String(progSlide.blockType.typeBlock.fontSize) + "px " + progSlide.blockType.typeBlock.fontFamily;
                     ctx.fillText(sLine, 0, parseInt(String(progSlide.blockType.typeBlock.fontSize))*0.75)
