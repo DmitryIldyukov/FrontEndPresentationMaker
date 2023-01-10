@@ -20,7 +20,7 @@
     position: relative;
 }
 
-.toolBtnFontBtn:focus .toolBtnFont {
+.toolBtnFontBtn:hover .toolBtnFont {
     display: flex;
 }
 
@@ -31,7 +31,7 @@
     align-items: flex-start;
     width: 135px;
     top: 0;
-    right: 52px;
+    right: 35px;
     padding: 7px;
     background-color: #89ad91;
     border: solid #f5f5f5 2px;
