@@ -25,8 +25,8 @@ function setElementToPagePDF(progSlide: Block, doc:jsPDF) {
                 if (ctx != null) {
                     ctx.fillStyle = progSlide.blockType.typeBlock.fontColor
                     let styleT = '';
-                    if(progSlide.blockType.typeBlock.fontWeight == 700){styleT = styleT+' bold '};
-                    if(progSlide.blockType.typeBlock.fontStyle == 'italic'){styleT = styleT+' italic '};
+                    if(progSlide.blockType.typeBlock.fontWeight === 700){styleT = styleT+' bold '};
+                    if(progSlide.blockType.typeBlock.fontStyle === 'italic'){styleT = styleT+' italic '};
 
                     ctx.font = styleT + String(progSlide.blockType.typeBlock.fontSize) + "px " + progSlide.blockType.typeBlock.fontFamily;
                     ctx.fillText(sLine, 0, parseInt(String(progSlide.blockType.typeBlock.fontSize))*0.75)
@@ -58,10 +58,10 @@ function setElementToPagePDF(progSlide: Block, doc:jsPDF) {
             drawType = "DF"
         }
         if (drawType !== "") {
-            if (progSlide.blockType.typeBlock.figureType == 'circle')
+            if (progSlide.blockType.typeBlock.figureType === 'circle')
                 doc.ellipse(+(progSlide.position.x+3 + progSlide.size.width / 2), +(progSlide.position.y+3 + progSlide.size.height / 2),
                     +progSlide.size.width / 2, +progSlide.size.height / 2, drawType)
-            else if (progSlide.blockType.typeBlock.figureType == 'triangle')
+            else if (progSlide.blockType.typeBlock.figureType === 'triangle')
                 doc.triangle(+progSlide.position.x+3 + +progSlide.size.width/2, +progSlide.position.y+3,
                     +progSlide.position.x+3, +progSlide.position.y+3 + +progSlide.size.height,
                     +progSlide.position.x+3 + +progSlide.size.width, +progSlide.position.y+3 + +progSlide.size.height, drawType)
@@ -77,11 +77,11 @@ function setElementToPagePDF(progSlide: Block, doc:jsPDF) {
 }
 
 function setPagePDF(progSlide: TSlide, doc:jsPDF) {
-    if (progSlide.background.type == "image") {
+    if (progSlide.background.type === "image") {
         let imgData2 = progSlide.background.src
         doc.addImage(imgData2, 'PNG', +0, +0, +exportWidth, +exportHeight)
     }
-    if (progSlide.background.type == "color") {
+    if (progSlide.background.type === "color") {
         doc.setFillColor(progSlide.background.color)
         doc.rect(0, 0, exportWidth, exportHeight, "F")
     }
