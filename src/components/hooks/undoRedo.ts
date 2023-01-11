@@ -8,7 +8,6 @@ export function undo(editor: Editor): Editor {
         newEditor.presentation = editor.history.states[newEditor.history.index];
     }
 
-
     return newEditor;
 }
 

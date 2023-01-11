@@ -32,7 +32,7 @@ export const defaultCircleBlock: Figure = {
 }
 
 export const defaultImage: Image = {
-    type:'image',
+    type: 'image',
     src: ''
 }
 

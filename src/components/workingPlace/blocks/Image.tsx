@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import styles from './Image.module.css';
 import useDragger from '../../hooks/useDragger';
-import { selectBlockHandler } from "../../editor/editorFunctions";
+import {selectBlockHandler} from "../../editor/editorFunctions";
 
 let countstr = ""
 
-function Image(Props: {presentation: Presentation, slideId: number, size: Size, imageUrl: string, blockId: number, position: Position}) {
+function Image(Props: { presentation: Presentation, slideId: number, size: Size, imageUrl: string, blockId: number, position: Position }) {
     const [pos, setPos] = useState(Props.position)
 
     let count = Props.blockId;
@@ -29,7 +29,7 @@ function Image(Props: {presentation: Presentation, slideId: number, size: Size, 
         }
         return false
     }
-    
+
     const sizing = {
         height: Props.size.height,
         width: Props.size.width,
@@ -39,7 +39,8 @@ function Image(Props: {presentation: Presentation, slideId: number, size: Size, 
 
     return (
         <div>
-            <div id={countstr} style={sizing} className={styles.container + " " + (checkSelect() ? styles.checked : undefined)} >
+            <div id={countstr} style={sizing}
+                 className={styles.container + " " + (checkSelect() ? styles.checked : undefined)}>
                 <img
                     onClick={() => selectBlockHandler(Props.slideId - 1, Props.blockId)}
                     src={Props.imageUrl}

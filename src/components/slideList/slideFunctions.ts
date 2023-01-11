@@ -1,4 +1,4 @@
-import { defaultSlideBackground } from "../toolBar/ToolBarConst";
+import {defaultSlideBackground} from "../toolBar/ToolBarConst";
 
 export function createSlide(editor: Editor): Editor {
 
@@ -37,8 +37,7 @@ export function removeSlide(editor: Editor, selectedSlides: TSlide[]): Editor {
                 if (editor.presentation.slides[i].slideId >= selectedSlidesId[0]) {
                     editor.presentation.slides[i].slideId--
                     newSlides.push(editor.presentation.slides[i]);
-                }
-                else
+                } else
                     newSlides.push(editor.presentation.slides[i])
             }
         }
@@ -50,8 +49,7 @@ export function removeSlide(editor: Editor, selectedSlides: TSlide[]): Editor {
                 selectedSlides: [editor.presentation.slides[0]]
             }
         }
-    }
-    else {
+    } else {
         if (selectedSlides.length === editor.presentation.slides.length) {
             return editor;
         }
@@ -66,7 +64,7 @@ export function removeSlide(editor: Editor, selectedSlides: TSlide[]): Editor {
                 if (index > -1) {
                     slideList.splice(index, 1);
                 }
-                selectedSlidesId.splice(0,1);
+                selectedSlidesId.splice(0, 1);
             }
         }
         const newSlideList = slideList.map((slide, id) => {
@@ -105,7 +103,7 @@ export function selectSlides(editor: Editor, slideId: number): Editor {
     };
 }
 
-export function editSlideBackground(editor: Editor, payload: {slideId: number, newBackground: BackgroundColor | BackgroundImage}): Editor {
+export function editSlideBackground(editor: Editor, payload: { slideId: number, newBackground: BackgroundColor | BackgroundImage }): Editor {
     const slide = editor.presentation.slides[payload.slideId - 1]
     const newSlide = {
         ...slide,
@@ -115,8 +113,8 @@ export function editSlideBackground(editor: Editor, payload: {slideId: number, n
         ...editor,
         presentation: {
             ...editor.presentation,
-            slides: editor.presentation.slides.map(( currentSlide, id) => {
-                return (id === payload.slideId - 1 ) ? newSlide : currentSlide;
+            slides: editor.presentation.slides.map((currentSlide, id) => {
+                return (id === payload.slideId - 1) ? newSlide : currentSlide;
             })
         }
     };

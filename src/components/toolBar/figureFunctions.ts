@@ -1,6 +1,6 @@
-import { searchBlockId } from "./blockFunctions";
+import {searchBlockId} from "./blockFunctions";
 
-export function editFigureColor(editor: Editor, payload: {slideId: number, blockId: number, newColor: string}): Editor {
+export function editFigureColor(editor: Editor, payload: { slideId: number, blockId: number, newColor: string }): Editor {
     const slide = editor.presentation.slides[payload.slideId]
     const block = slide.selectedBlocks[0]
 
@@ -10,28 +10,30 @@ export function editFigureColor(editor: Editor, payload: {slideId: number, block
             ...block.blockType,
             typeBlock: {
                 ...block.blockType.typeBlock,
-                color:  payload.newColor
+                color: payload.newColor
             }
         }
     };
 
     const newSlide = {
         ...slide,
-        blocks: slide.blocks.map(( currentBlock, id) => {
+        blocks: slide.blocks.map((currentBlock, id) => {
             return (id === searchBlockId(payload.slideId, payload.blockId)) ? newFigureColor : currentBlock;
-        })};
+        })
+    };
 
     return {
         ...editor,
         presentation: {
             ...editor.presentation,
-            slides: editor.presentation.slides.map(( currentSlide, id) => {
-                return (id === payload.slideId ) ? newSlide : currentSlide;
-            })}
+            slides: editor.presentation.slides.map((currentSlide, id) => {
+                return (id === payload.slideId) ? newSlide : currentSlide;
+            })
+        }
     }
 }
 
-export function editFigureBorderColor(editor: Editor, payload: {slideId: number, blockId: number, newBorderColor: string}): Editor {
+export function editFigureBorderColor(editor: Editor, payload: { slideId: number, blockId: number, newBorderColor: string }): Editor {
     const slide = editor.presentation.slides[payload.slideId]
     const block = slide.selectedBlocks[0]
     const newFigureBorderColor = {
@@ -46,15 +48,16 @@ export function editFigureBorderColor(editor: Editor, payload: {slideId: number,
     };
     const newSlide = {
         ...slide,
-        blocks: slide.blocks.map(( currentBlock, id) => {
+        blocks: slide.blocks.map((currentBlock, id) => {
             return (id === searchBlockId(payload.slideId, payload.blockId)) ? newFigureBorderColor : currentBlock;
-        })};
+        })
+    };
 
     return {
         ...editor,
         presentation: {
             ...editor.presentation,
-            slides: editor.presentation.slides.map(( currentSlide, id) => {
+            slides: editor.presentation.slides.map((currentSlide, id) => {
                 return (id === payload.slideId) ? newSlide : currentSlide;
             })
         }

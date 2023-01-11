@@ -15,7 +15,7 @@ const Slide = (Props: {
     background: string,
     blockList: Block[]
 }) => {
-    const newBackground: BackgroundColor| BackgroundImage = Props.presentation.slides[Props.slideId - 1].background;
+    const newBackground: BackgroundColor | BackgroundImage = Props.presentation.slides[Props.slideId - 1].background;
     let style;
     if (newBackground.type === 'color') {
         style = {
@@ -117,7 +117,7 @@ const Slide = (Props: {
         >
             <div className={styles.slideMainPart + " " + (Props.isSelectedSlide ? styles.slideChecked : undefined)}>
                 <div className={styles.slideTool}>
-                    <span className={ styles.slideNumber }>{ Props.slideId }</span>
+                    <span className={styles.slideNumber}>{Props.slideId}</span>
                 </div>
                 <div className={styles.slide} style={style}>
                     <div className={styles.blocks}>{blocks}</div>

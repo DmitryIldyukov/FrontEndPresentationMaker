@@ -1,6 +1,6 @@
-import { searchBlockId } from "./blockFunctions";
+import {searchBlockId} from "./blockFunctions";
 
-export function editTextColor(editor: Editor, payload:{slideId: number, blockId: number, newColor: string}): Editor {
+export function editTextColor(editor: Editor, payload: { slideId: number, blockId: number, newColor: string }): Editor {
     const slide = editor.presentation.slides[payload.slideId]
     const block = slide.selectedBlocks[0]
     const newTextColor = {
@@ -15,21 +15,22 @@ export function editTextColor(editor: Editor, payload:{slideId: number, blockId:
     };
     const newSlide = {
         ...slide,
-        blocks: slide.blocks.map(( currentBlock, id) => {
+        blocks: slide.blocks.map((currentBlock, id) => {
             return (id === searchBlockId(payload.slideId, payload.blockId)) ? newTextColor : currentBlock;
-        })};
+        })
+    };
     return {
         ...editor,
         presentation: {
             ...editor.presentation,
-            slides: editor.presentation.slides.map(( currentSlide, id) => {
+            slides: editor.presentation.slides.map((currentSlide, id) => {
                 return (id === payload.slideId) ? newSlide : currentSlide;
             })
         }
     };
 }
 
-export function editTextFontFamily(editor: Editor, payload:{slideId: number, blockId: number, newFontFamily: string}): Editor {
+export function editTextFontFamily(editor: Editor, payload: { slideId: number, blockId: number, newFontFamily: string }): Editor {
     const slide = editor.presentation.slides[payload.slideId]
     const block = slide.selectedBlocks[0]
     const newTextFamily = {
@@ -44,20 +45,22 @@ export function editTextFontFamily(editor: Editor, payload:{slideId: number, blo
     };
     const newSlide = {
         ...slide,
-        blocks: slide.blocks.map(( currentBlock, id) => {
+        blocks: slide.blocks.map((currentBlock, id) => {
             return (id === searchBlockId(payload.slideId, payload.blockId)) ? newTextFamily : currentBlock;
-        })};
+        })
+    };
     return {
         ...editor,
         presentation: {
             ...editor.presentation,
-            slides: editor.presentation.slides.map(( currentSlide, id) => {
+            slides: editor.presentation.slides.map((currentSlide, id) => {
                 return (id === payload.slideId) ? newSlide : currentSlide;
-            })}
+            })
+        }
     }
 };
 
-export function editTextContent(editor: Editor, payload:{slideId: number, blockId: number, newContent: string}): Editor {
+export function editTextContent(editor: Editor, payload: { slideId: number, blockId: number, newContent: string }): Editor {
     const slide = editor.presentation.slides[payload.slideId]
     const block = slide.selectedBlocks[0]
     const newTextsize = {
@@ -72,21 +75,22 @@ export function editTextContent(editor: Editor, payload:{slideId: number, blockI
     };
     const newSlide = {
         ...slide,
-        blocks: slide.blocks.map(( currentBlock, id) => {
+        blocks: slide.blocks.map((currentBlock, id) => {
             return (id === searchBlockId(payload.slideId, payload.blockId)) ? newTextsize : currentBlock;
-        })};
+        })
+    };
     return {
         ...editor,
         presentation: {
             ...editor.presentation,
-            slides: editor.presentation.slides.map(( currentSlide, id) => {
+            slides: editor.presentation.slides.map((currentSlide, id) => {
                 return (id === payload.slideId) ? newSlide : currentSlide;
             })
         }
     };
 }
 
-export function editTextFontSize(editor: Editor, payload:{ slideId: number, blockId: number, newFontSize: number}): Editor {
+export function editTextFontSize(editor: Editor, payload: { slideId: number, blockId: number, newFontSize: number }): Editor {
     const slide = editor.presentation.slides[payload.slideId]
     const block = slide.selectedBlocks[0]
     const newTextsize = {
@@ -101,21 +105,22 @@ export function editTextFontSize(editor: Editor, payload:{ slideId: number, bloc
     };
     const newSlide = {
         ...slide,
-        blocks: slide.blocks.map(( currentBlock, id) => {
+        blocks: slide.blocks.map((currentBlock, id) => {
             return (id === searchBlockId(payload.slideId, payload.blockId)) ? newTextsize : currentBlock;
-        })};
+        })
+    };
     return {
         ...editor,
         presentation: {
             ...editor.presentation,
-            slides: editor.presentation.slides.map(( currentSlide, id) => {
+            slides: editor.presentation.slides.map((currentSlide, id) => {
                 return (id === payload.slideId) ? newSlide : currentSlide;
             })
         }
     };
 }
 
-export function editTextFontBold(editor: Editor, payload:{slideId: number, blockId: number, newFontBold: number}): Editor {
+export function editTextFontBold(editor: Editor, payload: { slideId: number, blockId: number, newFontBold: number }): Editor {
     const slide = editor.presentation.slides[payload.slideId]
     const block = slide.selectedBlocks[0]
     const newTextStyle = {
@@ -130,20 +135,22 @@ export function editTextFontBold(editor: Editor, payload:{slideId: number, block
     };
     const newSlide = {
         ...slide,
-        blocks: slide.blocks.map(( currentBlock, id) => {
+        blocks: slide.blocks.map((currentBlock, id) => {
             return (id === searchBlockId(payload.slideId, payload.blockId)) ? newTextStyle : currentBlock;
-        })};
+        })
+    };
     return {
         ...editor,
         presentation: {
             ...editor.presentation,
-            slides: editor.presentation.slides.map(( currentSlide, id) => {
+            slides: editor.presentation.slides.map((currentSlide, id) => {
                 return (id === payload.slideId) ? newSlide : currentSlide;
             })
-        }};
+        }
+    };
 }
 
-export function editTextFontItalic(editor: Editor, payload:{slideId: number, blockId: number, newFontItalic: string}): Editor {
+export function editTextFontItalic(editor: Editor, payload: { slideId: number, blockId: number, newFontItalic: string }): Editor {
     const slide = editor.presentation.slides[payload.slideId]
     const block = slide.selectedBlocks[0]
     const newTextStyle = {
@@ -158,14 +165,15 @@ export function editTextFontItalic(editor: Editor, payload:{slideId: number, blo
     };
     const newSlide = {
         ...slide,
-        blocks: slide.blocks.map(( currentBlock, id) => {
+        blocks: slide.blocks.map((currentBlock, id) => {
             return (id === searchBlockId(payload.slideId, payload.blockId)) ? newTextStyle : currentBlock;
-        })};
+        })
+    };
     return {
         ...editor,
         presentation: {
             ...editor.presentation,
-            slides: editor.presentation.slides.map(( currentSlide, id) => {
+            slides: editor.presentation.slides.map((currentSlide, id) => {
                 return (id === payload.slideId) ? newSlide : currentSlide;
             })
         }

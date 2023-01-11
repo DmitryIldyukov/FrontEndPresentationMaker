@@ -6,7 +6,7 @@ import Rectangle from "./blocks/figures/Rectangle";
 import Circle from "./blocks/figures/Circle";
 import Image from './blocks/Image';
 
-function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
+function WorkingPlace(Props: { presentation: Presentation, slideId: number }) {
     const blocks = Props.presentation.slides[Props.slideId - 1].blocks.map((block, id) => {
         if (block.blockType.typeBlock.type === "image") {
             if (block.link !== undefined) {
@@ -81,7 +81,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
         return null
     })
 
-    const newBackground: BackgroundColor| BackgroundImage = Props.presentation.slides[Props.slideId - 1].background;
+    const newBackground: BackgroundColor | BackgroundImage = Props.presentation.slides[Props.slideId - 1].background;
     let style;
     if (newBackground.type === 'color') {
         style = {
@@ -95,7 +95,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
     }
 
     return (
-        <div className={styles.workingPlace} >
+        <div className={styles.workingPlace}>
             <div className={styles.slidePlace} style={style} id={Props.slideId.toString()}>
                 {blocks}
             </div>

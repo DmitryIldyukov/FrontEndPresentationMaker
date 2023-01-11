@@ -2,7 +2,7 @@ import React from 'react';
 import Slide from './Slide';
 import styles from './SlideList.module.css';
 
-export function SlideList( Props: { presentation: Presentation, slideList: TSlide[], selectedSlides: TSlide[] }) {
+export function SlideList(Props: { presentation: Presentation, slideList: TSlide[], selectedSlides: TSlide[] }) {
 
     const slides = Props.slideList.map((slide, id) => (
         <Slide

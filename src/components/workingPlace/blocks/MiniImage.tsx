@@ -19,7 +19,7 @@ function MiniImage(Props: {
 
     return (
         <div>
-            <div style={sizing} className={styles.container} >
+            <div style={sizing} className={styles.container}>
                 <img
                     src={Props.imageUrl}
                     className={styles.imgStyle}

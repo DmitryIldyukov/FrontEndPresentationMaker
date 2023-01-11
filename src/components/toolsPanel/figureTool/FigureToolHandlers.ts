@@ -1,6 +1,6 @@
-import { dispatch } from "../../editor/Editor";
-import { editFigureBorderColor, editFigureColor } from "../../toolBar/figureFunctions";
-import { updateHistory } from "../../hooks/undoRedo";
+import {dispatch} from "../../editor/Editor";
+import {editFigureBorderColor, editFigureColor} from "../../toolBar/figureFunctions";
+import {updateHistory} from "../../hooks/undoRedo";
 
 export const changeFigureColorHandler = (blockId: number, slideId: number, newColor: string) => {
     dispatch(updateHistory, {})
