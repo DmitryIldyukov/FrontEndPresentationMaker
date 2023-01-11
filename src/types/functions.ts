@@ -1,1 +1,0 @@
-import { defaultSlide, defaultSlideBackground } from "../components/toolBar/ToolBarConst"
