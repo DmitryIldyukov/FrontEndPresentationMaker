@@ -17,12 +17,12 @@ function MiniText(Props: {
     const textStyle = {
     fontFamily: Props.fontFamily,
     color: Props.fontColor,
-    fontSize: (Props.fontSize / 4.4),
-    height: (Props.size.height / 4.37),
+    fontSize: (Props.fontSize / 5),
+    height: (Props.size.height / 5),
     fontWeight: Props.fontWeight,
     fontStyle: Props.fontStyle,
-    top: (Props.position.y / 4.4),
-    left: (Props.position.x / 4.37)
+    top: (Props.position.y / 5),
+    left: (Props.position.x / 5)
 }
 
     return (

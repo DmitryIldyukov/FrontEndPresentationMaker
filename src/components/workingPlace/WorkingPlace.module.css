@@ -8,8 +8,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 854px;
-    height: 480px;
+    width: 960px;
+    height: 540px;
     background: #FFFFFF;
     overflow: hidden;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import {editBlockSizeHandler, savePosBlockHandler, selectBlockHandler} from "../editor/EditorFn";
 
 function useDragger(id: string, startPos: Position, slideId: number, blockId: number) {
@@ -18,7 +18,6 @@ function useDragger(id: string, startPos: Position, slideId: number, blockId: nu
   })
 
   useEffect(() => {
-
     const target = document.getElementById(id);
     if (!target) throw new Error("Element with given id doesn't exist");
 
@@ -65,13 +64,13 @@ function useDragger(id: string, startPos: Position, slideId: number, blockId: nu
       selectBlockHandler(slideId - 1, blockId)
     }
 
-    target.addEventListener('mousedown', onMouseDown);
+    target.addEventListener('dblclick', onMouseDown);
     target.addEventListener('mouseup', onMouseUp);
     container.addEventListener('mousemove', onMouseMove);
     container.addEventListener('mouseleave', onMouseUp);
 
     const cleanup = () => {
-      target.removeEventListener('mousedown', onMouseDown);
+      target.removeEventListener('dblclick', onMouseDown);
       target.removeEventListener('mouseup', onMouseUp);
       container.removeEventListener('mousemove', onMouseMove);
       container.removeEventListener('mouseleave', onMouseUp);

@@ -7,7 +7,13 @@ import MiniTriangle from "../workingPlace/blocks/figures/MiniTriangle";
 import MiniImage from "../workingPlace/blocks/MiniImage";
 import MiniText from "../workingPlace/blocks/MiniText";
 
-const Slide = (Props: {presentation: Presentation, slideId: number, isSelectedSlide: boolean, background: string, blockList: Block[] }) => {
+const Slide = (Props: {
+    presentation: Presentation,
+    slideId: number,
+    isSelectedSlide: boolean,
+    background: string,
+    blockList: Block[]
+}) => {
 
     const newBackground: BackgroundColor| BackgroundImage = Props.presentation.slides[Props.slideId - 1].background;
     let style;

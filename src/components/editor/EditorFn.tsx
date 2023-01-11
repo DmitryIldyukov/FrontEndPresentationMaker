@@ -34,6 +34,10 @@ import {
 import { dispatch } from "./Editor";
 import { MouseEvent } from "react";
 
+export const createPresentationHandler = () => {
+    dispatch(createPresentation, {});
+}
+
 export const addSlideHandler = () => {
     updateHistoryHandler();
     dispatch(createSlide, {});
@@ -42,10 +46,6 @@ export const addSlideHandler = () => {
 export const removeSlideHandler = (slideId: number) => {
     updateHistoryHandler();
     dispatch(removeSlide, slideId);
-}
-
-export const createPresentationHandler = () => {
-    dispatch(createPresentation, {});
 }
 
 export const selectSlideHandler = (slideId: number, e: MouseEvent<HTMLLIElement>) => {

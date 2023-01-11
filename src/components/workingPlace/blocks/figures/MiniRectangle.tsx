@@ -1,7 +1,15 @@
 import React from "react";
 import styles from "./Rectangle.module.css";
 
-function MiniRectangle(Props: {presentation: Presentation, color: string, borderColor: string, size: Size, slideId: number, blockId: number, position: Position}) {
+function MiniRectangle(Props: {
+    presentation: Presentation,
+    color: string,
+    borderColor: string,
+    size: Size,
+    slideId: number,
+    blockId: number,
+    position: Position
+}) {
 
     const MiniRectangleStyle = {
         color: Props.color,

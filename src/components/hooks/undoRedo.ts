@@ -1,7 +1,7 @@
 export function undo(editor: Editor): Editor {
     const newEditor: Editor = {
         ...editor,
-    };
+    }
 
     if (editor.history.index > 0) {
         newEditor.history.index = editor.history.index - 1;
@@ -15,7 +15,7 @@ export function undo(editor: Editor): Editor {
 export function redo(editor: Editor): Editor {
     const newEditor: Editor = {
         ...editor,
-    };
+    }
 
     if (editor.history.index < editor.history.states.length - 1) {
         newEditor.history.index = editor.history.index + 1;
@@ -26,6 +26,7 @@ export function redo(editor: Editor): Editor {
 }
 
 export function updateHistory(editor: Editor): Editor {
+    console.log(editor.history)
     const newEditor: Editor = {
         ...editor,
         history: {

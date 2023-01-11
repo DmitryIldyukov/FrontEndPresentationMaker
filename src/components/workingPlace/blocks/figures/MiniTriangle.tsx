@@ -1,7 +1,15 @@
 import React from 'react';
 import styles from './Triangle.module.css'
 
-function MiniTriangle(Props: {presentation: Presentation, slideId: number, color: string, borderColor: string, size: Size, blockId: number, position: Position}) {
+function MiniTriangle(Props: {
+    presentation: Presentation,
+    slideId: number,
+    color: string,
+    borderColor: string,
+    size: Size,
+    blockId: number,
+    position: Position
+}) {
 
     const MiniTriangleStyle = {
         color: Props.color,
@@ -9,10 +17,10 @@ function MiniTriangle(Props: {presentation: Presentation, slideId: number, color
     }
 
     const MiniTriangleSizing = {
-        height: (Props.size.height / 4.4),
-        width: (Props.size.width / 4.37),
-        top: (Props.position.y / 4.4),
-        left: (Props.position.x / 4.37)
+        height: (Props.size.height / 5),
+        width: (Props.size.width / 5),
+        top: (Props.position.y / 5),
+        left: (Props.position.x / 5)
     }
 
     return (
