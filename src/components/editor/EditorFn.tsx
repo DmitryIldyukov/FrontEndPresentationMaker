@@ -49,7 +49,7 @@ export const removeSlideHandler = (selectedSlides: TSlide[]) => {
 }
 
 export const selectSlideHandler = (slideId: number, e: MouseEvent<HTMLLIElement>) => {
-    if (e.altKey) {
+    if (e.ctrlKey) {
         dispatch(selectSlides, slideId)}
     else {
         dispatch(selectSlide, slideId)

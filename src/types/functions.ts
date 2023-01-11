@@ -139,10 +139,7 @@ export function removeSlide(editor: Editor, selectedSlides: TSlide[]): Editor {
         }
     }
     else {
-        if (selectedSlidesId.length === editor.presentation.slides.length) {
-            return editor;
-        }
-        if (editor.presentation.slides.length === selectedSlidesId.length) {
+        if (selectedSlides.length === editor.presentation.slides.length) {
             return editor;
         }
         selectedSlidesId.sort((a, b) => a - b);
