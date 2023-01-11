@@ -68,11 +68,6 @@ function setElementToPagePDF(progSlide: Block, doc:jsPDF) {
             else
                 doc.rect(+progSlide.position.x+3, +progSlide.position.y+3, +progSlide.size.width, +progSlide.size.height, drawType)
         }}
-// if (progSlide.blockType != "none"){
-//     const borderColor = progSlide.border.color
-//     doc.setDrawColor(borderColor)
-//     doc.rect(+progSlide.position.x+3, +progSlide.position.y+3, 6+progSlide.size.w, 6+progSlide.size.h, 'S')
-//     }
     return doc
 }
 
