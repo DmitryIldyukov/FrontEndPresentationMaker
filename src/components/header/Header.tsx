@@ -2,10 +2,10 @@ import React from 'react';
 import styles from './Header.module.css';
 import logo from '../../assets/logo.svg';
 import PresentationName from "./PresentationName";
-import { saveAsJsonHandler, openJsonHandler } from '../editor/EditorFn'
 import { saveProgramAsPDF } from '../hooks/exportFunctions'
-import {dispatch} from "../editor/Editor";
-import {createPresentation} from "../editor/editorFunctions";
+import { dispatch } from "../editor/Editor";
+import { createPresentation } from "../editor/editorFunctions";
+import { openJsonHandler, saveAsJsonHandler } from "./HeaderHandlers";
 
 export function Header(Props: { presentation: Presentation }) {
     const fileChangeHandle = (e: React.ChangeEvent<HTMLInputElement>) => {

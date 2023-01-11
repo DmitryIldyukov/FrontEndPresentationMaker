@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styles from './Image.module.css';
 import useDragger from '../../hooks/useDragger';
-import {selectBlockHandler} from "../../editor/EditorFn";
+import { selectBlockHandler } from "../../editor/editorFunctions";
 
 let countstr = ""
 
@@ -33,8 +33,8 @@ function Image(Props: {presentation: Presentation, slideId: number, size: Size, 
     const sizing = {
         height: Props.size.height,
         width: Props.size.width,
-        top: Props.position.y + 'px',
-        left: Props.position.x + 'px'
+        top: Props.position.y,
+        left: Props.position.x
     }
 
     return (

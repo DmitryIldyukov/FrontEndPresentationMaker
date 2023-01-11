@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styles from './PresentationName.module.css';
-import {dispatch} from "../editor/Editor";
-import {changePresentationName} from "../editor/editorFunctions";
-import {updateHistoryHandler} from "../editor/EditorFn";
+import { dispatch } from "../editor/Editor";
+import { changePresentationName } from "../editor/editorFunctions";
+import { updateHistory } from "../hooks/undoRedo";
 
 const  PresentationName = (Props: {presentation:Presentation}) => {
     const [name, setName] = useState(Props.presentation.presentationName);
@@ -32,12 +32,12 @@ const  PresentationName = (Props: {presentation:Presentation}) => {
                     e.currentTarget.select();
                 }}
                 onSubmit={() => {
-                    updateHistoryHandler();
+                    dispatch(updateHistory, {})
                     dispatch(changePresentationName, (CheckPresentationName(name)));
                 }}
                 onKeyDown={(e) => {
                     if (e.key === "Enter") {
-                        updateHistoryHandler();
+                        dispatch(updateHistory, {})
                         dispatch(changePresentationName, (CheckPresentationName(name)));
                         e.currentTarget.blur();
                     }

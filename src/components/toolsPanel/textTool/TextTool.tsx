@@ -2,8 +2,15 @@ import React, {useState} from 'react';
 import styles from './TextTool.module.css';
 import deleteImg from '../../../assets/deleteBlock.svg';
 import arImg from '../../../assets/Ar.svg';
-import {removeBlockHandler, changeTextColorHandler, changeTextSizeHandler, changeTextStyleHandler, changeTextWeightHandler, changeFontFamilyHandler} from "../../editor/EditorFn";
 import { defaultTextBlock } from '../../toolBar/ToolBarConst';
+import {changeTextColorHandler} from "../../workingPlace/WorkingPlaceHandlers";
+import {removeBlockHandler} from "../ToolsPanelHandlers";
+import {
+    changeFontFamilyHandler,
+    changeTextSizeHandler,
+    changeTextStyleHandler,
+    changeTextWeightHandler
+} from "./TextToolHandlers";
 
 const TextTool = (Props: {presentation: Presentation, slideId: number}) => {
     const [fontSizeU, setFontSizeU] = useState(defaultTextBlock.fontSize);
@@ -31,12 +38,12 @@ const TextTool = (Props: {presentation: Presentation, slideId: number}) => {
 
 
     const checkHandler = () => {
-      setIsChecked(!isChecked)
-      if ((!isChecked) === true) {
-        changeTextWeightHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, 700 )
-      } else {
-        changeTextWeightHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, 400 )
-      }
+        setIsChecked(!isChecked)
+        if ((!isChecked) === true) {
+            changeTextWeightHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, 700)
+        } else {
+            changeTextWeightHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, 400)
+        }
     }
 
     const secondCheckHandler = () => {

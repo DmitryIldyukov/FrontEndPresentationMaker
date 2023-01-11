@@ -11,13 +11,6 @@ import triangle from "../../assets/triangle.svg"
 import circle from "../../assets/circle.svg"
 import square from "../../assets/square.svg"
 import {
-    createBlockHandler,
-    backgroundHandler,
-    createImageHandler,
-    redoHandler,
-    undoHandler, updateHistoryHandler
-} from "../editor/EditorFn";
-import {
     defaultTextBlockType,
     defaultCircleBlockType,
     defaultRectangleBlockType,
@@ -25,7 +18,9 @@ import {
     defaultImageType
 } from "./ToolBarConst";
 import {dispatch} from "../editor/Editor";
-import {createSlide, removeSlide} from "../slideList/slideFunctions";
+import { createSlide, removeSlide } from "../slideList/slideFunctions";
+import {redo, undo, updateHistory} from "../hooks/undoRedo";
+import { backgroundHandler, createBlockHandler, createImageHandler } from "./ToolBarHandlers";
 
 export function ToolBar(Props: { editor: Editor }) {
      const [color, setColor]=useState('')
@@ -55,7 +50,7 @@ export function ToolBar(Props: { editor: Editor }) {
     return (
         <div className={styles.toolBar}>
             <button onClick={() => {
-                updateHistoryHandler();
+                dispatch(updateHistory, {})
                 dispatch(createSlide, {})
             }} className={styles.toolBarTool}>
                 Добавить слайд
@@ -63,18 +58,18 @@ export function ToolBar(Props: { editor: Editor }) {
             </button>
             <button
                 onClick={() => {
-                    updateHistoryHandler();
+                    dispatch(updateHistory, {})
                     dispatch(removeSlide, Props.editor.presentation.selectedSlides)
                 }}
                 className={styles.toolBarTool}>
                 <img src={deleteSlide} className={styles.icon}/>
             </button>
             <button
-                onClick={() => undoHandler()}
+                onClick={() => dispatch(undo, {})}
                 className={styles.toolBarTool}><img src={back} className={styles.icon}/>
             </button>
             <button
-                onClick={() => redoHandler()}
+                onClick={() =>  dispatch(redo, {})}
                 className={styles.toolBarTool}><img src={forward} className={styles.icon}/>
             </button>
             <div className={styles.toolBarTool + " " + styles.toolBarToolAddImage}>

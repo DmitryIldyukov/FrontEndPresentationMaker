@@ -7,7 +7,6 @@ import MiniImage from "../workingPlace/blocks/MiniImage";
 import MiniText from "../workingPlace/blocks/MiniText";
 import {dispatch} from "../editor/Editor";
 import {selectSlide, selectSlides} from "./slideFunctions";
-// import { selectSlideHandler } from "../editor/EditorFn";
 
 const Slide = (Props: {
     presentation: Presentation,

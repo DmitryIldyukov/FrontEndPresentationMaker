@@ -1,10 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import styles from './CText.module.css';
 import useDragger from '../../hooks/useDragger';
-import {
-    selectBlockHandler,
-    changeTextContent
-} from "../../editor/EditorFn";
+import {changeTextContent} from "../WorkingPlaceHandlers";
+import {selectBlockHandler} from "../../editor/editorFunctions";
 
 let countstr = ""
 

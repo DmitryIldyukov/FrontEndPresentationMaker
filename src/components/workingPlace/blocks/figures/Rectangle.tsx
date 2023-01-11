@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styles from "./Rectangle.module.css";
 import useDragger from '../../../hooks/useDragger';
-import { selectBlockHandler} from "../../../editor/EditorFn";
+import {selectBlockHandler} from "../../../editor/editorFunctions";
 
 
 function Rectangle(Props: {presentation: Presentation, slideId: number, color: string, borderColor: string, size: Size, blockId: number, position: Position}) {

@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import styles from './FigureTool.module.css';
 import deleteImg from '../../../assets/deleteBlock.svg';
-import {removeBlockHandler, changeFigureColorHandler, changeFigureBorderColorHandler} from "../../editor/EditorFn";
+import {removeBlockHandler} from "../ToolsPanelHandlers";
+import { changeFigureBorderColorHandler, changeFigureColorHandler } from "./FigureToolHandlers";
 
 const FigureTool = (Props: {presentation: Presentation, slideId: number}) => {
-
     const [color, setColor]=useState('')
+
     const editFigureColorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setColor(e.target.value);
         changeFigureColorHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, e.target.value)

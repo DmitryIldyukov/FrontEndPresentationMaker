@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styles from './Triangle.module.css'
 import useDragger from '../../../hooks/useDragger';
-import {savePosBlockHandler, selectBlockHandler} from "../../../editor/EditorFn";
+import {selectBlockHandler} from "../../../editor/editorFunctions";
 let countstr = "";
 
 function Triangle(Props: {presentation: Presentation, slideId: number, color: string, borderColor: string, size: Size, blockId: number, position: Position}) {

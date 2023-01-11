@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ImgTool.module.css';
 import deleteImg from '../../../assets/deleteBlock.svg';
-import {removeBlockHandler} from "../../editor/EditorFn";
+import { removeBlockHandler } from "../ToolsPanelHandlers";
 
 const ImgTool = (Props: {presentation: Presentation, slideId: number}) => {
     return (
