@@ -9,7 +9,6 @@ import Image from './blocks/Image';
 function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
     const blocks = Props.presentation.slides[Props.slideId - 1].blocks.map((block, id) => {
         if (block.blockType.typeBlock.type === "image") {
-
             if (block.link !== undefined) {
                 return <Image
                     presentation={Props.presentation}
@@ -23,7 +22,6 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
             }
         }
         if (block.blockType.typeBlock.type === "text") {
-
             return <CText
                 key={id}
                 presentation={Props.presentation}
@@ -42,7 +40,6 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
             />
         }
         if (block.blockType.typeBlock.type === "figure") {
-
             if (block.blockType.typeBlock.figureType === "circle") {
                 return <Circle
                     presentation={Props.presentation}
@@ -93,7 +90,7 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
     } else {
         style = {
             background: 'url(' + (newBackground.src) + ')',
-            backgroundSize: '854px 480px'
+            backgroundSize: '960px 540px'
         }
     }
 
