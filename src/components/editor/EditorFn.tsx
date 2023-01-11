@@ -43,9 +43,9 @@ export const addSlideHandler = () => {
     dispatch(createSlide, {});
 }
 
-export const removeSlideHandler = (slideId: number) => {
+export const removeSlideHandler = (selectedSlides: TSlide[]) => {
     updateHistoryHandler();
-    dispatch(removeSlide, slideId);
+    dispatch(removeSlide, selectedSlides);
 }
 
 export const selectSlideHandler = (slideId: number, e: MouseEvent<HTMLLIElement>) => {

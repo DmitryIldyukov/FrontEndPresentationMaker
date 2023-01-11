@@ -38,7 +38,7 @@ function setElementToPagePDF(progSlide: Block, doc:jsPDF) {
                     * 0.15 * (lineNumber + 1),
                     +CanEl.width, +CanEl.height)
                 lineNumber += 1
-                sLine = " "
+                sLine = ""
             }
             else
                 sLine += progSlide.blockType.typeBlock.content[startPosition]

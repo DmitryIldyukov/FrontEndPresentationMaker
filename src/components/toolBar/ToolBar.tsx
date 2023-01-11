@@ -60,7 +60,7 @@ export function ToolBar(Props: { editor: Editor }) {
                 Добавить слайд
                 <img src={addSlide} className={styles.icon}/>
             </button>
-            <button onClick={() => removeSlideHandler(Props.editor.presentation.selectedSlides[0].slideId)} className={styles.toolBarTool}>
+            <button onClick={() => removeSlideHandler(Props.editor.presentation.selectedSlides)} className={styles.toolBarTool}>
                 <img src={deleteSlide} className={styles.icon}/>
             </button>
             <button

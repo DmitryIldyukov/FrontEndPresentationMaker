@@ -1,4 +1,5 @@
 import { defaultSlide, defaultSlideBackground } from "../components/toolBar/ToolBarConst"
+import slideList from "../components/slideList/SlideList";
 
 function searchBlockId(slideId: number, blockId: number): number {
 
@@ -67,7 +68,6 @@ export function createImage(editor: Editor, payload: {slideId: number, typeOfBlo
     };
 }
 
-
 // export function showPresentation(presentation:Presentation): Presentation{
 //     return presentation;
 // }
@@ -107,28 +107,70 @@ export function createSlide(editor: Editor): Editor {
     }
 }
 
-export function removeSlide(editor: Editor, slideId: number): Editor {
-    const newSlides = [];
+export function removeSlide(editor: Editor, selectedSlides: TSlide[]): Editor {
 
-    if (editor.presentation.slides.length === 1)
-        return editor;
-    for (let i = 0; i < editor.presentation.slides.length; i++) {
-        if (editor.presentation.slides[i].slideId !== slideId) {
-            if (editor.presentation.slides[i].slideId >= slideId) {
-                editor.presentation.slides[i].slideId--;
-                newSlides.push(editor.presentation.slides[i]);
-            }
-            else
-                newSlides.push(editor.presentation.slides[i]);
-        }
+    let selectedSlidesId: number[] = [];
+    for (let i = 0; i < selectedSlides.length; i++) {
+        selectedSlidesId.push(selectedSlides[i].slideId);
     }
 
-    return {
-        ...editor,
-        presentation: {
-            ...editor.presentation,
-            slides: newSlides,
-            selectedSlides: [editor.presentation.slides[0]]
+    if (selectedSlidesId.length === 1) {
+        if (editor.presentation.slides.length === 1) {
+            return editor
+        }
+        const newSlides = [];
+        for (let i = 0; i < editor.presentation.slides.length; i++) {
+            if (editor.presentation.slides[i].slideId !== selectedSlidesId[0]) {
+                if (editor.presentation.slides[i].slideId >= selectedSlidesId[0]) {
+                    editor.presentation.slides[i].slideId--
+                    newSlides.push(editor.presentation.slides[i]);
+                }
+                else
+                    newSlides.push(editor.presentation.slides[i])
+            }
+        }
+        return {
+            ...editor,
+            presentation: {
+                ...editor.presentation,
+                slides: newSlides,
+                selectedSlides: [editor.presentation.slides[0]]
+            }
+        }
+    }
+    else {
+        if (selectedSlidesId.length === editor.presentation.slides.length) {
+            return editor;
+        }
+        if (editor.presentation.slides.length === selectedSlidesId.length) {
+            return editor;
+        }
+        selectedSlidesId.sort((a, b) => a - b);
+        let slideList = editor.presentation.slides;
+        let slideListCounter = 0;
+        while (selectedSlidesId.length !== 0) {
+            if (selectedSlidesId[0] !== slideList[slideListCounter].slideId) {
+                slideListCounter++;
+            } else {
+                const index = slideList.indexOf(slideList[slideListCounter], 0);
+                if (index > -1) {
+                    slideList.splice(index, 1);
+                }
+                selectedSlidesId.splice(0,1);
+            }
+        }
+        const newSlideList = slideList.map((slide, id) => {
+            slide.slideId = id + 1;
+            return slide;
+        })
+        const newSelectedSlides = [newSlideList[0]];
+        return {
+            ...editor,
+            presentation: {
+                ...editor.presentation,
+                slides: newSlideList,
+                selectedSlides: newSelectedSlides
+            }
         }
     }
 }
