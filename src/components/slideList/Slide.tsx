@@ -42,7 +42,8 @@ const Slide = (Props: {
                 content={block.blockType.typeBlock.content}
                 fontWeight={block.blockType.typeBlock.fontWeight}
                 fontStyle={block.blockType.typeBlock.fontStyle}
-                size={block.size}
+                height={block.size.height}
+                width={block.size.width}
                 blockId={block.blockId}
                 position={block.position}
             />

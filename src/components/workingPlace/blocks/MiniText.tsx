@@ -8,26 +8,37 @@ function MiniText(Props: {
     fontColor: string,
     fontSize: number,
     content: string,
-    size: Size,
     blockId: number,
     fontWeight: number,
     fontStyle: string,
-    position: Position
+    position: Position,
+    width: number,
+    height: number
 }) {
     const textStyle = {
-    fontFamily: Props.fontFamily,
-    color: Props.fontColor,
-    fontSize: (Props.fontSize / 5),
-    height: (Props.size.height / 5),
-    fontWeight: Props.fontWeight,
-    fontStyle: Props.fontStyle,
-    top: (Props.position.y / 5),
-    left: (Props.position.x / 5)
-}
+        fontFamily: Props.fontFamily,
+        color: Props.fontColor,
+        fontSize: (Props.fontSize / 5),
+        fontWeight: Props.fontWeight,
+        fontStyle: Props.fontStyle,
+        top: (Props.position.y / 5),
+        left: (Props.position.x / 5),
+        height: (Props.height / 5),
+        width: (Props.width / 5)
+    }
 
     return (
-        <div className={styles.text} style={textStyle}>
-            {Props.content}
+        <div>
+            <textarea
+                className={styles.text}
+                style={textStyle}
+                defaultValue={Props.content}
+                onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                        e.currentTarget.blur();
+                    }
+                }}
+            />
         </div>
     );
 };

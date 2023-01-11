@@ -19,7 +19,9 @@ function CText(Props: {
     blockId: number,
     fontWeight: number,
     fontStyle: string,
-    position: Position
+    position: Position,
+    width: number,
+    height: number
 }) {
     const [text, setText] = useState('')
     const [pos, setPos] = useState(Props.position)
@@ -57,8 +59,10 @@ function CText(Props: {
         fontSize: Props.fontSize,
         fontWeight: Props.fontWeight,
         fontStyle: Props.fontStyle,
-        top: Props.position.y + 'px',
-        left: Props.position.x + 'px'
+        top: Props.position.y,
+        left: Props.position.x,
+        height: Props.height,
+        width: Props.width
     }
 
     return (

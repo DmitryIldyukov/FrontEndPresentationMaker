@@ -37,6 +37,8 @@ function WorkingPlace(Props: {presentation: Presentation, slideId: number}) {
                 size={block.size}
                 blockId={block.blockId}
                 position={block.position}
+                height={block.size.height}
+                width={block.size.width}
             />
         }
         if (block.blockType.typeBlock.type === "figure") {
