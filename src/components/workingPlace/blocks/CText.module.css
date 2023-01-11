@@ -6,8 +6,13 @@
     overflow: hidden;
 }
 
+textarea {
+    width: 250px;
+    height: 70px;
+}
+
 .checked {
-    background-color: rgba(137, 228, 176, 0.564);
+    border: 1px solid;
     resize: both;
     overflow: hidden;
 }
