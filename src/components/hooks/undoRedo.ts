@@ -26,7 +26,6 @@ export function redo(editor: Editor): Editor {
 }
 
 export function updateHistory(editor: Editor): Editor {
-    console.log(editor.history)
     const newEditor: Editor = {
         ...editor,
         history: {
