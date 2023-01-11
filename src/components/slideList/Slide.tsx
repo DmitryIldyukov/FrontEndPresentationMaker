@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './Slide.module.css';
-import { selectSlideHandler } from '../editor/EditorFn';
 import MiniCircle from "../workingPlace/blocks/figures/MiniCircle";
 import MiniRectangle from "../workingPlace/blocks/figures/MiniRectangle";
 import MiniTriangle from "../workingPlace/blocks/figures/MiniTriangle";
 import MiniImage from "../workingPlace/blocks/MiniImage";
 import MiniText from "../workingPlace/blocks/MiniText";
+import {selectSlideHandler} from "../editor/EditorFn";
 
 const Slide = (Props: {
     presentation: Presentation,

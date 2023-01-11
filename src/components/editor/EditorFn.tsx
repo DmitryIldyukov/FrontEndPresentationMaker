@@ -1,13 +1,4 @@
 import {
-    createPresentation,
-    createSlide,
-    removeSlide,
-    selectSlide,
-    changePresentationName,
-    editSlideBackground,
-    selectSlides
-} from "../../types/functions";
-import {
     convertJsonToPresentation,
     convertPresentationToJson
 } from "../hooks/exportFunctions";
@@ -20,13 +11,30 @@ import { dispatch } from "./Editor";
 import { MouseEvent } from "react";
 import {
     createBlock,
-    createImage, editBlockSize,
-    editFigureBorderColor,
-    editFigureColor,
-    editTextColor, editTextContent, editTextFontBold, editTextFontFamily, editTextFontItalic, editTextFontSize,
-    removeBlock, savePosBlock,
+    createImage,
+    editBlockSize,
+    removeBlock,
+    savePosBlock,
     selectBlock
 } from "../toolBar/blockFunctions";
+import {editFigureBorderColor, editFigureColor} from "../toolBar/figureFunctions";
+import {
+    editTextColor, editTextContent,
+    editTextFontBold,
+    editTextFontFamily,
+    editTextFontItalic,
+    editTextFontSize
+} from "../toolBar/textFunctions";
+import {createSlide,
+    editSlideBackground,
+    removeSlide,
+    selectSlide,
+    selectSlides
+} from "../slideList/slideFunctions";
+import {
+    changePresentationName,
+    createPresentation
+} from "./editorFunctions";
 
 export const createPresentationHandler = () => {
     dispatch(createPresentation, {});
@@ -64,7 +72,7 @@ export const createBlockHandler = (slideId: number, typeOfBlock: ContentType) =>
 export const backgroundHandler = (slideId: number, type: string,  value: string) => {
     updateHistoryHandler();
 
-    let newBackground: BackgroundColor| BackgroundImage 
+    let newBackground: BackgroundColor| BackgroundImage
         if (type === 'color') {
             newBackground = {
                 type: 'color',

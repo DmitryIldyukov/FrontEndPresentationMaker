@@ -1,4 +1,5 @@
-import {createPresentation} from "../../types/functions";
+import {createPresentation} from "./editorFunctions";
+
 
 let editor: Editor = createPresentation();
 
