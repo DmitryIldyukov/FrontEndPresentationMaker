@@ -1,5 +1,5 @@
 import React from 'react';
-import Slide from './Slide';
+import Slide from './Slide/Slide';
 import styles from './SlideList.module.css';
 
 export function SlideList(Props: { presentation: Presentation, slideList: TSlide[], selectedSlides: TSlide[] }) {

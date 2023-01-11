@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./Circle.module.css";
 
-function MiniCircle(Props: {
+function SlideCircle(Props: {
     presentation: Presentation,
     color: string,
     borderColor: string,
@@ -36,4 +36,4 @@ function MiniCircle(Props: {
     )
 }
 
-export default MiniCircle
+export default SlideCircle

@@ -1,4 +1,4 @@
-import {defaultSlideBackground} from "../toolBar/ToolBarConst";
+import {defaultSlideBackground} from "../../toolBar/ToolBarConst";
 
 export function createSlide(editor: Editor): Editor {
 

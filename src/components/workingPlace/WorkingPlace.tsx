@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './WorkingPlace.module.css';
-import CText from './blocks/CText';
-import Triangle from "./blocks/figures/Triangle";
-import Rectangle from "./blocks/figures/Rectangle";
-import Circle from "./blocks/figures/Circle";
-import Image from './blocks/Image';
+import CText from './blocks/Text/CText';
+import Triangle from "./blocks/figures/Triangle/Triangle";
+import Rectangle from "./blocks/figures/Rectangle/Rectangle";
+import Circle from "./blocks/figures/Circle/Circle";
+import Image from './blocks/Image/Image';
 
 function WorkingPlace(Props: { presentation: Presentation, slideId: number }) {
     const blocks = Props.presentation.slides[Props.slideId - 1].blocks.map((block, id) => {

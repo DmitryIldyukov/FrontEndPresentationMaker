@@ -1,6 +1,6 @@
 import {defaultSlide} from "../toolBar/ToolBarConst";
 import {dispatch} from "./Editor";
-import {editBlockSize, savePosBlock, selectBlock} from "../toolBar/blockFunctions";
+import {editBlockSize, savePosBlock, selectBlock} from "../toolBar/toolbarFunctions/blockFunctions";
 import {updateHistory} from "../hooks/undoRedo";
 
 export function createPresentation(): Editor {

@@ -4,7 +4,7 @@ import {
     editTextFontFamily,
     editTextFontItalic,
     editTextFontSize
-} from "../../toolBar/textFunctions";
+} from "../../toolBar/toolbarFunctions/textFunctions";
 import {updateHistory} from "../../hooks/undoRedo";
 
 export const changeTextSizeHandler = (blockId: number, slideId: number, newFontSize: number) => {

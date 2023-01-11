@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Triangle.module.css'
 
-function MiniTriangle(Props: {
+function SlideTriangle(Props: {
     presentation: Presentation,
     slideId: number,
     color: string,
@@ -36,4 +36,4 @@ function MiniTriangle(Props: {
     );
 }
 
-export default MiniTriangle
+export default SlideTriangle

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CText.module.css';
 
-function MiniText(Props: {
+function SlideText(Props: {
     presentation: Presentation,
     slideId: number,
     fontFamily: string,
@@ -44,4 +44,4 @@ function MiniText(Props: {
     );
 };
 
-export default MiniText;
+export default SlideText;

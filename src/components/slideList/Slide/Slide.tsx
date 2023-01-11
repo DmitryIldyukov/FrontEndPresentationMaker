@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './Slide.module.css';
-import MiniCircle from "../workingPlace/blocks/figures/MiniCircle";
-import MiniRectangle from "../workingPlace/blocks/figures/MiniRectangle";
-import MiniTriangle from "../workingPlace/blocks/figures/MiniTriangle";
-import MiniImage from "../workingPlace/blocks/MiniImage";
-import MiniText from "../workingPlace/blocks/MiniText";
-import {dispatch} from "../editor/Editor";
+import SlideCircle from "../../workingPlace/blocks/figures/Circle/SlideCircle";
+import SlideRectangle from "../../workingPlace/blocks/figures/Rectangle/SlideRectangle";
+import SlideTriangle from "../../workingPlace/blocks/figures/Triangle/SlideTriangle";
+import SlideImage from "../../workingPlace/blocks/Image/SlideImage";
+import SlideText from "../../workingPlace/blocks/Text/SlideText";
+import {dispatch} from "../../editor/Editor";
 import {selectSlide, selectSlides} from "./slideFunctions";
 
 const Slide = (Props: {
@@ -31,7 +31,7 @@ const Slide = (Props: {
 
         if (block.blockType.typeBlock.type === "text") {
 
-            return <MiniText
+            return <SlideText
                 key={id}
                 presentation={Props.presentation}
                 slideId={Props.slideId}
@@ -50,7 +50,7 @@ const Slide = (Props: {
         if (block.blockType.typeBlock.type === "image") {
 
             if (block.link !== undefined) {
-                return <MiniImage
+                return <SlideImage
                     presentation={Props.presentation}
                     slideId={Props.slideId}
                     key={id}
@@ -63,7 +63,7 @@ const Slide = (Props: {
         }
         if (block.blockType.typeBlock.type === 'figure') {
             if (block.blockType.typeBlock.figureType === 'circle') {
-                return <MiniCircle
+                return <SlideCircle
                     presentation={Props.presentation}
                     blockId={block.blockId}
                     slideId={Props.slideId}
@@ -75,7 +75,7 @@ const Slide = (Props: {
                 />
             }
             if (block.blockType.typeBlock.figureType === 'rectangle') {
-                return <MiniRectangle
+                return <SlideRectangle
                     presentation={Props.presentation}
                     blockId={block.blockId}
                     slideId={Props.slideId}
@@ -87,7 +87,7 @@ const Slide = (Props: {
                 />
             }
             if (block.blockType.typeBlock.figureType === 'triangle') {
-                return <MiniTriangle
+                return <SlideTriangle
                     presentation={Props.presentation}
                     blockId={block.blockId}
                     slideId={Props.slideId}

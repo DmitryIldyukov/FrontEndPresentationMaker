@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Rectangle.module.css";
 
-function MiniRectangle(Props: {
+function SlideRectangle(Props: {
     presentation: Presentation,
     color: string,
     borderColor: string,
@@ -36,4 +36,4 @@ function MiniRectangle(Props: {
     )
 }
 
-export default MiniRectangle
+export default SlideRectangle

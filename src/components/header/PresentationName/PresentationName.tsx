@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import styles from './PresentationName.module.css';
-import {dispatch} from "../editor/Editor";
-import {changePresentationName} from "../editor/editorFunctions";
-import {updateHistory} from "../hooks/undoRedo";
+import {dispatch} from "../../editor/Editor";
+import {changePresentationName} from "../../editor/editorFunctions";
+import {updateHistory} from "../../hooks/undoRedo";
 
 const PresentationName = (Props: { presentation: Presentation }) => {
     const [name, setName] = useState(Props.presentation.presentationName);

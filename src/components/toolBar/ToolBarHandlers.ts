@@ -1,6 +1,6 @@
 import {dispatch} from "../editor/Editor";
-import {createBlock, createImage} from "./blockFunctions";
-import {editSlideBackground} from "../slideList/slideFunctions";
+import {createBlock, createImage} from "./toolbarFunctions/blockFunctions";
+import {editSlideBackground} from "../slideList/Slide/slideFunctions";
 import {updateHistory} from "../hooks/undoRedo";
 
 export const createBlockHandler = (slideId: number, typeOfBlock: ContentType) => {

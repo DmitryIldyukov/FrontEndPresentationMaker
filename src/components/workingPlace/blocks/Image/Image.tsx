@@ -1,14 +1,15 @@
-import React, {useEffect, useState} from "react";
-import styles from "./Rectangle.module.css";
+import React, {useEffect, useState} from 'react';
+import styles from './Image.module.css';
 import useDragger from '../../../hooks/useDragger';
 import {selectBlockHandler} from "../../../editor/editorFunctions";
 
+let countstr = ""
 
-function Rectangle(Props: {presentation: Presentation, slideId: number, color: string, borderColor: string, size: Size, blockId: number, position: Position}) {
+function Image(Props: { presentation: Presentation, slideId: number, size: Size, imageUrl: string, blockId: number, position: Position }) {
     const [pos, setPos] = useState(Props.position)
 
     let count = Props.blockId;
-    const countstr = count.toString();
+    countstr = count.toString();
 
     useEffect(() => {
         setPos(Props.position)
@@ -29,11 +30,6 @@ function Rectangle(Props: {presentation: Presentation, slideId: number, color: s
         return false
     }
 
-    const rectangleStyle = {
-        color: Props.color,
-        borderColor: Props.borderColor
-    }
-
     const sizing = {
         height: Props.size.height,
         width: Props.size.width,
@@ -42,15 +38,17 @@ function Rectangle(Props: {presentation: Presentation, slideId: number, color: s
     }
 
     return (
-        <div className={styles.rectangleSize} onClick={() => selectBlockHandler(Props.slideId - 1, Props.blockId)}>
-            <div className={styles.rectangle + " " + (checkSelect() ? styles.checked : undefined)} style={sizing} id={countstr}>
-                <svg style={rectangleStyle} width='100%' height='100%' id={countstr} >
-                    <rect x="1%" y="1%" width='98%' height='98%'
-                            fill={Props.color} stroke={Props.borderColor} strokeWidth="3"
-                    />
-                </svg>
+        <div>
+            <div id={countstr} style={sizing}
+                 className={styles.container + " " + (checkSelect() ? styles.checked : undefined)}>
+                <img
+                    onClick={() => selectBlockHandler(Props.slideId - 1, Props.blockId)}
+                    src={Props.imageUrl}
+                    className={styles.imgStyle}
+                />
             </div>
         </div>
     )
 }
-export default Rectangle;
+
+export default Image;

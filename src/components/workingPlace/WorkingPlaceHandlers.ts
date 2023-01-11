@@ -1,5 +1,5 @@
 import {dispatch} from "../editor/Editor";
-import {editTextColor, editTextContent} from "../toolBar/textFunctions";
+import {editTextColor, editTextContent} from "../toolBar/toolbarFunctions/textFunctions";
 import {updateHistory} from "../hooks/undoRedo";
 
 export const changeTextColorHandler = (blockId: number, slideId: number, newColor: string) => {

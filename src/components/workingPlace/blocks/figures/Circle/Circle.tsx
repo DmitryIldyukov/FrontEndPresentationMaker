@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styles from './Circle.module.css';
-import useDragger from '../../../hooks/useDragger';
-import {selectBlockHandler} from "../../../editor/editorFunctions";
+import useDragger from '../../../../hooks/useDragger';
+import {selectBlockHandler} from "../../../../editor/editorFunctions";
 
 function Circle(Props: {presentation: Presentation, color: string, borderColor: string, size: Size, slideId: number, blockId: number, position: Position}) {
     const [pos, setPos] = useState(Props.position)

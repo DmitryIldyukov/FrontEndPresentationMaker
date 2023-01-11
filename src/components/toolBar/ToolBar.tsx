@@ -18,7 +18,7 @@ import {
     defaultImageType
 } from "./ToolBarConst";
 import {dispatch} from "../editor/Editor";
-import {createSlide, removeSlide} from "../slideList/slideFunctions";
+import {createSlide, removeSlide} from "../slideList/Slide/slideFunctions";
 import {redo, undo, updateHistory} from "../hooks/undoRedo";
 import {backgroundHandler, createBlockHandler, createImageHandler} from "./ToolBarHandlers";
 

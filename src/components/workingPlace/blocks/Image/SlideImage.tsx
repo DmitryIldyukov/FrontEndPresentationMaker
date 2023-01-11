@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Image.module.css';
 
-function MiniImage(Props: {
+function SlideImage(Props: {
     presentation: Presentation,
     slideId: number,
     size: Size,
@@ -29,4 +29,4 @@ function MiniImage(Props: {
     )
 }
 
-export default MiniImage;
+export default SlideImage;
