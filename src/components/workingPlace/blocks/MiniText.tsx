@@ -19,7 +19,7 @@ function MiniText(Props: {
         fontFamily: Props.fontFamily,
         color: Props.fontColor,
         fontSize: (Props.fontSize / 5),
-        fontWeight: Props.fontWeight,
+        fontWeight: (Props.fontWeight / 5),
         fontStyle: Props.fontStyle,
         top: (Props.position.y / 5),
         left: (Props.position.x / 5),
@@ -32,12 +32,13 @@ function MiniText(Props: {
             <textarea
                 className={styles.text}
                 style={textStyle}
-                defaultValue={Props.content}
+                value={Props.content}
                 onKeyDown={(e) => {
                     if (e.key === "Enter") {
                         e.currentTarget.blur();
                     }
                 }}
+                disabled={true}
             />
         </div>
     );
