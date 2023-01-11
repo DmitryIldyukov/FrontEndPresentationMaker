@@ -2,9 +2,10 @@ import React from 'react';
 import styles from './Header.module.css';
 import logo from '../../assets/logo.svg';
 import PresentationName from "./PresentationName";
-import { createPresentationHandler } from '../editor/EditorFn';
 import { saveAsJsonHandler, openJsonHandler } from '../editor/EditorFn'
 import { saveProgramAsPDF } from '../hooks/exportFunctions'
+import {dispatch} from "../editor/Editor";
+import {createPresentation} from "../editor/editorFunctions";
 
 export function Header(Props: { presentation: Presentation }) {
     const fileChangeHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,7 +29,9 @@ export function Header(Props: { presentation: Presentation }) {
                 <PresentationName presentation={Props.presentation}/>
                 <ul className={styles.headerToolList}>
                     <li className={styles.headerTool}>
-                        <button onClick={createPresentationHandler} className={styles.headerButton}>Создать</button>
+                        <button onClick={() => dispatch(createPresentation, {})} className={styles.headerButton}>
+                            Создать
+                        </button>
                     </li>
                     <li className={styles.headerButton}> Открыть
                       <div className={styles.headerButtonContainer}>
@@ -45,7 +48,9 @@ export function Header(Props: { presentation: Presentation }) {
                         <button  onClick={saveAsJsonHandler} className={styles.headerButton}>Сохранить</button>
                     </li>
                     <li>
-                        <button onClick={() => saveProgramAsPDF(Props.presentation)} className={styles.headerButton}>Export PDF</button>
+                        <button onClick={() => saveProgramAsPDF(Props.presentation)} className={styles.headerButton}>
+                            Export PDF
+                        </button>
                     </li>
                 </ul>
             </div>

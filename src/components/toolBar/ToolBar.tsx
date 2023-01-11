@@ -11,13 +11,11 @@ import triangle from "../../assets/triangle.svg"
 import circle from "../../assets/circle.svg"
 import square from "../../assets/square.svg"
 import {
-    addSlideHandler,
-    removeSlideHandler,
     createBlockHandler,
     backgroundHandler,
     createImageHandler,
     redoHandler,
-    undoHandler
+    undoHandler, updateHistoryHandler
 } from "../editor/EditorFn";
 import {
     defaultTextBlockType,
@@ -26,6 +24,8 @@ import {
     defaultTriangleBlockType,
     defaultImageType
 } from "./ToolBarConst";
+import {dispatch} from "../editor/Editor";
+import {createSlide, removeSlide} from "../slideList/slideFunctions";
 
 export function ToolBar(Props: { editor: Editor }) {
      const [color, setColor]=useState('')
@@ -55,12 +55,18 @@ export function ToolBar(Props: { editor: Editor }) {
     return (
         <div className={styles.toolBar}>
             <button onClick={() => {
-                addSlideHandler();
+                updateHistoryHandler();
+                dispatch(createSlide, {})
             }} className={styles.toolBarTool}>
                 Добавить слайд
                 <img src={addSlide} className={styles.icon}/>
             </button>
-            <button onClick={() => removeSlideHandler(Props.editor.presentation.selectedSlides)} className={styles.toolBarTool}>
+            <button
+                onClick={() => {
+                    updateHistoryHandler();
+                    dispatch(removeSlide, Props.editor.presentation.selectedSlides)
+                }}
+                className={styles.toolBarTool}>
                 <img src={deleteSlide} className={styles.icon}/>
             </button>
             <button

@@ -25,44 +25,9 @@ import {
     editTextFontItalic,
     editTextFontSize
 } from "../toolBar/textFunctions";
-import {createSlide,
-    editSlideBackground,
-    removeSlide,
-    selectSlide,
-    selectSlides
-} from "../slideList/slideFunctions";
 import {
-    changePresentationName,
-    createPresentation
-} from "./editorFunctions";
-
-export const createPresentationHandler = () => {
-    dispatch(createPresentation, {});
-}
-
-export const addSlideHandler = () => {
-    updateHistoryHandler();
-    dispatch(createSlide, {});
-}
-
-export const removeSlideHandler = (selectedSlides: TSlide[]) => {
-    updateHistoryHandler();
-    dispatch(removeSlide, selectedSlides);
-}
-
-export const selectSlideHandler = (slideId: number, e: MouseEvent<HTMLLIElement>) => {
-    if (e.ctrlKey) {
-        dispatch(selectSlides, slideId)}
-    else {
-        dispatch(selectSlide, slideId)
-    }
-}
-
-export const changePresentationNameHandler = (newName: string) => {
-    updateHistoryHandler();
-    dispatch(changePresentationName, newName)
-}
-
+    editSlideBackground,
+} from "../slideList/slideFunctions";
 
 export const createBlockHandler = (slideId: number, typeOfBlock: ContentType) => {
     updateHistoryHandler();

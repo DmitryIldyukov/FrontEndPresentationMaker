@@ -5,7 +5,9 @@ import MiniRectangle from "../workingPlace/blocks/figures/MiniRectangle";
 import MiniTriangle from "../workingPlace/blocks/figures/MiniTriangle";
 import MiniImage from "../workingPlace/blocks/MiniImage";
 import MiniText from "../workingPlace/blocks/MiniText";
-import {selectSlideHandler} from "../editor/EditorFn";
+import {dispatch} from "../editor/Editor";
+import {selectSlide, selectSlides} from "./slideFunctions";
+// import { selectSlideHandler } from "../editor/EditorFn";
 
 const Slide = (Props: {
     presentation: Presentation,
@@ -104,7 +106,13 @@ const Slide = (Props: {
 
     return (
         <li
-            onClick={(e) => selectSlideHandler(Props.slideId - 1, e)}
+            onClick={(e) => {
+                if (e.ctrlKey) {
+                    dispatch(selectSlides, Props.slideId - 1)
+                } else {
+                    dispatch(selectSlide, Props.slideId - 1)
+                }
+            }}
             className={styles.slideContainer}
             key={Props.slideId}
         >
