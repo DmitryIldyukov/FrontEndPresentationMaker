@@ -1,8 +1,6 @@
-import {colors} from "../../types/colors";
-
 export const defaultSlideBackground: BackgroundColor = {
     type: 'color',
-    color: colors.white
+    color: 'white'
 }
 
 export const defaultSlide: TSlide = {
@@ -14,7 +12,7 @@ export const defaultSlide: TSlide = {
 
 export const defaultTextBlock: TText = {
     type: "text",
-    fontColor: colors.black,
+    fontColor: 'black',
     content: "new text",
     fontSize: 36,
     fontFamily: "Open Sans",
@@ -30,8 +28,8 @@ export const defaultTextBlockType: ContentType = {
 export const defaultCircleBlock: Figure = {
     type: 'figure',
     figureType: 'circle',
-    color: colors.white,
-    borderColor: colors.black,
+    color: 'white',
+    borderColor: 'black',
     id: 1
 }
 
@@ -52,8 +50,8 @@ export const defaultCircleBlockType: ContentType = {
 export const defaultRectangleBlock: Figure = {
     type: 'figure',
     figureType: 'rectangle',
-    color: colors.white,
-    borderColor: colors.black,
+    color: 'white',
+    borderColor: 'black',
     id: 1
 }
 
@@ -64,8 +62,8 @@ export const defaultRectangleBlockType: ContentType = {
 export const defaultTriangleBlock: Figure = {
     type: 'figure',
     figureType: 'triangle',
-    color: colors.white,
-    borderColor: colors.black,
+    color: 'white',
+    borderColor: 'black',
     id: 1
 }
 

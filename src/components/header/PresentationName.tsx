@@ -10,7 +10,7 @@ const  PresentationName = (Props: {presentation:Presentation}) => {
     }, [Props.presentation.presentationName]);
 
     function CheckPresentationName(newName: string): string {
-        if (newName === "" || newName.length === 0 || newName === null) {
+        if (newName === "" || newName === null || newName === undefined) {
             newName = "Nameless presentation";
             setName(newName);
         }

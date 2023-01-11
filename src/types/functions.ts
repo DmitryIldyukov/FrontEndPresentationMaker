@@ -1,5 +1,4 @@
 import { defaultSlide, defaultSlideBackground } from "../components/toolBar/ToolBarConst"
-import slideList from "../components/slideList/SlideList";
 
 function searchBlockId(slideId: number, blockId: number): number {
 
@@ -68,10 +67,6 @@ export function createImage(editor: Editor, payload: {slideId: number, typeOfBlo
     };
 }
 
-// export function showPresentation(presentation:Presentation): Presentation{
-//     return presentation;
-// }
-
 export function changePresentationName(editor: Editor, newName: string): Editor {
     return {
         ...editor,
@@ -81,10 +76,6 @@ export function changePresentationName(editor: Editor, newName: string): Editor 
         }
     }
 }
-
-// export function savePresentation(presentation:Presentation): Presentation{
-//     return presentation;
-// }
 
 //slide
 export function createSlide(editor: Editor): Editor {
@@ -209,17 +200,7 @@ export function editSlideBackground(editor: Editor, payload: {slideId: number, n
     };
 }
 
-export function moveSlide(presentation: Presentation, oldSlideId: number, newSlideId: number): Presentation {
-    const newSlides = [...presentation.slides];
-    [newSlides[oldSlideId], newSlides[newSlideId]] = [newSlides[newSlideId], newSlides[oldSlideId]]
-    return {
-        ...presentation,
-        slides: newSlides
-    };
-}
-
 //block
-
 export function createBlock(editor: Editor, payload: {slideId: number, typeOfBlock: ContentType}): Editor {
     const newBlock = {
         blockType:  payload.typeOfBlock,
