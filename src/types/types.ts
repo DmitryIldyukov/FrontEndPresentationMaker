@@ -60,20 +60,17 @@ type TText = {
     fontSize: number;
     fontFamily: string;
     fontStyle: string,
-    fontWeight: number,
-    id: number
+    fontWeight: number
 } 
 
 type Image = {
     type: 'image';
-    src: string,
-    id: number
+    src: string
 }
 
 type Figure = {
     type: 'figure';
     figureType: 'rectangle' | 'circle' | 'triangle';
     color: string;
-    borderColor: string,
-    id: number
+    borderColor: string
 }

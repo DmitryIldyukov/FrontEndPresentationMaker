@@ -14,7 +14,6 @@ const Slide = (Props: {
     background: string,
     blockList: Block[]
 }) => {
-
     const newBackground: BackgroundColor| BackgroundImage = Props.presentation.slides[Props.slideId - 1].background;
     let style;
     if (newBackground.type === 'color') {
@@ -27,7 +26,6 @@ const Slide = (Props: {
             backgroundSize: '195px 109px'
         }
     }
-
     const blocks = Props.blockList.map((block, id) => {
 
         if (block.blockType.typeBlock.type === "text") {
@@ -48,7 +46,6 @@ const Slide = (Props: {
                 position={block.position}
             />
         }
-
         if (block.blockType.typeBlock.type === "image") {
 
             if (block.link !== undefined) {
@@ -63,7 +60,6 @@ const Slide = (Props: {
                 />
             }
         }
-
         if (block.blockType.typeBlock.type === 'figure') {
             if (block.blockType.typeBlock.figureType === 'circle') {
                 return <MiniCircle

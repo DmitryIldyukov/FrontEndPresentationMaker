@@ -17,8 +17,7 @@ export const defaultTextBlock: TText = {
     fontSize: 36,
     fontFamily: "Open Sans",
     fontWeight: 400,
-    fontStyle: "normal",
-    id: 1
+    fontStyle: "normal"
 }
 
 export const defaultTextBlockType: ContentType = {
@@ -29,14 +28,12 @@ export const defaultCircleBlock: Figure = {
     type: 'figure',
     figureType: 'circle',
     color: 'white',
-    borderColor: 'black',
-    id: 1
+    borderColor: 'black'
 }
 
 export const defaultImage: Image = {
     type:'image',
-    src: '',
-    id: 1
+    src: ''
 }
 
 export const defaultImageType: ContentType = {
@@ -51,8 +48,7 @@ export const defaultRectangleBlock: Figure = {
     type: 'figure',
     figureType: 'rectangle',
     color: 'white',
-    borderColor: 'black',
-    id: 1
+    borderColor: 'black'
 }
 
 export const defaultRectangleBlockType: ContentType = {
@@ -63,8 +59,7 @@ export const defaultTriangleBlock: Figure = {
     type: 'figure',
     figureType: 'triangle',
     color: 'white',
-    borderColor: 'black',
-    id: 1
+    borderColor: 'black'
 }
 
 export const defaultTriangleBlockType: ContentType = {

@@ -4,21 +4,7 @@ import {
     removeSlide,
     selectSlide,
     changePresentationName,
-    createBlock,
     editSlideBackground,
-    createImage,
-    selectBlock,
-    removeBlock,
-    editFigureColor,
-    editFigureBorderColor,
-    editTextColor,
-    editTextFontSize,
-    editTextFontItalic,
-    editTextFontBold,
-    editTextFontFamily,
-    editTextContent,
-    savePosBlock, 
-    editBlockSize,
     selectSlides
 } from "../../types/functions";
 import {
@@ -32,6 +18,15 @@ import {
 } from "../hooks/undoRedo";
 import { dispatch } from "./Editor";
 import { MouseEvent } from "react";
+import {
+    createBlock,
+    createImage, editBlockSize,
+    editFigureBorderColor,
+    editFigureColor,
+    editTextColor, editTextContent, editTextFontBold, editTextFontFamily, editTextFontItalic, editTextFontSize,
+    removeBlock, savePosBlock,
+    selectBlock
+} from "../toolBar/blockFunctions";
 
 export const createPresentationHandler = () => {
     dispatch(createPresentation, {});
