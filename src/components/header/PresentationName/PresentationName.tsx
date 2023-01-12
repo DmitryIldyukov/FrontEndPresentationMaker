@@ -13,7 +13,7 @@ const PresentationName = (Props: { presentation: Presentation }) => {
 
     function CheckPresentationName(newName: string): string {
         if (newName === "" || newName === null || newName === undefined) {
-            newName = "Nameless presentation";
+            newName = "Без имени";
             setName(newName);
         }
         return (
@@ -30,10 +30,6 @@ const PresentationName = (Props: { presentation: Presentation }) => {
                 onChange={(e) => setName(e.target.value)}
                 onFocus={(e) => {
                     e.currentTarget.select();
-                }}
-                onSubmit={() => {
-                    dispatch(updateHistory, {})
-                    dispatch(changePresentationName, (CheckPresentationName(name)));
                 }}
                 onKeyDown={(e) => {
                     if (e.key === "Enter") {

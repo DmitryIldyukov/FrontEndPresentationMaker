@@ -10,6 +10,7 @@ export const defaultSlide: TSlide = {
     selectedBlocks: []
 }
 
+
 export const defaultTextBlock: TText = {
     type: "text",
     fontColor: 'black',
@@ -29,15 +30,6 @@ export const defaultCircleBlock: Figure = {
     figureType: 'circle',
     color: 'white',
     borderColor: 'black'
-}
-
-export const defaultImage: Image = {
-    type: 'image',
-    src: ''
-}
-
-export const defaultImageType: ContentType = {
-    typeBlock: defaultImage
 }
 
 export const defaultCircleBlockType: ContentType = {
@@ -64,4 +56,13 @@ export const defaultTriangleBlock: Figure = {
 
 export const defaultTriangleBlockType: ContentType = {
     typeBlock: defaultTriangleBlock
+}
+
+export const defaultImage: Image = {
+    type: 'image',
+    src: ''
+}
+
+export const defaultImageType: ContentType = {
+    typeBlock: defaultImage
 }

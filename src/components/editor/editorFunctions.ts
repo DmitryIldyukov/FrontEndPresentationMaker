@@ -10,7 +10,7 @@ export function createPresentation(): Editor {
             states: []
         },
         presentation: {
-            presentationName: 'New Presentation',
+            presentationName: 'Новая презентация',
             slides: [defaultSlide],
             selectedSlides: [defaultSlide]
         }
