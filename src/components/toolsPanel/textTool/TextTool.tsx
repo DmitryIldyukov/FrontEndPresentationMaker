@@ -13,21 +13,21 @@ import {
 } from "./TextToolHandlers";
 
 const TextTool = (Props: {presentation: Presentation, slideId: number}) => {
-    const [fontSizeU, setFontSizeU] = useState(defaultTextBlock.fontSize);
+    const [fontSizeText, setFontSizeText] = useState(defaultTextBlock.fontSize);
     const [color, setColor] = useState('');
     const [isChecked, setIsChecked] = useState(false)
 
     function increment() {
-        if (fontSizeU < 80) {
-            setFontSizeU(fontSizeU + 1);
-            changeTextSizeHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, fontSizeU + 1)
+        if (fontSizeText < 80) {
+            setFontSizeText(fontSizeText + 1);
+            changeTextSizeHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, fontSizeText + 1)
         }
     }
 
     function decrement() {
-        if (fontSizeU > 1) {
-            setFontSizeU(fontSizeU - 1);
-            changeTextSizeHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, fontSizeU -  1)
+        if (fontSizeText > 1) {
+            setFontSizeText(fontSizeText - 1);
+            changeTextSizeHandler(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, fontSizeText -  1)
         }
     }
 
@@ -69,7 +69,7 @@ const TextTool = (Props: {presentation: Presentation, slideId: number}) => {
                 <button onClick={increment} className={styles.incrementFontSize + ' ' + styles.actionFontSize}>
                     <span className={styles.action}>+</span>
                 </button>
-                <input onChange={e => setFontSizeU(e.target.valueAsNumber)} className={styles.changeFontSize} value={fontSizeU} type="number"/>
+                <input onChange={e => setFontSizeText(e.target.valueAsNumber)} className={styles.changeFontSize} value={fontSizeText} type="number"/>
                 <button  onClick={decrement} className={styles.decrementFontSize + ' ' + styles.actionFontSize}>
                     <span className={styles.action}>-</span>
                 </button>
