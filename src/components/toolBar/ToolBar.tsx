@@ -96,8 +96,8 @@ export function ToolBar(Props: { editor: Editor }) {
                 className={styles.toolBarTool}>
                 <img src={addText} className={styles.icon}/>
             </button>
-            <div className={styles.toolBarTool + " " + styles.toolBarToolFigure}><img src={addFigure}
-                                                                                      className={styles.icon}/>
+            <div className={styles.toolBarTool + " " + styles.toolBarToolFigure}>
+                <img src={addFigure} className={styles.icon}/>
                 <div className={styles.toolBarToolMenu}>
                     <button
                         onClick={() => createBlockHandler(Props.editor.presentation.selectedSlides[0].slideId, defaultTriangleBlockType)}
@@ -127,7 +127,6 @@ export function ToolBar(Props: { editor: Editor }) {
                            className={styles.inputFile} multiple/>
                 </button>
             </div>
-            <button className={styles.toolBarTool}><img src={showSlides} className={styles.icon}/>Показ слайдов</button>
         </div>
     )
 }
