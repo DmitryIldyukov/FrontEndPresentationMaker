@@ -22,14 +22,9 @@ function CText(Props: {
     height: number
 }) {
     const [text, setText] = useState('')
-    const [pos, setPos] = useState(Props.position)
 
     let count = Props.blockId;
     countstr = count.toString();
-
-    useEffect(() => {
-        setPos(Props.position)
-    })
 
     useDragger(countstr, Props.position, Props.slideId, Props.blockId);
 

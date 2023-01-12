@@ -11,12 +11,12 @@ function SlideRectangle(Props: {
     position: Position
 }) {
 
-    const MiniRectangleStyle = {
+    const SlideRectangleStyle = {
         color: Props.color,
         borderColor: Props.borderColor
     }
 
-    const MiniRectangleSizing = {
+    const SlideRectangleSizing = {
         height: (Props.size.height / 5),
         width: (Props.size.width / 5),
         top: (Props.position.y / 5),
@@ -25,10 +25,10 @@ function SlideRectangle(Props: {
 
     return (
         <div className={styles.rectangleSize}>
-            <div className={styles.rectangle} style={MiniRectangleSizing}>
-                <svg style={MiniRectangleStyle} width='100%' height='100%' >
+            <div className={styles.rectangle} style={SlideRectangleSizing}>
+                <svg style={SlideRectangleStyle} width='100%' height='100%' >
                     <rect x="1%" y="1%" width='98%' height='98%'
-                          fill={Props.color} stroke={Props.borderColor} strokeWidth="3"
+                          fill={Props.color} stroke={Props.borderColor} strokeWidth="1"
                     />
                 </svg>
             </div>

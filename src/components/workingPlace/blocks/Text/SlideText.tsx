@@ -15,7 +15,7 @@ function SlideText(Props: {
     width: number,
     height: number
 }) {
-    const textStyle = {
+    const SlideTextStyle = {
         fontFamily: Props.fontFamily,
         color: Props.fontColor,
         fontSize: (Props.fontSize / 5),
@@ -31,7 +31,7 @@ function SlideText(Props: {
         <div>
             <textarea
                 className={styles.text}
-                style={textStyle}
+                style={SlideTextStyle}
                 value={Props.content}
                 onKeyDown={(e) => {
                     if (e.key === "Enter") {

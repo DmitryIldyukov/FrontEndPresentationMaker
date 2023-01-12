@@ -11,12 +11,12 @@ function SlideCircle(Props: {
     position: Position
 }) {
 
-    const miniCircleStyle = {
+    const SlideCircleStyle = {
         color: Props.color,
         borderColor: Props.borderColor
     }
 
-    const miniCircleSizing = {
+    const SlideCircleSizing = {
         height: (Props.size.height / 5),
         width: (Props.size.width / 5),
         top: (Props.position.y / 5),
@@ -25,10 +25,10 @@ function SlideCircle(Props: {
 
     return (
         <div>
-            <div className={styles.circle} style={miniCircleSizing}>
-                <svg width='100%' height='100%' style={miniCircleStyle}>
+            <div className={styles.circle} style={SlideCircleSizing}>
+                <svg width='100%' height='100%' style={SlideCircleStyle}>
                     <ellipse cx='50%' cy='50%' rx="45%" ry="45%"
-                             fill={Props.color} stroke={Props.borderColor} strokeWidth="3"
+                             fill={Props.color} stroke={Props.borderColor} strokeWidth="1"
                     />
                 </svg>
             </div>

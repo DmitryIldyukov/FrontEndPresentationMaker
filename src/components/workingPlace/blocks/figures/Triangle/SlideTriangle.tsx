@@ -11,12 +11,12 @@ function SlideTriangle(Props: {
     position: Position
 }) {
 
-    const MiniTriangleStyle = {
+    const SlideTriangleStyle = {
         color: Props.color,
         borderColor: Props.borderColor
     }
 
-    const MiniTriangleSizing = {
+    const SlideTriangleSizing = {
         height: (Props.size.height / 5),
         width: (Props.size.width / 5),
         top: (Props.position.y / 5),
@@ -25,10 +25,10 @@ function SlideTriangle(Props: {
 
     return (
         <div>
-            <div className={styles.triangle} style={MiniTriangleSizing}>
-                <svg width='100%' height='100%' style={MiniTriangleStyle} preserveAspectRatio="none" viewBox='0 0 100 100'>
+            <div className={styles.triangle} style={SlideTriangleSizing}>
+                <svg width='100%' height='100%' style={SlideTriangleStyle} preserveAspectRatio="none" viewBox='0 0 100 100'>
                     <polygon points='5,90 50,5 95,90'
-                             fill={Props.color} stroke={Props.borderColor} strokeWidth="3"
+                             fill={Props.color} stroke={Props.borderColor} strokeWidth="1"
                     />
                 </svg>
             </div>
