@@ -39,7 +39,9 @@
     margin-top: 32px;
     margin-bottom: 20px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
 }
 
 .headerSecond {
@@ -63,7 +65,7 @@
 }
 
 .headerButton {
-    margin-left: 20px;
+    margin-right: 20px;
     text-decoration: none;
     border: none;
     cursor: pointer;
