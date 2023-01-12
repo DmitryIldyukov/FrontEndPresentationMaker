@@ -4,8 +4,6 @@ import useDragger from '../../../hooks/useDragger';
 import {changeTextContent} from "../../WorkingPlaceHandlers";
 import {selectBlockHandler} from "../../../editor/editorFunctions";
 
-let countstr = ""
-
 function CText(Props: {
     presentation: Presentation,
     slideId: number,
@@ -24,7 +22,7 @@ function CText(Props: {
     const [text, setText] = useState('')
 
     let count = Props.blockId;
-    countstr = count.toString();
+    const countstr = count.toString();
 
     useDragger(countstr, Props.position, Props.slideId, Props.blockId);
 

@@ -16,7 +16,7 @@ function setElementToPagePDF(progSlide: Block, doc: jsPDF) {
         let startPosition = 0
         let sLine = ""
         let lineNumber = 0
-        CanEl.height = parseInt(String(progSlide.blockType.typeBlock.fontSize)) * 0.9
+        CanEl.height = parseInt(String(progSlide.blockType.typeBlock.fontSize))
         while (startPosition <= progSlide.blockType.typeBlock.content.length) {
             if (progSlide.blockType.typeBlock.content[startPosition] === '\n' ||
                 startPosition === progSlide.blockType.typeBlock.content.length) {
@@ -84,14 +84,14 @@ function setPagePDF(progSlide: TSlide, doc: jsPDF) {
         doc.setFillColor(progSlide.background.color)
         doc.rect(0, 0, exportWidth, exportHeight, "F")
     }
-    for (var i = 0; i < progSlide.blocks.length; i++) {
+    for (let i = 0; i < progSlide.blocks.length; i++) {
         doc = setElementToPagePDF(progSlide.blocks[i], doc)
     }
     return doc
 }
 
 function setPDF(prog: Presentation, doc: jsPDF) {
-    for (var i = 0; i < prog.slides.length; i++) {
+    for (let i = 0; i < prog.slides.length; i++) {
         doc = setPagePDF(prog.slides[i], doc)
         if (i + 1 < prog.slides.length) {
             doc.addPage([exportWidth, exportHeight], "landscape")

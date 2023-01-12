@@ -2,13 +2,12 @@ import React, {useEffect, useState} from 'react';
 import styles from './Triangle.module.css'
 import useDragger from '../../../../hooks/useDragger';
 import {selectBlockHandler} from "../../../../editor/editorFunctions";
-let countstr = "";
 
 function Triangle(Props: {presentation: Presentation, slideId: number, color: string, borderColor: string, size: Size, blockId: number, position: Position}) {
     const [pos, setPos] = useState(Props.position)
 
-    let count = Props.blockId;
-    countstr = count.toString();
+    const count = Props.blockId;
+    const countstr = count.toString();
 
     useEffect(() => {
         setPos(Props.position)

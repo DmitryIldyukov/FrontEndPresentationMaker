@@ -3,7 +3,6 @@ import styles from "./Rectangle.module.css";
 import useDragger from '../../../../hooks/useDragger';
 import {selectBlockHandler} from "../../../../editor/editorFunctions";
 
-
 function Rectangle(Props: {presentation: Presentation, slideId: number, color: string, borderColor: string, size: Size, blockId: number, position: Position}) {
     const [pos, setPos] = useState(Props.position)
 
@@ -45,7 +44,7 @@ function Rectangle(Props: {presentation: Presentation, slideId: number, color: s
         <div className={styles.rectangleSize} onClick={() => selectBlockHandler(Props.slideId - 1, Props.blockId)}>
             <div className={styles.rectangle + " " + (checkSelect() ? styles.checked : undefined)} style={sizing} id={countstr}>
                 <svg style={rectangleStyle} width='100%' height='100%' id={countstr} >
-                    <rect x="1%" y="1%" width='98%' height='98%'
+                    <rect x="5%" y="5%" width='90%' height='90%'
                             fill={Props.color} stroke={Props.borderColor} strokeWidth="3"
                     />
                 </svg>

@@ -3,13 +3,11 @@ import styles from './Image.module.css';
 import useDragger from '../../../hooks/useDragger';
 import {selectBlockHandler} from "../../../editor/editorFunctions";
 
-let countstr = ""
-
 function Image(Props: { presentation: Presentation, slideId: number, size: Size, imageUrl: string, blockId: number, position: Position }) {
     const [pos, setPos] = useState(Props.position)
 
     let count = Props.blockId;
-    countstr = count.toString();
+    const countstr = count.toString();
 
     useEffect(() => {
         setPos(Props.position)

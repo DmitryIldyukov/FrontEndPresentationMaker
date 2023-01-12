@@ -15,22 +15,8 @@ const Slide = (Props: {
     background: string,
     blockList: Block[]
 }) => {
-    const newBackground: BackgroundColor | BackgroundImage = Props.presentation.slides[Props.slideId - 1].background;
-    let style;
-    if (newBackground.type === 'color') {
-        style = {
-            background: newBackground.color
-        }
-    } else {
-        style = {
-            background: 'url(' + (newBackground.src) + ')',
-            backgroundSize: '195px 109px'
-        }
-    }
     const blocks = Props.blockList.map((block, id) => {
-
         if (block.blockType.typeBlock.type === "text") {
-
             return <SlideText
                 key={id}
                 presentation={Props.presentation}
@@ -102,6 +88,19 @@ const Slide = (Props: {
         }
         return null
     })
+
+    const newBackground: BackgroundColor | BackgroundImage = Props.presentation.slides[Props.slideId - 1].background;
+    let style;
+    if (newBackground.type === 'color') {
+        style = {
+            background: newBackground.color
+        }
+    } else {
+        style = {
+            background: 'url(' + (newBackground.src) + ')',
+            backgroundSize: '195px 109px'
+        }
+    }
 
     return (
         <li

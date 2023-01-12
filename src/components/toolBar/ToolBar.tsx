@@ -36,7 +36,6 @@ export function ToolBar(Props: { editor: Editor }) {
             let reader = new FileReader();
             reader.readAsDataURL(file);
             reader.onload = function () {
-                console.log(reader.result);
                 let url = reader.result as string
                 backgroundHandler(Props.editor.presentation.selectedSlides[0].slideId, 'image', url)
             };
@@ -52,7 +51,6 @@ export function ToolBar(Props: { editor: Editor }) {
             let reader = new FileReader();
             reader.readAsDataURL(file);
             reader.onload = function () {
-                console.log(reader.result);
                 let url = reader.result as string
                 createImageHandler(Props.editor.presentation.selectedSlides[0].slideId, defaultImageType, url)
             };
@@ -89,7 +87,7 @@ export function ToolBar(Props: { editor: Editor }) {
             </button>
             <div className={styles.toolBarTool + " " + styles.toolBarToolAddImage}>
                 <input onChange={convertFile} type="file" name="file" accept='.jpg, .jpeg, .png, .svg'
-                       className={styles.inputFile} multiple/>
+                       className={styles.inputFile}/>
             </div>
             <button
                 onClick={() => createBlockHandler(Props.editor.presentation.selectedSlides[0].slideId, defaultTextBlockType)}
@@ -124,7 +122,7 @@ export function ToolBar(Props: { editor: Editor }) {
                 </div>
                 <button className={styles.backgroundImg}>
                     <input onChange={(changeBackgroundImageHandler)} type="file" name="file" accept='.jpg, .jpeg, .png'
-                           className={styles.inputFile} multiple/>
+                           className={styles.inputFile}/>
                 </button>
             </div>
         </div>
