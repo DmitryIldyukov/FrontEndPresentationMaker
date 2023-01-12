@@ -20,7 +20,7 @@ function setElementToPagePDF(progSlide: Block, doc: jsPDF) {
         while (startPosition <= progSlide.blockType.typeBlock.content.length) {
             if (progSlide.blockType.typeBlock.content[startPosition] === '\n' ||
                 startPosition === progSlide.blockType.typeBlock.content.length) {
-                CanEl.width = sLine.length * parseInt(String(progSlide.blockType.typeBlock.fontSize)) * 0.6
+                CanEl.width = sLine.length * parseInt(String(progSlide.blockType.typeBlock.fontSize))
                 if (ctx != null) {
                     ctx.fillStyle = progSlide.blockType.typeBlock.fontColor
                     let styleT = '';
