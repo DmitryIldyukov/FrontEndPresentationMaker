@@ -42,8 +42,8 @@ function CText(Props: {
     }
 
     const editTextContentHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setText(e.target.value + ' ');
-        changeTextContent(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, e.target.value + ' ')
+        setText(e.target.value);
+        changeTextContent(Props.presentation.slides[Props.slideId - 1].selectedBlocks[Props.presentation.slides[Props.slideId - 1].selectedBlocks.length - 1].blockId, Props.slideId - 1, e.target.value)
     }
 
     const textStyle = {

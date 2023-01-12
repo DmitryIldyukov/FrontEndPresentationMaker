@@ -15,7 +15,7 @@ import {
 const TextTool = (Props: {presentation: Presentation, slideId: number}) => {
     const [fontSizeText, setFontSizeText] = useState(defaultTextBlock.fontSize);
     const [color, setColor] = useState('');
-    const [isChecked, setIsChecked] = useState(false)
+    const [isChecked, setIsChecked] = useState(false);
 
     function increment() {
         if (fontSizeText < 80) {
