@@ -65,7 +65,7 @@ function CText(Props: {
                 onChange={(e) => editTextContentHandler(e)}
                 className={styles.text + " " + (checkSelect() ? styles.checked : undefined)}
                 style={textStyle}
-                defaultValue={Props.content}
+                value={Props.content}
                 id={countstr}
             />
         </div>
